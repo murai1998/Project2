@@ -3,6 +3,28 @@ import Form from "./Form";
 import Weather from "./Weather";
 
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
+
+var Amadeus = require("amadeus");
+
+var amadeus = new Amadeus({
+  clientId: "uqcGBXe3uhl9Iv0bTCEubWkZjhkVKjva",
+  clientSecret: "UQ3ofp4YNAndrhiv"
+});
+
+amadeus.shopping.flightOffersSearch
+  .get({
+    originLocationCode: "DAL",
+    destinationLocationCode: "BKK",
+    departureDate: "2020-08-01",
+    adults: "2"
+  })
+  .then(function(response) {
+    console.log(response.data);
+  })
+  .catch(function(responseError) {
+    console.log(responseError.code);
+  });
+
 class App extends Component {
   state = {
     temperature: undefined,
@@ -52,6 +74,7 @@ class App extends Component {
           country={this.state.country}
           humidity={this.state.humidity}
           description={this.state.description}
+          error={this.state.error}
         />
       </div>
     );
