@@ -5,11 +5,11 @@ import Weather from "./Weather";
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
 class App extends Component {
   state = {
-    temperature: "",
-    city: "",
-    country: "",
-    humidity: "",
-    description: "",
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
     error: undefined
   };
   getWeather = async e => {
@@ -21,14 +21,25 @@ class App extends Component {
     );
     const data = await api_call.json();
     console.log(data);
-    this.setState({
-      temperature: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-      error: ""
-    });
+    if (country && city) {
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ""
+      });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please, enter the values!"
+      });
+    }
   };
   render() {
     return (
