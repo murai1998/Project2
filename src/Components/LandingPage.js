@@ -1,13 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class LandingPage extends Component {
+  state = {
+    city: "",
+    country: ""
+  };
+  componentDidMount() {
+    console.log(this.props);
+  }
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   render() {
     return (
       <div>
-        <form onSubmit={props.starVac}>
-          <input type="text" name="city" placeholder="City" />
+        <h1>My Travel Guide</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="city"
+            placeholder="City"
+          />
           <input type="text" name="country" placeholder="Country" />
-          <button>Start Your Vacation</button>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            <button>Start Your Vacation</button>
+          </Link>
         </form>
       </div>
     );

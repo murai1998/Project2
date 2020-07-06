@@ -1,10 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import LandingPage from "./Components/LandingPage";
+import { Link, Switch, Route } from "react-router-dom";
+import HomePage from "./Components/HomePage";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <h1> MY TRAVEL GUIDE</h1>
+        <Switch>
+          <Route exact path="/" render={props => <LandingPage {...props} />} />
+          <Route
+            exact
+            path="/home/"
+            render={props => <HomePage {...props} />}
+          />
+          />
+        </Switch>
       </div>
     );
   }
