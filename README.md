@@ -1,3 +1,11 @@
+# My Travel Guide
+
+In need of a vacation? Look no further! My Travel Guide is designed to get you out for vacation as quickly as possible. Input your desired destination and we'll take care of the rest! 
+
+My Travel Guide pulls from different API's to provide information on flights, weather, hotels, and points of interest.
+
+Visit now: link-goes-here
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
