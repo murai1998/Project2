@@ -14,7 +14,6 @@ class App extends Component {
             path="/home/:country/:city"
             render={props => <HomePage {...props} />}
           />
-          />
         </Switch>
       </div>
     );
