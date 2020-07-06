@@ -7,9 +7,6 @@ class LandingPage extends Component {
     city: "",
     country: ""
   };
-  componentDidMount() {
-    console.log(this.props);
-  }
   handleChange = e => {
     e.preventDefault();
     this.setState({
