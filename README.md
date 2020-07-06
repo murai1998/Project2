@@ -1,4 +1,4 @@
-My Travel Guide
+# My Travel Guide
 
 In need of a vacation? Look no further! My Travel Guide is designed to get you out for vacation as quickly as possible. Input your desired destination and we'll take care of the rest! 
 
