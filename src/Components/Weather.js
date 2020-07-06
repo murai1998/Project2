@@ -15,9 +15,6 @@ class Weather extends Component {
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
-    const data2 = await api_call;
-    console.log(data2);
-    console.log(data);
     this.setState({
       temperature: data.main.temp,
       humidity: data.main.humidity,
@@ -28,8 +25,6 @@ class Weather extends Component {
     this.getWeather();
   }
   render() {
-    console.log(this.props);
-
     return (
       <div>
         <p>Temperature: {this.state.temperature},</p>
