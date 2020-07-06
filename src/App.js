@@ -9,12 +9,7 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path="/" render={props => <LandingPage {...props} />} />
-          <Route
-            exact
-            path="/home/"
-            render={props => <HomePage {...props} />}
-          />
-          />
+          <Route exact path="/home/" render={props => <HomePage {...props} />} />
         </Switch>
       </div>
     );
