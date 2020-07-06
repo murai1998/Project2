@@ -24,7 +24,13 @@ amadeus.shopping.flightOffersSearch
   .catch(function(responseError) {
     console.log(responseError.code);
   });
-
+amadeus.shopping.hotelOffers
+  .get({
+    cityCode: "MAD"
+  })
+  .then(function(response) {
+    console.log(response.data);
+  });
 class App extends Component {
   state = {
     temperature: undefined,
