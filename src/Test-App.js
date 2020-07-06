@@ -12,19 +12,19 @@ var amadeus = new Amadeus({
   clientSecret: "UQ3ofp4YNAndrhiv"
 });
 
-amadeus.shopping.flightOffersSearch
-  .get({
-    originLocationCode: "DAL",
-    destinationLocationCode: "BKK",
-    departureDate: "2020-08-01",
-    adults: "2"
-  })
-  .then(function(response) {
-    console.log(response.data);
-  })
-  .catch(function(responseError) {
-    console.log(responseError.code);
-  });
+// amadeus.shopping.flightOffersSearch
+//   .get({
+//     originLocationCode: "DAL",
+//     destinationLocationCode: "BKK",
+//     departureDate: "2020-08-01",
+//     adults: "2"
+//   })
+//   .then(function(response) {
+//     console.log(response.data);
+//   })
+//   .catch(function(responseError) {
+//     console.log(responseError.code);
+// });
 
 class TestApp extends Component {
   state = {
