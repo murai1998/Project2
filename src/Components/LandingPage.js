@@ -26,7 +26,12 @@ class LandingPage extends Component {
             name="city"
             placeholder="City"
           />
-          <input type="text" name="country" placeholder="Country" />
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="country"
+            placeholder="Country"
+          />
           <Link to={`/home/${this.state.country}/${this.state.city}`}>
             <button>Start Your Vacation</button>
           </Link>

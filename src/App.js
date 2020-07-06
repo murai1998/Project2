@@ -11,7 +11,7 @@ class App extends Component {
           <Route exact path="/" render={props => <LandingPage {...props} />} />
           <Route
             exact
-            path="/home/"
+            path="/home/:country/:city"
             render={props => <HomePage {...props} />}
           />
           />
