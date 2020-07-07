@@ -1,0 +1,1253 @@
+[
+  {
+    "id": 106017,
+    "name": "Hyatt Regency Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/1000000/10000/1100/1068/73d4407c_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "400 Se 2nd Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.4,
+      "rating": "8.4",
+      "total": 1492,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.0 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.1 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$135",
+        "exactCurrent": 135.15,
+        "old": "$159"
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.771446,
+      "lon": -80.190523
+    },
+    "providerType": "MULTISOURCE",
+    "supplierHotelId": 1068,
+    "isAlternative": false
+  },
+  {
+    "id": 354581,
+    "name": "JW Marriott Marquis Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/4000000/3780000/3779400/3779394/e228e6bc_l.jpg",
+    "starRating": 5,
+    "urls": {},
+    "address": {
+      "streetAddress": "255 Biscayne Boulevard Way",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.4,
+      "rating": "8.4",
+      "total": 421,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$239",
+        "exactCurrent": 239
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.770907,
+      "lon": -80.189613
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 3779394,
+    "isAlternative": false
+  },
+  {
+    "id": 203657,
+    "name": "Courtyard by Marriott Miami Downtown",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/1000000/30000/20200/20102/8277322d_l.jpg",
+    "starRating": 3,
+    "urls": {},
+    "address": {
+      "streetAddress": "200 Se 2nd Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.8,
+      "rating": "8.8",
+      "total": 529,
+      "scale": 10,
+      "badge": "fabulous",
+      "badgeText": "Fabulous"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.1 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$129",
+        "exactCurrent": 129
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.772606,
+      "lon": -80.190704
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 20102,
+    "isAlternative": false
+  },
+  {
+    "id": 354769,
+    "name": "Hotel Beaux Arts, Autograph Collection",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/4000000/3780000/3779000/3778960/e5cbbf26_l.jpg",
+    "starRating": 5,
+    "urls": {},
+    "address": {
+      "streetAddress": "255 Biscayne Boulevard Way",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 9.4,
+      "rating": "9.4",
+      "total": 94,
+      "scale": 10,
+      "badge": "exceptional",
+      "badgeText": "Exceptional"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$259",
+        "exactCurrent": 259
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.770922,
+      "lon": -80.189383
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 3778960,
+    "isAlternative": false
+  },
+  {
+    "id": 274046,
+    "name": "Kimpton EPIC Hotel",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/3000000/2240000/2237200/2237168/97d143b1_l.jpg",
+    "starRating": 5,
+    "urls": {},
+    "address": {
+      "streetAddress": "270 Biscayne Blvd Way",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.4,
+      "rating": "8.4",
+      "total": 1264,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$180",
+        "exactCurrent": 179.55,
+        "old": "$189"
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {
+      "hotelBadge": {
+        "type": "vipBasic",
+        "label": "VIP"
+      }
+    },
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.77093,
+      "lon": -80.18906
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 2237168,
+    "isAlternative": false
+  },
+  {
+    "id": 146734,
+    "name": "Rodeway Inn & Suites Downtown - Port of Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/1000000/50000/40800/40782/e3760198_l.jpg",
+    "starRating": 2,
+    "urls": {},
+    "address": {
+      "streetAddress": "100 SE 4th St",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 6.2,
+      "rating": "6.2",
+      "total": 459,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.2 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$68",
+        "exactCurrent": 68.42
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.771301,
+      "lon": -80.191936
+    },
+    "providerType": "MULTISOURCE",
+    "supplierHotelId": 40782,
+    "isAlternative": false
+  },
+  {
+    "id": 1105275392,
+    "name": "Centro Miami Condos by Vine LR",
+    "starRating": 0,
+    "urls": {},
+    "address": {
+      "streetAddress": "151 SE 1st St.",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.1 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13",
+    "coordinate": {
+      "lat": 25.7736,
+      "lon": -80.1906
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 34508606,
+    "isAlternative": false
+  },
+  {
+    "id": 1483277184,
+    "name": "LYRIC | Miami Boutique Suites",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/47000000/46330000/46321200/46321162/eeabbd1a_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "340 Southeast 3rd Street",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33132",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "2.9 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "coordinate": {
+      "lat": 25.771594,
+      "lon": -80.187911
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 46321162,
+    "vrBadge": "Apartments",
+    "isAlternative": false
+  },
+  {
+    "id": 554465,
+    "name": "Eurostars Langford",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/13000000/12630000/12620600/12620599/a831bda8_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "121 SE 1st Street",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.2,
+      "rating": "8.2",
+      "total": 996,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.1 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.2 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|priceRangeUK|TESCO",
+    "coordinate": {
+      "lat": 25.773382,
+      "lon": -80.191396
+    },
+    "providerType": "MULTISOURCE",
+    "supplierHotelId": 12620599,
+    "isAlternative": false
+  },
+  {
+    "id": 805447360,
+    "name": "Icon Brickell W Miami by Velvet Luxury",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/26000000/25140000/25139000/25138980/e6e0a75c_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 6.2,
+      "rating": "6.2",
+      "total": 99,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$111",
+        "exactCurrent": 111
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|Oceanviewv1|D13|TESCO",
+    "coordinate": {
+      "lat": 25.7694,
+      "lon": -80.18929
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 25138980,
+    "vrBadge": "Condo Hotel",
+    "isAlternative": false
+  },
+  {
+    "id": 535064,
+    "name": "Icon Residences By Sunnyside Hotel and Resorts",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/12000000/11590000/11582400/11582379/b58e3a7a_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Avenue",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.2,
+      "rating": "8.2",
+      "total": 321,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$106",
+        "exactCurrent": 106.14,
+        "old": "$425"
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|Oceanviewv1|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768721,
+      "lon": -80.190047
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 11582379,
+    "vrBadge": "Apartments",
+    "isAlternative": false
+  },
+  {
+    "id": 931456160,
+    "name": "Icon W Brickell by Best Miami Vacations",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/30000000/29080000/29076800/29076755/8706bb67_l.jpg",
+    "starRating": 3.5,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Avenue",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 7.8,
+      "rating": "7.8",
+      "total": 13,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.76875,
+      "lon": -80.18954
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 29076755,
+    "isAlternative": false
+  },
+  {
+    "id": 585283296,
+    "name": "Nuovo Miami Apartments at Icon Brickell",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/19000000/18260000/18258900/18258853/f36d4d84_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "locality": "Miami",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 9,
+      "rating": "9.0",
+      "total": 2,
+      "scale": 10,
+      "badge": "superb",
+      "badgeText": "Superb"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "D13",
+    "coordinate": {
+      "lat": 25.76875,
+      "lon": -80.18922
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 18258853,
+    "vrBadge": "Apartment",
+    "isAlternative": false
+  },
+  {
+    "id": 798635072,
+    "name": "Icon Residences by Flashstay",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/25000000/24930000/24926100/24926096/95d77275_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 7.2,
+      "rating": "7.2",
+      "total": 45,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$153",
+        "exactCurrent": 153.14,
+        "old": "$161"
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|Oceanviewv1|D13|TESCO",
+    "coordinate": {
+      "lat": 25.76868,
+      "lon": -80.1895
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 24926096,
+    "vrBadge": "Condos",
+    "isAlternative": false
+  },
+  {
+    "id": 692577952,
+    "name": "Icon Brickell Miami T-3",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/22000000/21620000/21611900/21611811/0e2ab313_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Avenue",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8,
+      "rating": "8.0",
+      "total": 23,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "Oceanviewv1|DoubleStamps|priceRangeUS|D13|TESCO",
+    "coordinate": {
+      "lat": 25.76868,
+      "lon": -80.1895
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 21611811,
+    "vrBadge": "Condo Hotel",
+    "isAlternative": false
+  },
+  {
+    "id": 1092496512,
+    "name": "Miami Icon Penthouse by Caema",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/35000000/34110000/34109300/34109266/a914c297_l.jpg",
+    "starRating": 4.5,
+    "urls": {},
+    "address": {
+      "locality": "Miami",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 7.2,
+      "rating": "7.2",
+      "total": 19,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$180",
+        "exactCurrent": 180
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768701,
+      "lon": -80.189124
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 34109266,
+    "vrBadge": "Condo",
+    "isAlternative": false
+  },
+  {
+    "id": 884069696,
+    "name": "Brickell by Miami Vacation Rentals",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/28000000/27600000/27596000/27595928/13eca9b8_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 9.2,
+      "rating": "9.2",
+      "total": 122,
+      "scale": 10,
+      "badge": "superb",
+      "badgeText": "Superb"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$146",
+        "exactCurrent": 145.8
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|Oceanviewv1|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768762,
+      "lon": -80.188908
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 27595928,
+    "vrBadge": "Condos",
+    "isAlternative": false
+  },
+  {
+    "id": 770215648,
+    "name": " Luxurious Icon Brickell Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/25000000/24040000/24038000/24037989/e1e33262_l.jpg",
+    "starRating": 3.5,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 4,
+      "rating": "4.0",
+      "total": 2,
+      "scale": 10
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13",
+    "coordinate": {
+      "lat": 25.76872,
+      "lon": -80.18887
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 24037989,
+    "vrBadge": "Condo Hotel",
+    "isAlternative": false
+  },
+  {
+    "id": 730315520,
+    "name": "Icon Residences",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/23000000/22800000/22791200/22791110/279b9aa0_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "locality": "Miami",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.8,
+      "rating": "8.8",
+      "total": 7,
+      "scale": 10,
+      "badge": "fabulous",
+      "badgeText": "Fabulous"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.76871,
+      "lon": -80.18882
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 22791110,
+    "vrBadge": "Apartment",
+    "isAlternative": false
+  },
+  {
+    "id": 1099953440,
+    "name": "Private Residences at ICON Twr3 by JOS17",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/35000000/34350000/34342300/34342295/15eba674_l.jpg",
+    "starRating": 3.5,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave.",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8,
+      "rating": "8.0",
+      "total": 2,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768706,
+      "lon": -80.188769
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 34342295,
+    "isAlternative": false
+  },
+  {
+    "id": 308725,
+    "name": "W Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/3000000/2490000/2483100/2483087/46a0bbed_l.jpg",
+    "starRating": 5,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Avenue",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8.4,
+      "rating": "8.4",
+      "total": 155,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "ratePlan": {
+      "price": {
+        "current": "$161",
+        "exactCurrent": 161.09
+      },
+      "features": {
+        "paymentPreference": false,
+        "noCCRequired": false
+      }
+    },
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|TESCO",
+    "coordinate": {
+      "lat": 25.768441,
+      "lon": -80.190027
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 2483087,
+    "isAlternative": false
+  },
+  {
+    "id": 642052,
+    "name": "Icon by Design Suites Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/17000000/16480000/16472300/16472215/ee71e275_l.jpg",
+    "starRating": 3.5,
+    "urls": {},
+    "address": {
+      "locality": "Miami",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 6,
+      "rating": "6.0",
+      "total": 34,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|Oceanviewv1|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768446,
+      "lon": -80.189847
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 16472215,
+    "vrBadge": "Apartment",
+    "isAlternative": false
+  },
+  {
+    "id": 1165407392,
+    "name": "Icon Brickell - Downtown Miami",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/37000000/36390000/36387800/36387731/23e243d9_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 7.8,
+      "rating": "7.8",
+      "total": 11,
+      "scale": 10,
+      "badge": "good",
+      "badgeText": "Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768663,
+      "lon": -80.188727
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 36387731,
+    "vrBadge": "Apartments",
+    "isAlternative": false
+  },
+  {
+    "id": 1166376160,
+    "name": "Icon Brickell Downtown W Miami Suites",
+    "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/37000000/36420000/36418100/36418005/88abc5b6_l.jpg",
+    "starRating": 4,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "guestReviews": {
+      "unformattedRating": 8,
+      "rating": "8.0",
+      "total": 2,
+      "scale": 10,
+      "badge": "very-good",
+      "badgeText": "Very Good"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "pimmsAttributes": "DoubleStamps|D13|TESCO",
+    "coordinate": {
+      "lat": 25.768663,
+      "lon": -80.188727
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 36418005,
+    "vrBadge": "Condo Hotel",
+    "isAlternative": false
+  },
+  {
+    "id": 1667811264,
+    "name": "ICON Tower III by Millennia",
+    "starRating": 0,
+    "urls": {},
+    "address": {
+      "streetAddress": "485 Brickell Ave",
+      "extendedAddress": "",
+      "locality": "Miami",
+      "postalCode": "33131",
+      "region": "FL",
+      "countryName": "United States",
+      "countryCode": "us"
+    },
+    "landmarks": [
+      {
+        "label": "City center",
+        "distance": "0.2 miles"
+      },
+      {
+        "label": "Fisher Island",
+        "distance": "3.0 miles"
+      }
+    ],
+    "neighbourhood": "Downtown Miami",
+    "deals": {},
+    "messaging": {},
+    "badging": {},
+    "coordinate": {
+      "lat": 25.768662,
+      "lon": -80.188727
+    },
+    "providerType": "LOCAL",
+    "supplierHotelId": 52087852,
+    "vrBadge": "Condos",
+    "isAlternative": false
+  }
+]

@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
+import hotels from "./hotels.json";
 
 class Hotels extends Component {
   state = {
     country: this.props.match.params.country,
     city: this.props.match.params.city,
-    cityId: ""
+    hotels: hotels
   };
 
-  componentDidMount() {
+  /* componentDidMount() {
     axios({
       method: "GET",
       url: "https://hotels4.p.rapidapi.com/locations/search",
@@ -49,7 +50,10 @@ class Hotels extends Component {
           }
         })
           .then(response2 => {
-            console.log(response2);
+            console.log(response2.data.data.body.searchResults.results);
+            this.setState({
+              hotels: response2.data.data.body.searchResults.results
+            });
           })
           .catch(error => {
             console.log(error);
@@ -58,12 +62,48 @@ class Hotels extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
-
+  }*/
+  showHotels = () => {
+    return this.state.hotels.map((hotel, i) => {
+      console.log(hotels);
+      let price = "";
+      if (hotel.ratePlan !== undefined) {
+        price = hotel.ratePlan.price.current;
+        console.log(price);
+      } else {
+        price = "*";
+        console.log(price);
+      }
+      return (
+        <tr key={i}>
+          <td>{hotel.id}</td>
+          <td>{hotel.name}</td>
+          <td>{price}</td>
+          <td>{hotel.starRating}</td>
+          <td>{hotel.neighbourhood}</td>
+        </tr>
+      );
+    });
+  };
   render() {
     return (
       <div>
         <h1>Hotels</h1>
+        <button onClick={this.sortByPop}>Sort by price</button>
+        <button onClick={this.sortByName}>Sort by star rating</button>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Star Rating</th>
+              <th>Neighbourhood</th>
+            </tr>
+          </thead>
+          <tbody>{this.showHotels()}</tbody>
+        </table>
+        <p>* - Price is unavailable now, please call the hotel directly.</p>
       </div>
     );
   }
