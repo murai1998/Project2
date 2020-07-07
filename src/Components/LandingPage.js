@@ -17,7 +17,7 @@ class LandingPage extends Component {
     return (
       <div>
         <h1>My Travel Guide</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             onChange={this.handleChange}
             type="text"
