@@ -5,7 +5,6 @@ class Hotels extends Component {
   state = {
     country: this.props.match.params.country,
     city: this.props.match.params.city,
-    cityId: ""
   };
 
   componentDidMount() {
@@ -51,8 +50,8 @@ class Hotels extends Component {
           .then(response2 => {
             console.log(response2);
           })
-          .catch(error => {
-            console.log(error);
+          .catch(error2 => {
+            console.log(error2);
           });
       })
       .catch(error => {

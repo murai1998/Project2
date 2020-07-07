@@ -10,7 +10,7 @@ class Flights extends Component {
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      "x-rapidapi-key":"988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+      "x-rapidapi-key": "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
       "useQueryString":true
       },"params":{
       "query":"Stockholm"
