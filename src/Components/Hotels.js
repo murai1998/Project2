@@ -55,8 +55,8 @@ class Hotels extends Component {
               hotels: response2.data.data.body.searchResults.results
             });
           })
-          .catch(error => {
-            console.log(error);
+          .catch(error2 => {
+            console.log(error2);
           });
       })
       .catch(error => {
