@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-let Amadeus = require("amadeus");
-var amadeus = new Amadeus({
-  clientId: "S0FAxRuVD6DgoEunfDeO9Brh1YRlLRBA",
-  clientSecret: "y3GnGD41wD0U9hbu"
-});
 
 class Hotels extends Component {
   state = {
@@ -13,30 +8,29 @@ class Hotels extends Component {
     cityCode: ""
   };
 
+  componentDidMount() {
+    axios({
+      "method":"GET",
+      "url":"https://hotels4.p.rapidapi.com/locations/search",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"hotels4.p.rapidapi.com",
+      "x-rapidapi-key":"988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+      "useQueryString":true
+      },"params":{
+      "locale":"en_US",
+      "query":"new york"
+      }
+      })
+      .then((response)=>{
+        console.log(response)
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+  }
+
   render() {
-    let res = amadeus.referenceData.locations
-      .get({
-        keyword: this.state.city,
-        subType: "CITY"
-      })
-      .then(function(response) {
-        //console.log(response.data[0].iataCode);
-        return response.data[0].iataCode;
-      })
-      .catch(function(response) {
-        console.error(response);
-      });
-    console.log(res);
-    /*amadeus.shopping.hotelOffers
-      .get({
-        cityCode: res.data[0].iataCode
-      })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(response) {
-        console.error(response);
-      });*/
     return (
       <div>
         <h1>Hotels</h1>
