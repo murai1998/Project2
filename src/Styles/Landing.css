@@ -1,1 +1,7 @@
-
+* {
+  background-image: url("../Images/plane-841441_1920.jpg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}

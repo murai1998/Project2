@@ -3,7 +3,6 @@ import axios from 'axios'
 
 const yelpApiKey 
 
-
 class Activities extends Component {
 
 	getYelp = async () => { 		
