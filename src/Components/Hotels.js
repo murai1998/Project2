@@ -9,6 +9,7 @@ class Hotels extends Component {
     city: this.props.match.params.city,
     hotels: [],
     showForm: false,
+    showList: false,
     checkIn: "",
     checkOut: ""
   };
@@ -17,15 +18,17 @@ class Hotels extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(this.state.checkIn);
   };
-  componentDidMount() {
+  getInfo = e => {
+    e.preventDefault();
     axios({
       method: "GET",
       url: "https://hotels4.p.rapidapi.com/locations/search",
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
+        "x-rapidapi-key": "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
         useQueryString: true
       },
       params: {
@@ -34,7 +37,7 @@ class Hotels extends Component {
       }
     })
       .then(response => {
-        //console.log(response.data.suggestions[3].entities[0].destinationId);
+        console.log(response.data);
         axios({
           method: "GET",
           url: "https://hotels4.p.rapidapi.com/properties/list",
@@ -42,7 +45,7 @@ class Hotels extends Component {
             "content-type": "application/octet-stream",
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
             "x-rapidapi-key":
-              process.env.REACT_APP_RAPIDAPI_KEY,
+              "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
             useQueryString: true
           },
           params: {
@@ -63,6 +66,9 @@ class Hotels extends Component {
             this.setState({
               hotels: response2.data.data.body.searchResults.results
             });
+            console.log(this.state.hotels);
+
+            this.showHotels();
           })
           .catch(error2 => {
             console.log(error2);
@@ -71,11 +77,12 @@ class Hotels extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
+  };
 
   toggleForm = () => {
     this.setState({
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      showList: true
     });
   };
 
@@ -146,52 +153,50 @@ class Hotels extends Component {
           Find your perfect Hotel right now!
         </button>
         {this.state.showForm ? (
-          <form>
-            <label>Check In:</label>
-            <br />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="checkIn"
-              placeholder="YYYY-MM-DD"
-            />
-            <br />
-            <label>Check out:</label>
-            <br />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="checkOut"
-              placeholder="YYYY-MM-DD"
-            />
-            <br />
-            <br />
-            <input
-              className="submit"
-              type="submit"
-              onClick={this.componentDidMount}
-            />
-          </form>
+          <div>
+            <form onSubmit={this.getInfo}>
+              <label>Check In:</label>
+              <br />
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="checkIn"
+                placeholder="YYYY-MM-DD"
+              />
+              <br />
+              <label>Check out:</label>
+              <br />
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="checkOut"
+                placeholder="YYYY-MM-DD"
+              />
+              <br />
+              <br />
+              <input className="submit" type="submit" />
+            </form>
+
+            <h1>Hotels</h1>
+            <button onClick={this.sortPrice}>Sort by price</button>
+            <button onClick={this.sortRate}>Sort by star rating</button>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Star Rating</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>{this.showHotels()}</tbody>
+            </table>
+            <p>* - Price is unavailable now, please call the hotel directly.</p>
+          </div>
         ) : (
           ""
         )}
-
-        <h1>Hotels</h1>
-        <button onClick={this.sortPrice}>Sort by price</button>
-        <button onClick={this.sortRate}>Sort by star rating</button>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Star Rating</th>
-              <th>Neighbourhood</th>
-            </tr>
-          </thead>
-          <tbody>{this.showHotels()}</tbody>
-        </table>
-        <p>* - Price is unavailable now, please call the hotel directly.</p>
       </div>
     );
   }
