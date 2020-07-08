@@ -29,7 +29,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/home/:country/:city/hotels"
+            path="/home/:country/:city/activities"
             render={props => <Activities {...props} />}
           />
         </Switch>
