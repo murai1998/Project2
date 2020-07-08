@@ -1,5 +1,88 @@
-body {
-  background-image: url("../Images/plane-841441_1920.jpg");
+* {
+  font-family: Georgia, serif;
+}
+
+.landingStart {
+  background-image: url("../Images/santorini2.jpg");
+  background-position: 0 0;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 650px;
+  padding-top: 50px;
+  position: relative;
+}
+.landingMiddle {
+  background-image: url("../Images/landingback.jpg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  opacity: 0.7;
+  padding-top: 50px;
+  position: relative;
+}
+.landingMiddle2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 450px;
+}
+.landingText img {
+  width: 180px;
+}
+.landingText {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.landingText p {
+  width: 250px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5em;
+}
+.landingText:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.landingText:nth-child(even) {
+  align-self: flex-end;
+}
+.landingMiddle h1 {
+  font-size: 50px;
+  text-align: center;
+  padding: auto;
+  padding: 20px auto 0;
+  line-height: 0.6em;
+  font-weight: 300;
+  color: rgb(85, 81, 81);
+}
+#h1Sec {
+  margin: 0 0 90px 0;
+}
+.landingStart2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+.landingStart2 h1 {
+  font-family: "Concert One", cursive;
+  font-size: 90px;
+  line-height: 0.6em;
+  color: rgb(231, 238, 241);
+}
+.landingStart2 h2 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 0.6em;
+  color: rgb(85, 81, 81);
+  margin: 10px 0 30px;
+}
+.landingStart2 input {
+  font-size: 25px;
+}
+.landingStart2 button {
+  font-size: 25px;
+  color: rgb(85, 81, 81);
+  background-color: rgb(199, 227, 245);
 }
