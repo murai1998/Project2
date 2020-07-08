@@ -99,6 +99,7 @@ class Flights extends Component {
           <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
           <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
           <td>{this.determineDirect(flight.Direct)}</td>
+          <td><button>Add Flight</button></td>
         </tr>
       )
     })
@@ -145,7 +146,7 @@ class Flights extends Component {
     return (
     <div className="full-container">
       <h1>Fligths</h1>
-      <h3>Where will you depart?</h3>
+      <h3>Where/when will you depart?</h3>
       <form onSubmit={this.getFlightInfo}>
         <input
           onChange={this.handleChange}
