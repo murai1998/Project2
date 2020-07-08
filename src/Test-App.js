@@ -5,12 +5,12 @@ import TestWeather from "./Test-Weather";
 //this is a test
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
 
-var Amadeus = require("amadeus");
+// var Amadeus = require("amadeus");
 
-var amadeus = new Amadeus({
-  clientId: "uqcGBXe3uhl9Iv0bTCEubWkZjhkVKjva",
-  clientSecret: "UQ3ofp4YNAndrhiv"
-});
+// var amadeus = new Amadeus({
+//   clientId: "uqcGBXe3uhl9Iv0bTCEubWkZjhkVKjva",
+//   clientSecret: "UQ3ofp4YNAndrhiv"
+// });
 
 // amadeus.shopping.flightOffersSearch
 //   .get({

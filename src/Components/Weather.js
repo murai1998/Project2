@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
+
 class Weather extends Component {
   state = {
     temperature: undefined,

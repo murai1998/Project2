@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios'
 
-const yelpApiKey = ``
+
 const emptyStar = '☆'
 const fullStar = '★'
+const yelpApiKey = process.env.REACT_APP_YELP_KEY
+
 class Activities extends Component {
 
 	state = {

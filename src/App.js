@@ -5,6 +5,7 @@ import HomePage from "./Components/HomePage";
 import Flights from "./Components/Flights";
 import Hotels from "./Components/Hotels";
 import Activities from "./Components/Activities";
+import SingleHotel from "./Components/SingleHotel";
 
 class App extends Component {
   render() {
@@ -31,6 +32,11 @@ class App extends Component {
             exact
             path="/home/:country/:city/activities"
             render={props => <Activities {...props} />}
+          />
+          <Route
+            exact
+            path="/:name/:country/:city/:hotelId"
+            render={props => <SingleHotel {...props} />}
           />
         </Switch>
       </div>
