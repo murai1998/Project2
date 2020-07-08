@@ -1,0 +1,18 @@
+.full-container {
+  background-color: lightcyan;
+}
+
+table {
+  text-align: center;
+  margin: 5px 0 0 5px;
+  border: 1px solid black;
+}
+
+table td {
+  width: 120px;
+  border: 1px solid black;
+}
+
+.carrier-name {
+  width: fit-content;
+}
