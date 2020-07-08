@@ -12,6 +12,9 @@ class HomePage extends Component {
     //console.log(this.props);
     return (
       <div>
+        <Link to="/">
+         {"<=="}
+        </Link>
         <h1>Home Page</h1>
         <h2>
           {this.state.city}, {this.state.country}

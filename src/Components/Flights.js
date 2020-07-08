@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
+import "../Styles/Flights.css"
 
 class Flights extends Component {
   state = {
@@ -10,6 +11,9 @@ class Flights extends Component {
     showTable: false
   }
 
+  // give user ability to choose which specific airport they depart from
+  // for example inputting new york will give 7 different palces
+  // from which i must select the apparoiate "##-sky" code
   // first API call gets destinations ID and the second gets flight based on the two IDs
   getFlightInfo = (e) => {
     e.preventDefault()
@@ -61,12 +65,41 @@ class Flights extends Component {
     }
   }
 
+  determineDirect(d) {
+    return d?"Yes":"No"
+  }
+
+  changeTime(str) {
+    let time = str.split(":")
+    let hours = Number(time[0])
+    let symbol = "A.M."
+    if (hours > 12) {
+      hours -= 12
+      symbol = "P.M."
+    }
+    if (hours === 0)
+      hours = 12
+
+    return "" + hours + ":" + time[1] + " " + symbol
+  }
+
   printFlights() {
+    if (this.state.flights.length === 0) {
+      return (
+        <tr>
+         <td> No flights available from selected airport</td>
+        </tr>
+      )
+    }
     return this.state.flights.map((flight,i) => {
       return (
         <tr key={i}>
-          <td>{this.determineCarrier(flight.OutboundLeg.CarrierIds[0])}</td>
+          <td className="carrier-name">{this.determineCarrier(flight.OutboundLeg.CarrierIds[0])}</td>
           <td>${flight.MinPrice}</td>
+          <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
+          <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
+          <td>{this.determineDirect(flight.Direct)}</td>
+          <td><button>Add Flight</button></td>
         </tr>
       )
     })
@@ -79,11 +112,41 @@ class Flights extends Component {
     });
   };
 
+  sortPrice = () => {
+    let flightsCopy = [...this.state.flights]
+    flightsCopy.sort((a,b)=> {
+      if (a.MinPrice > b.MinPrice)
+        return -1
+      else if (a.MinPrice < b.MinPrice)
+        return 1
+      else 
+        return 0
+    })
+    this.setState({
+      flights: flightsCopy
+    })
+  }
+
+  sortAirline = () => {
+    let flightsCopy = [...this.state.flights]
+    flightsCopy.sort((a,b)=> {
+      if (this.determineCarrier(a.OutboundLeg.CarrierIds[0]) > this.determineCarrier(b.OutboundLeg.CarrierIds[0]))
+        return 1
+      else if (this.determineCarrier(a.OutboundLeg.CarrierIds[0]) < this.determineCarrier(b.OutboundLeg.CarrierIds[0]))
+        return -1
+      else 
+        return 0
+    })
+    this.setState({
+      flights: flightsCopy
+    })
+  }
+
   render() {
     return (
-    <div>
+    <div className="full-container">
       <h1>Fligths</h1>
-      <h3>Where will you depart?</h3>
+      <h3>Where/when will you depart?</h3>
       <form onSubmit={this.getFlightInfo}>
         <input
           onChange={this.handleChange}
@@ -99,15 +162,24 @@ class Flights extends Component {
         />
         <button type="submit" name="submit">Submit</button>
       </form>
-      {this.state.showTable ? (<table>
-        <thead>
-          <tr>
-            <th>Airline</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>{this.printFlights()}</tbody>
-      </table>) : null}
+      {this.state.showTable ? (
+        <div>
+          <button onClick={this.sortPrice}>Sort by Price</button>
+          <button onClick={this.sortAirline}>Sort by Airline</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Airline</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Direct</th>
+              </tr>
+            </thead>
+            <tbody>{this.printFlights()}</tbody>
+          </table>
+        </div>) : null}
+        
     </div>
     );
   }
