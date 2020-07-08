@@ -11,14 +11,38 @@ class Hotels extends Component {
     showForm: false,
     showList: false,
     checkIn: "",
-    checkOut: ""
+    checkOut: "",
+    checkBox: []
   };
   handleChange = e => {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state.checkIn);
+    //console.log(this.state.checkIn);
+  };
+  /*addFlight = e => {
+    e.preventDefault();
+    console.log(e.target.value);
+    let checkBoxCopy = [...this.state.checkBox];
+    checkBoxCopy.push(e.target.value);
+    this.setState({
+      checkBox: checkBoxCopy
+    });
+    console.log(this.state.checkBox);
+  };*/
+  addFlight = id => {
+    let checkBoxCopy = [...this.state.checkBox];
+    checkBoxCopy.push(id);
+    let hotelsCopy = [...this.state.hotels];
+    let i = hotelsCopy.indexOf(id);
+    hotelsCopy.splice(i, 1);
+    this.setState({
+      checkBox: checkBoxCopy,
+      hotels: hotelsCopy
+    });
+
+    console.log(this.state.checkBox);
   };
   getInfo = e => {
     e.preventDefault();
@@ -95,6 +119,17 @@ class Hotels extends Component {
       }
       return (
         <tr key={i}>
+          <td>
+            {" "}
+            {/*<input
+              onClick={this.addFlight}
+              className="messageCheckbox"
+              type="checkbox"
+              name="checkBox"
+              value={hotel.id}
+            />*/}
+            <button onClick={() => this.addFlight(hotel)}>Add</button>
+          </td>
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
           >
@@ -183,6 +218,7 @@ class Hotels extends Component {
             <table>
               <thead>
                 <tr>
+                  <th></th>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Price</th>
