@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
-const emptyStar = "☆";
-const fullStar = "★";
-const yelpApiKey =
-  "cKUfNOWc1agwivRyXc65sO__wg43p0vQgstYxDXXSS-ibpb58tpc_q2JdqnBTAFcugBmH9CJhfpql4fM7jR2pbSV_FbK0Rd_tslzarrHlTCpPFBgKjb0aJDJe28EX3Yx";
+const emptyStar = '☆'
+const fullStar = '★'
+const yelpApiKey = ``
 
 class Activities extends Component {
   state = {
@@ -13,25 +13,34 @@ class Activities extends Component {
     currentYelpMisc: {}
   };
 
-  fillRate = rating => {
-    let rate = "";
-    let j = Math.floor(rating);
-    let i = 0;
-    while (i < 5) {
-      if (j > 0) {
-        rate += fullStar;
-        i++;
-        j--;
-      }
-      if (j === 0) {
-        if (i < 5) {
-          rate += emptyStar;
-          i++;
-        }
-      }
-    }
-    return rate;
-  };
+	state = {
+		country: this.props.match.params.country,
+		city: this.props.match.params.city,
+		currentYelpRestaurants: {},
+		currentYelpShopping: {},
+		currentYelpMisc: {},
+		itinerary: []
+	}
+
+	fillRate = (rating) => {
+		let rate = ''
+		let j = Math.floor(rating)
+		let i = 0
+		while(i<5){
+			if(j>0){
+				rate+=fullStar
+				i++
+				j--
+			}
+			if(j===0){
+				if(i<5){
+				rate+=emptyStar
+				i++
+				}
+			}
+		}
+	return rate
+	}
 
   displayCategories = business => {
     let categoryTitles = "";
@@ -41,82 +50,88 @@ class Activities extends Component {
     return categoryTitles.substring(0, categoryTitles.length - 2);
   };
 
-  displayBussinesses = bus => {
-    return bus?.businesses.map(business => {
-      return (
-        <div
-          style={{
-            border: "1px solid black",
-            width: "218px",
-            height: "414px",
-            margin: "5px"
-          }}
-        >
-          <img
-            style={{ width: "218px", height: "218px" }}
-            src={business.image_url}
-          />
-          <h2>{business.name}</h2>
-          <span>
-            {this.fillRate(business.rating)} {business.review_count} Reviews
-          </span>
-          <br />
-          <br />
-          <span>
-            <strong>{business.price}</strong> {this.displayCategories(business)}
-          </span>
-        </div>
-      );
-    });
-  };
+	handleChange = e => {
+		let itineraryCopy = [...this.state.itinerary]
+		let clickedBusiness = this.state.currentYelpRestaurants.data.businesses.find(business=>business.id==e.target.id) || 
+							  this.state.currentYelpShopping.data.businesses.find(business=>business.id==e.target.id) || 
+							  this.state.currentYelpMisc.data.businesses.find(business=>business.id==e.target.id)
+								
+		/*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
 
-  getYelpRestaurants = async () => {
-    axios({
-      method: "GET",
-      url: `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
-        this.props.match.params.city
-      }`,
-      headers: {
-        Authorization: `Bearer ${yelpApiKey}`
-      },
-      params: {
-        categories: "restaurants",
-        limit: 5
-      }
-    })
-      .then(response => {
-        this.setState({
-          currentYelpRestaurants: response
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+		if(!itineraryCopy.includes(clickedBusiness)){
+			itineraryCopy.push(clickedBusiness)
+		}
+		else{
+			itineraryCopy.splice(itineraryCopy.indexOf(clickedBusiness),1)
+		}
+		this.setState({
+			itinerary:itineraryCopy
+		})
+	}
 
-  getYelpShopping = async () => {
-    axios({
-      method: "GET",
-      url: `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
-        this.props.match.params.city
-      }`,
-      headers: {
-        Authorization: `Bearer ${yelpApiKey}`
-      },
-      params: {
-        categories: "shopping",
-        limit: 5
-      }
-    })
-      .then(response => {
-        this.setState({
-          currentYelpShopping: response
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+	displayBussinesses = (bus) =>{
+		
+		return bus?.businesses.map((business,i)=>{
+			if(i<5){
+				return(
+				 <div style={{border:'1px solid black', width:'218px', height:'440px', margin:'5px'}}>
+				 <img style={{width:'218px', height:'218px'}} src={business.image_url}/>
+				 <Link to = {`/home/${this.state.country}/${this.state.city}/activities/${business.id}`}><h2>{business.name}</h2></Link>
+				 <span>{this.fillRate(business.rating)} {business.review_count} Reviews</span>
+				 <br/>
+				 <br/>
+				 <span><strong>{business.price}</strong> {this.displayCategories(business)}</span>
+				 <br/>
+				 <span><input onChange={this.handleChange} type="checkbox" id={business.id}/></span>
+				 </div>
+				 )}
+				i++
+		})
+
+	}
+
+	getYelpRestaurants = async () => { 		
+		axios({
+		    method:"GET",
+		    url:`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${this.props.match.params.city}`,
+		    headers:{
+		    Authorization: `Bearer ${yelpApiKey}`,
+		    },
+		    params: {
+			  categories: 'restaurants'
+			}
+		    })
+		    .then((response)=>{
+		    	/*response.data.businesses.forEach(business => business['isChecked']=false)*/
+		      this.setState({
+		      	currentYelpRestaurants:response
+		      })
+		    })
+		    .catch((error)=>{
+		      console.log(error)
+		    })
+	}
+
+	getYelpShopping = async () => { 		
+		axios({
+		    method:"GET",
+		    url:`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${this.props.match.params.city}`,
+		    headers:{
+		    Authorization: `Bearer ${yelpApiKey}`,
+		    },
+		    params: {
+			  categories: 'shopping'
+			}
+		    })
+		    .then((response)=>{
+		      this.setState({
+		      	currentYelpShopping:response
+		      })
+		    })
+		    .catch((error)=>{
+		      console.log(error)
+		    })
+	}
 
   getYelpMisc = async () => {
     axios({
@@ -148,14 +163,15 @@ class Activities extends Component {
   }
 
   render() {
-    console.log(this.state.currentYelpRestaurants.data?.businesses);
     return (
       <div>
-        <h1>Activities</h1>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {this.displayBussinesses(this.state.currentYelpRestaurants.data)}
-          {this.displayBussinesses(this.state.currentYelpShopping.data)}
-          {this.displayBussinesses(this.state.currentYelpMisc.data)}
+        <div style={{display:'flex', flexWrap:'wrap', flexDirection:'column'}}>
+        <h2 style={{margin:'auto'}}>Restaurants</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpRestaurants.data)}</div>
+        <h2 style={{margin:'auto'}}>Shopping</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpShopping.data)}</div>
+        <h2 style={{margin:'auto'}}>Things To Do</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpMisc.data)}</div>
         </div>
       </div>
     );

@@ -1,16 +1,114 @@
 .full-container {
-  background-color: lightcyan;
+  background-color: darkcyan;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 75%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-table {
+.full-container h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-decoration: unset;
+}
+
+.title {
+  color: white;
+  font-size: 86px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flights-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 5px;
+}
+
+.flights-form input:nth-child(1) {
+  border-radius: 15px 0 0 15px;
+}
+
+.flights-form input {
+  width: 30%;
+  border: none;
+  font-size: 20px;
+  box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.flights-form button {
+  border: none;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.mag-img {
+  width: 30px;
+}
+
+.sort-btn {
+  color: white;
+  padding: 8px;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 13px 0px rgba(0, 0, 0, 0.75);
+  background-color: black;
+  transition: all ease 0.2s;
+}
+
+.sort-btn:active {
+  transform: translateY(4px);
+}
+
+.table-wrapper {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+  width: 94%;
+}
+
+.flight-table {
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+.flight-table td,
+.flight-table th {
   text-align: center;
-  margin: 5px 0 0 5px;
-  border: 1px solid black;
+  padding: 8px 12px;
 }
 
-table td {
-  width: 120px;
-  border: 1px solid black;
+.flight-table td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 18px;
+}
+
+.flight-table thead th {
+  color: #ffffff;
+}
+
+.flight-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
 }
 
 .carrier-name {
@@ -22,7 +120,8 @@ table td {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-
-  padding-top: 50px;
   position: relative;
+}
+.flight-table tr:nth-child(even) {
+  background: #f8f8f8;
 }
