@@ -101,7 +101,7 @@ class Flights extends Component {
           <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
           <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
           <td>{this.determineDirect(flight.Direct)}</td>
-          <td><button>Add Flight</button></td>
+          <td><button onClick={this.addToItinerary}>Add Flight</button></td>
         </tr>
       )
     })
@@ -113,6 +113,10 @@ class Flights extends Component {
       [e.target.name]: e.target.value
     });
   };
+
+  addToItinerary = (e) => {
+    console.log(e.target)
+  }
 
   sortPrice = () => {
     let flightsCopy = [...this.state.flights]
@@ -162,6 +166,7 @@ class Flights extends Component {
   render() {
     return (
     <div className="full-container">
+      <button className="return-btn">Return</button>
       <h1 className="title">Fligths</h1>
       <h3>Where/when will you depart?</h3>
       <form className="flights-form" onSubmit={this.getFlightInfo}>

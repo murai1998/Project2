@@ -54,7 +54,7 @@
   margin: 5px 0 0 5px;
   border: 1px solid black;
 }
-table td {
+.table-data {
   width: 120px;
   border: 1px solid black;
 }
@@ -64,9 +64,11 @@ table td {
 }
 .tableName {
   width: 600px;
+  border: 1px solid black;
 }
 .tableAddress {
   width: 280px;
+  border: 1px solid black;
 }
 .buttonHotel {
   font-size: 25px;

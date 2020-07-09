@@ -122,7 +122,7 @@ class Hotels extends Component {
       }
       return (
         <tr key={i}>
-          <td>
+          <td className="table-data">
             {" "}
             {/*<input
               onClick={this.addFlight}
@@ -136,13 +136,13 @@ class Hotels extends Component {
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
           >
-            <td>{hotel.id}</td>
+            <td className="table-data">{hotel.id}</td>
           </Link>
           <td className="tableName">{hotel.name}</td>
-          <td>
+          <td className="table-data">
             <strong>${price}</strong>
           </td>
-          <td>
+          <td className="table-data">
             <strong>{hotel.starRating}</strong>
           </td>
           <td className="tableAddress">{hotel.address.streetAddress}</td>
