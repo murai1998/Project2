@@ -16,3 +16,13 @@ table td {
 .carrier-name {
   width: fit-content;
 }
+.full-container {
+  background-image: url("../Images/backForFlights.jpg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  padding-top: 50px;
+  position: relative;
+}
