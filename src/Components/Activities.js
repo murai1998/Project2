@@ -7,6 +7,11 @@ const fullStar = '★'
 const yelpApiKey = ``
 
 class Activities extends Component {
+  state = {
+    currentYelpRestaurants: {},
+    currentYelpShopping: {},
+    currentYelpMisc: {}
+  };
 
 	state = {
 		country: this.props.match.params.country,
@@ -37,13 +42,13 @@ class Activities extends Component {
 	return rate
 	}
 
-	displayCategories = business => {
-		let categoryTitles=''
-		for(let category of business.categories){
-			categoryTitles += category.title + ', '
-			}
-			return categoryTitles.substring(0, categoryTitles.length - 2)	
-	}
+  displayCategories = business => {
+    let categoryTitles = "";
+    for (let category of business.categories) {
+      categoryTitles += category.title + ", ";
+    }
+    return categoryTitles.substring(0, categoryTitles.length - 2);
+  };
 
 	handleChange = e => {
 		let itineraryCopy = [...this.state.itinerary]
@@ -128,37 +133,37 @@ class Activities extends Component {
 		    })
 	}
 
-	getYelpMisc = async () => { 		
-		axios({
-		    method:"GET",
-		    url:`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${this.props.match.params.city}`,
-		    headers:{
-		    Authorization: `Bearer ${yelpApiKey}`,
-		    },
-		    params: {
-			  categories: 'active',
-			  
-			}
-		    })
-		    .then((response)=>{
-		      this.setState({
-		      	currentYelpMisc:response
-		      })
-		    })
-		    .catch((error)=>{
-		      console.log(error)
-		    })
-	}
+  getYelpMisc = async () => {
+    axios({
+      method: "GET",
+      url: `${"https://cors-anywhere.herokuapp.com/"}https://api.yelp.com/v3/businesses/search?location=${
+        this.props.match.params.city
+      }`,
+      headers: {
+        Authorization: `Bearer ${yelpApiKey}`
+      },
+      params: {
+        categories: "active"
+      }
+    })
+      .then(response => {
+        this.setState({
+          currentYelpMisc: response
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-	componentDidMount(){
-		this.getYelpRestaurants()
-		this.getYelpShopping()
-		this.getYelpMisc()
-	}
+  componentDidMount() {
+    this.getYelpRestaurants();
+    this.getYelpShopping();
+    this.getYelpMisc();
+  }
 
   render() {
     return (
-
       <div>
         <div style={{display:'flex', flexWrap:'wrap', flexDirection:'column'}}>
         <h2 style={{margin:'auto'}}>Restaurants</h2>

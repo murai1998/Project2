@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../Styles/HomePage.css";
 
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
 
@@ -28,10 +29,16 @@ class Weather extends Component {
   }
   render() {
     return (
-      <div>
-        <p>Temperature: {this.state.temperature},</p>
-        <p>Humidity: {this.state.humidity},</p>
-        <p>Description: {this.state.description}</p>
+      <div className="weather2">
+        <p>
+          <strong>Temperature:</strong> {this.state.temperature} F,
+        </p>
+        <p>
+          <strong>Humidity:</strong> {this.state.humidity},
+        </p>
+        <p>
+          <strong>Description:</strong> {this.state.description}
+        </p>
       </div>
     );
   }

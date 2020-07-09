@@ -1,71 +1,185 @@
 import React, { Component } from "react";
 import axios from "axios"
+import "../Styles/Flights.css"
 
 class Flights extends Component {
   state = {
-    country: this.props.match.params.country,
-    city: this.props.match.params.city,
-    destinatioCodeId: ""
+    destCountry: this.props.match.params.country,
+    destCity: this.props.match.params.city,
+    flights: [],
+    carriers: [],
+    showTable: false
   }
 
-  componentDidMount() {
+  // give user ability to choose which specific airport they depart from
+  // for example inputting new york will give 7 different palces
+  // from which i must select the apparoiate "##-sky" code
+  // first API call gets destinations ID and the second gets flight based on the two IDs
+  getFlightInfo = (e) => {
+    e.preventDefault()
     axios({
       "method":"GET",
-      "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/${this.state.country}/USD/en-US/`,
+      "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/${this.state.destCountry}/USD/en-US/`,
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
       "x-rapidapi-key":process.env.REACT_APP_RAPIDAPI_KEY,
       "useQueryString":true
       },"params":{
-      "query":`${this.state.city}`
+      "query":`${this.state.destCity}`
       }
       })
       .then((response)=>{
         console.log(response)
-        this.setState({
-          destinatioCodeId: response.data.Places[0].PlaceId
-        })
+        axios({
+          "method":"GET",
+          "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${this.state.fromAirport}/${response.data.Places[0].PlaceId}/${this.state.departDate}`,
+          "headers":{
+          "content-type":"application/octet-stream",
+          "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key":process.env.REACT_APP_RAPIDAPI_KEY,
+          "useQueryString":true
+          }
+          })
+          .then((response)=>{
+            console.log(response)
+            this.setState({
+              flights: response.data.Quotes,
+              carriers: response.data.Carriers,
+              showTable: true
+            })
+          })
+          .catch((error)=>{
+            console.log(error)
+          })
       })
       .catch((error)=>{
         console.log(error)
       })
-    // axios({
-    //   "method":"GET",
-    //   "url":"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/MIA-sky/LAX-sky/2020-09",
-    //   "headers":{
-    //   "content-type":"application/octet-stream",
-    //   "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    //   "x-rapidapi-key":process.env.REACT_APP_RAPIDAPI_KEY,
-    //   "useQueryString":true
-    //   }
-    //   })
-    //   .then((response)=>{
-    //     console.log(response)
-    //   })
-    //   .catch((error)=>{
-    //     console.log(error)
-    //   })
+  }
+
+  determineCarrier(id) {
+    for (var elem of this.state.carriers) {
+      if (elem.CarrierId === id)
+        return elem.Name
+    }
+  }
+
+  determineDirect(d) {
+    return d?"Yes":"No"
+  }
+
+  changeTime(str) {
+    let time = str.split(":")
+    let hours = Number(time[0])
+    let symbol = "A.M."
+    if (hours > 12) {
+      hours -= 12
+      symbol = "P.M."
+    }
+    if (hours === 0)
+      hours = 12
+
+    return "" + hours + ":" + time[1] + " " + symbol
+  }
+
+  printFlights() {
+    if (this.state.flights.length === 0) {
+      return (
+        <tr>
+         <td> No flights available from selected airport</td>
+        </tr>
+      )
+    }
+    return this.state.flights.map((flight,i) => {
+      return (
+        <tr key={i}>
+          <td className="carrier-name">{this.determineCarrier(flight.OutboundLeg.CarrierIds[0])}</td>
+          <td>${flight.MinPrice}</td>
+          <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
+          <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
+          <td>{this.determineDirect(flight.Direct)}</td>
+          <td><button>Add Flight</button></td>
+        </tr>
+      )
+    })
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  sortPrice = () => {
+    let flightsCopy = [...this.state.flights]
+    flightsCopy.sort((a,b)=> {
+      if (a.MinPrice > b.MinPrice)
+        return -1
+      else if (a.MinPrice < b.MinPrice)
+        return 1
+      else 
+        return 0
+    })
+    this.setState({
+      flights: flightsCopy
+    })
+  }
+
+  sortAirline = () => {
+    let flightsCopy = [...this.state.flights]
+    flightsCopy.sort((a,b)=> {
+      if (this.determineCarrier(a.OutboundLeg.CarrierIds[0]) > this.determineCarrier(b.OutboundLeg.CarrierIds[0]))
+        return 1
+      else if (this.determineCarrier(a.OutboundLeg.CarrierIds[0]) < this.determineCarrier(b.OutboundLeg.CarrierIds[0]))
+        return -1
+      else 
+        return 0
+    })
+    this.setState({
+      flights: flightsCopy
+    })
   }
 
   render() {
     return (
-    <div>
+    <div className="full-container">
       <h1>Fligths</h1>
-      <form onSubmit={this.handleSubmit}>
+      <h3>Where/when will you depart?</h3>
+      <form onSubmit={this.getFlightInfo}>
         <input
           onChange={this.handleChange}
           type="text"
-          name="city"
-          placeholder="City"
+          name="fromAirport"
+          placeholder="e.g. LAX => LAX-sky"
         />
         <input
           onChange={this.handleChange}
           type="text"
-          name="country"
-          placeholder="Country"
+          name="departDate"
+          placeholder="YYYY-MM or YYYY-MM-DD"
         />
+        <button type="submit" name="submit">Submit</button>
       </form>
+      {this.state.showTable ? (
+        <div>
+          <button onClick={this.sortPrice}>Sort by Price</button>
+          <button onClick={this.sortAirline}>Sort by Airline</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Airline</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Direct</th>
+              </tr>
+            </thead>
+            <tbody>{this.printFlights()}</tbody>
+          </table>
+        </div>) : null}
+        
     </div>
     );
   }
