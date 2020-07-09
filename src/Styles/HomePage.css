@@ -1,0 +1,64 @@
+* {
+  font-family: Georgia, serif;
+}
+.home1 {
+  background-image: url("../Images/homeBack2.jpg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+.weather {
+  background: rgb(165, 210, 244);
+  width: 35%;
+  border-radius: 20%;
+  height: 400px;
+}
+.weather h1 {
+  font-family: "Concert One", cursive;
+  font-size: 90px;
+  line-height: 0.6em;
+  color: black;
+  text-align: center;
+}
+.weather2 {
+  font-size: 20px;
+}
+.imagesWeather img {
+  width: 100px;
+}
+.weatherMain {
+  display: flex;
+  justify-content: space-evenly;
+}
+.weather {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 100px;
+}
+.notes {
+  background-image: url("../Images/stickyNote.png");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 270px;
+  height: 220px;
+  padding-top: 50px;
+  position: relative;
+}
+.notes2 {
+  display: block;
+  margin: 80px 50px;
+  text-decoration: none;
+  font-size: 50px;
+  color: black;
+  font-family: "Concert One", cursive;
+  font-weight: 800;
+}
+.allNotes {
+  display: flex;
+}
+.nav {
+  display: flex;
+}
