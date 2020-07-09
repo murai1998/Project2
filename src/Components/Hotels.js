@@ -121,7 +121,7 @@ class Hotels extends Component {
         console.log(price);
       }
       return (
-        <tr key={i}>
+        <tr key={i} className="trr">
           <td>
             {" "}
             {/*<input
