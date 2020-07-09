@@ -1,17 +1,20 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 import axios from 'axios'
-
 
 const emptyStar = '☆'
 const fullStar = '★'
-const yelpApiKey = process.env.REACT_APP_YELP_KEY
+const yelpApiKey = ``
 
 class Activities extends Component {
 
 	state = {
+		country: this.props.match.params.country,
+		city: this.props.match.params.city,
 		currentYelpRestaurants: {},
 		currentYelpShopping: {},
-		currentYelpMisc: {}
+		currentYelpMisc: {},
+		itinerary: []
 	}
 
 	fillRate = (rating) => {
@@ -42,19 +45,44 @@ class Activities extends Component {
 			return categoryTitles.substring(0, categoryTitles.length - 2)	
 	}
 
-	displayBussinesses = (bus) =>{
-		return bus?.businesses.map((business)=>{
-			return(
-			 <div style={{border:'1px solid black', width:'218px', height:'414px', margin:'5px'}}>
-			 <img style={{width:'218px', height:'218px'}} src={business.image_url}/>
-			 <h2>{business.name}</h2>
-			 <span>{this.fillRate(business.rating)} {business.review_count} Reviews</span>
-			 <br/>
-			 <br/>
-			 <span><strong>{business.price}</strong> {this.displayCategories(business)}</span>
-			 </div>
-			 )
+	handleChange = e => {
+		let itineraryCopy = [...this.state.itinerary]
+		let clickedBusiness = this.state.currentYelpRestaurants.data.businesses.find(business=>business.id==e.target.id) || 
+							  this.state.currentYelpShopping.data.businesses.find(business=>business.id==e.target.id) || 
+							  this.state.currentYelpMisc.data.businesses.find(business=>business.id==e.target.id)
+								
+		/*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
+
+		if(!itineraryCopy.includes(clickedBusiness)){
+			itineraryCopy.push(clickedBusiness)
+		}
+		else{
+			itineraryCopy.splice(itineraryCopy.indexOf(clickedBusiness),1)
+		}
+		this.setState({
+			itinerary:itineraryCopy
 		})
+	}
+
+	displayBussinesses = (bus) =>{
+		
+		return bus?.businesses.map((business,i)=>{
+			if(i<5){
+				return(
+				 <div style={{border:'1px solid black', width:'218px', height:'440px', margin:'5px'}}>
+				 <img style={{width:'218px', height:'218px'}} src={business.image_url}/>
+				 <Link to = {`/home/${this.state.country}/${this.state.city}/activities/${business.id}`}><h2>{business.name}</h2></Link>
+				 <span>{this.fillRate(business.rating)} {business.review_count} Reviews</span>
+				 <br/>
+				 <br/>
+				 <span><strong>{business.price}</strong> {this.displayCategories(business)}</span>
+				 <br/>
+				 <span><input onChange={this.handleChange} type="checkbox" id={business.id}/></span>
+				 </div>
+				 )}
+				i++
+		})
+
 	}
 
 	getYelpRestaurants = async () => { 		
@@ -65,11 +93,11 @@ class Activities extends Component {
 		    Authorization: `Bearer ${yelpApiKey}`,
 		    },
 		    params: {
-			  categories: 'restaurants',
-			  limit:5
+			  categories: 'restaurants'
 			}
 		    })
 		    .then((response)=>{
+		    	/*response.data.businesses.forEach(business => business['isChecked']=false)*/
 		      this.setState({
 		      	currentYelpRestaurants:response
 		      })
@@ -87,8 +115,7 @@ class Activities extends Component {
 		    Authorization: `Bearer ${yelpApiKey}`,
 		    },
 		    params: {
-			  categories: 'shopping',
-			  limit: 5
+			  categories: 'shopping'
 			}
 		    })
 		    .then((response)=>{
@@ -130,15 +157,16 @@ class Activities extends Component {
 	}
 
   render() {
-	console.log(this.state.currentYelpRestaurants.data?.businesses)
     return (
 
       <div>
-        <h1>Activities</h1>
-        <div style={{display:'flex', flexWrap:'wrap'}}>
-        {this.displayBussinesses(this.state.currentYelpRestaurants.data)}
-        {this.displayBussinesses(this.state.currentYelpShopping.data)}
-        {this.displayBussinesses(this.state.currentYelpMisc.data)}
+        <div style={{display:'flex', flexWrap:'wrap', flexDirection:'column'}}>
+        <h2 style={{margin:'auto'}}>Restaurants</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpRestaurants.data)}</div>
+        <h2 style={{margin:'auto'}}>Shopping</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpShopping.data)}</div>
+        <h2 style={{margin:'auto'}}>Things To Do</h2>
+        <div style={{display:'flex',margin:'auto'}}>{this.displayBussinesses(this.state.currentYelpMisc.data)}</div>
         </div>
       </div>
     );
