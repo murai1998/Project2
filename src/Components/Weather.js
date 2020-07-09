@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "../Styles/HomePage.css";
-
+import "../Styles/Weather.css"
 const API_KEY = "31cd2a867c978a67956c6a09c99c0c25";
 
 class Weather extends Component {
@@ -29,16 +28,32 @@ class Weather extends Component {
   }
   render() {
     return (
-      <div className="weather2">
-        <p>
-          <strong>Temperature:</strong> {this.state.temperature} F,
-        </p>
-        <p>
-          <strong>Humidity:</strong> {this.state.humidity},
-        </p>
-        <p>
-          <strong>Description:</strong> {this.state.description}
-        </p>
+      <div className="weather-wrapper">
+        <h1 className="weather-title"> {this.state.city}, {this.state.country} </h1>
+        <section className="split-sections">
+          <div className="weather-info">
+            <p><strong>Temperature:</strong> {this.state.temperature} F, </p>
+            <p><strong>Humidity:</strong> {this.state.humidity}, </p>
+            <p><strong>Description:</strong> {this.state.description} </p>
+          </div>
+          <div className="images-weather">
+            <img
+              className="weather-imgs"
+              src={require("../Images/weat1.png")}
+              alt="weather-sun"
+            />
+            <img
+              className="weather-imgs"
+              src={require("../Images/sun.png")}
+              alt="weather-sun"
+            />
+            <img
+              className="weather-imgs"
+              src={require("../Images/weat3.png")}
+              alt="weather-sun"
+            />
+          </div>
+        </section>
       </div>
     );
   }

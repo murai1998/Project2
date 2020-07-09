@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
 import "../Styles/Flights.css"
+import { Link } from "react-router-dom";
 
 class Flights extends Component {
   state = {
@@ -114,6 +115,7 @@ class Flights extends Component {
     });
   };
 
+  // itinererary function
   addToItinerary = (e) => {
     console.log(e.target)
   }
@@ -166,7 +168,8 @@ class Flights extends Component {
   render() {
     return (
     <div className="full-container">
-      <button className="return-btn">Return</button>
+      <Link className="notes4" to={"/home/" + this.props.match.params.country + "/" + this.props.match.params.city}><img width="170vw" height="150vh" src="https://www.pinclipart.com/picdir/big/405-4059078_png-file-svg-transparent-white-home-button-clipart.png" alt="home-button"
+      /></Link>
       <h1 className="title">Fligths</h1>
       <h3>Where/when will you depart?</h3>
       <form className="flights-form" onSubmit={this.getFlightInfo}>
@@ -207,7 +210,6 @@ class Flights extends Component {
             <tbody>{this.printFlights()}</tbody>
           </table>
         </div>) : null}
-        
     </div>
     );
   }
