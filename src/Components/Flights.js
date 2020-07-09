@@ -8,7 +8,8 @@ class Flights extends Component {
     destCity: this.props.match.params.city,
     flights: [],
     carriers: [],
-    showTable: false
+    showTable: false,
+    showSrtBtns: false
   }
 
   // give user ability to choose which specific airport they depart from
@@ -46,7 +47,8 @@ class Flights extends Component {
             this.setState({
               flights: response.data.Quotes,
               carriers: response.data.Carriers,
-              showTable: true
+              showTable: true,
+              showSrtBtns: true
             })
           })
           .catch((error)=>{
@@ -177,11 +179,15 @@ class Flights extends Component {
         />
         <button type="submit" name="submit"><img className="mag-img" alt="search" src={require("../Images/magnifier_search_searching_zoom-512.png")}></img></button>
       </form>
-      {this.state.showTable ? (
-        <div className="table-wrapper">
+      {this.state.showSrtBtns ? (
+        <div>
           <button className="sort-btn" onClick={this.sortPrice}>Sort by Price</button>
           <button className="sort-btn" onClick={this.sortAirline}>Sort by Airline</button>
           <button className="sort-btn" onClick={this.sortDate}>Sort by Date</button>
+        </div>
+      ) : null}
+      {this.state.showTable ? (
+        <div className="table-wrapper">
           <table className="flight-table">
             <thead>
               <tr>
