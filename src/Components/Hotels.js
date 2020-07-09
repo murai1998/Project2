@@ -121,13 +121,8 @@ class Hotels extends Component {
         console.log(price);
       }
       return (
-<<<<<<< HEAD
-        <tr key={i} className="trr">
-          <td>
-=======
         <tr key={i}>
           <td className="table-data">
->>>>>>> f3b688baa0446f9c92c600bcc5f76864c28775f8
             {" "}
             {/*<input
               onClick={this.addFlight}
