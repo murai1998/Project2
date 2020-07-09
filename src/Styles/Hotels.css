@@ -57,16 +57,25 @@ table td {
   margin: 5px 0 0 5px;
   border: 1px solid black;
 }
+<<<<<<< HEAD
 
+=======
+.table-data {
+  width: 120px;
+  border: 1px solid black;
+}
+>>>>>>> f3b688baa0446f9c92c600bcc5f76864c28775f8
 .submit {
   font-weight: 700;
   margin: auto 80px;
 }
 .tableName {
   width: 600px;
+  border: 1px solid black;
 }
 .tableAddress {
   width: 280px;
+  border: 1px solid black;
 }
 .buttonHotel {
   font-size: 25px;
