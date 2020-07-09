@@ -83,17 +83,46 @@ body {
   transform: translateY(4px);
 }
 
+.table-wrapper {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+  width: 94%;
+}
+
 .flight-table {
+   margin-top: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.flight-table td, .flight-table th {
   text-align: center;
-  margin: 5px 0 0 5px;
-  border: 1px solid black;
+  padding: 8px 12px;
 }
 
 .flight-table td {
-  width: 120px;
-  border: 1px solid black;
+  border-right: 1px solid #f8f8f8;
+  font-size: 18px;
 }
 
-.carrier-name {
-  width: fit-content;
+.flight-table thead th {
+  color: #ffffff;
+  background: #4FC3A1;
+}
+
+
+.flight-table thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
+.flight-table tr:nth-child(even) {
+  background: #F8F8F8;
 }

@@ -94,7 +94,7 @@ class Flights extends Component {
     return this.state.flights.map((flight,i) => {
       return (
         <tr key={i}>
-          <td className="carrier-name">{this.determineCarrier(flight.OutboundLeg.CarrierIds[0])}</td>
+          <td>{this.determineCarrier(flight.OutboundLeg.CarrierIds[0])}</td>
           <td>${flight.MinPrice}</td>
           <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
           <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
@@ -178,7 +178,7 @@ class Flights extends Component {
         <button type="submit" name="submit"><img className="mag-img" alt="search" src={require("../Images/magnifier_search_searching_zoom-512.png")}></img></button>
       </form>
       {this.state.showTable ? (
-        <div>
+        <div className="table-wrapper">
           <button className="sort-btn" onClick={this.sortPrice}>Sort by Price</button>
           <button className="sort-btn" onClick={this.sortAirline}>Sort by Airline</button>
           <button className="sort-btn" onClick={this.sortDate}>Sort by Date</button>
@@ -190,6 +190,7 @@ class Flights extends Component {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Direct</th>
+                <th>Add to Itinerary</th>
               </tr>
             </thead>
             <tbody>{this.printFlights()}</tbody>
