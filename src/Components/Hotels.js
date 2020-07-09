@@ -231,7 +231,7 @@ class Hotels extends Component {
               <button className="buttonHotel" onClick={this.sortRate}>
                 Sort by star rating
               </button>
-              <table>
+              <table className="hotel-table">
                 <thead>
                   <tr>
                     <th></th>

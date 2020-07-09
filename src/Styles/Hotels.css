@@ -49,6 +49,15 @@
   border-radius: 20px;
   padding: 5px 5px;
 }
+.hotel-table {
+  text-align: center;
+  margin: 5px 0 0 5px;
+  border: 1px solid black;
+}
+table td {
+  width: 120px;
+  border: 1px solid black;
+}
 .submit {
   font-weight: 700;
   margin: auto 80px;
