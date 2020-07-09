@@ -51,32 +51,7 @@ class HomePage extends Component {
               </div>
             </div>
           </div>
-          <div className="weather">
-            <h1>
-              {this.state.city}, {this.state.country}
-            </h1>
-            <div className="weatherMain">
-              <Weather city={this.state.city} country={this.state.country} />
-
-              <div className="imagesWeather">
-                <img
-                  className="top"
-                  src={require("../Images/weat1.png")}
-                  alt="weather-sun"
-                />
-                <img
-                  className="top"
-                  src={require("../Images/sun.png")}
-                  alt="weather-sun"
-                />
-                <img
-                  className="top"
-                  src={require("../Images/weat3.png")}
-                  alt="weather-sun"
-                />
-              </div>
-            </div>
-          </div>
+          <Weather city={this.state.city} country={this.state.country}/>
         </div>
       </div>
     );
