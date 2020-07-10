@@ -8,6 +8,13 @@ import Activities from "./Components/Activities";
 import SingleHotel from "./Components/SingleHotel";
 
 class App extends Component {
+  state = {
+    hotels: []
+  };
+
+  setHotels = hotels => {
+    this.setState({ hotels });
+  };
   render() {
     return (
       <div>
@@ -26,7 +33,13 @@ class App extends Component {
           <Route
             exact
             path="/home/:country/:city/hotels"
-            render={props => <Hotels {...props} />}
+            render={props => (
+              <Hotels
+                setHotels={this.setHotels}
+                hotels={this.state.hotels}
+                {...props}
+              />
+            )}
           />
           <Route
             exact

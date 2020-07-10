@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import hotels from "./hotels.json";
 import { Link, Switch, Route } from "react-router-dom";
-import "../Styles/Hotels.css";
 
 class Hotels extends Component {
   state = {
     country: this.props.match.params.country,
     city: this.props.match.params.city,
     hotels: [],
-    showForm: true,
+    showForm: false,
     showList: false,
     checkIn: "",
     checkOut: "",
@@ -89,11 +88,8 @@ class Hotels extends Component {
           .then(response2 => {
             console.log(response2);
             this.setState({
-              hotels: response2.data.data.body.searchResults.results,
-              showList: true,
-              showForm: false
+              hotels: response2.data.data.body.searchResults.results
             });
-
             console.log(this.state.hotels);
 
             this.showHotels();
@@ -109,7 +105,8 @@ class Hotels extends Component {
 
   toggleForm = () => {
     this.setState({
-      showForm: !this.state.showForm
+      showForm: !this.state.showForm,
+      showList: true
     });
   };
 
@@ -122,7 +119,7 @@ class Hotels extends Component {
       }
       return (
         <tr key={i}>
-          <td className="table-data">
+          <td>
             {" "}
             {/*<input
               onClick={this.addFlight}
@@ -136,16 +133,12 @@ class Hotels extends Component {
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
           >
-            <td className="table-data">{hotel.id}</td>
+            <td>{hotel.id}</td>
           </Link>
-          <td className="tableName">{hotel.name}</td>
-          <td className="table-data">
-            <strong>${price}</strong>
-          </td>
-          <td className="table-data">
-            <strong>{hotel.starRating}</strong>
-          </td>
-          <td className="tableAddress">{hotel.address.streetAddress}</td>
+          <td>{hotel.name}</td>
+          <td>${price}</td>
+          <td>{hotel.starRating}</td>
+          <td>{hotel.address.streetAddress}</td>
         </tr>
       );
     });
@@ -180,11 +173,8 @@ class Hotels extends Component {
 
   render() {
     return (
-      <div className="hotelBack">
-        <Link
-          className="notes3"
-          to={`/home/${this.state.country}/${this.state.city}`}
-        >
+      <div>
+        <Link to={`/home/${this.state.country}/${this.state.city}`}>
           <img
             className="house"
             width="170vw"
@@ -194,64 +184,55 @@ class Hotels extends Component {
           />
         </Link>
 
-        <h1 className="findButton">Find your perfect Hotel right now!</h1>
-
-        <div className="allLists">
-          {this.state.showForm ? (
-            <form className="form" onSubmit={this.getInfo}>
-              <label>Check In</label>
+        <button onClick={this.toggleForm}>
+          Find your perfect Hotel right now!
+        </button>
+        {this.state.showForm ? (
+          <div>
+            <form onSubmit={this.getInfo}>
+              <label>Check In:</label>
               <br />
               <input
                 onChange={this.handleChange}
                 type="text"
                 name="checkIn"
-                placeholder="___YYYY-MM-DD___"
+                placeholder="YYYY-MM-DD"
               />
               <br />
-              <label>Check out</label>
+              <label>Check out:</label>
               <br />
               <input
                 onChange={this.handleChange}
                 type="text"
                 name="checkOut"
-                placeholder="___YYYY-MM-DD___"
+                placeholder="YYYY-MM-DD"
               />
               <br />
               <br />
               <input className="submit" type="submit" />
             </form>
-          ) : (
-            ""
-          )}
-          {this.state.showList ? (
-            <div className="list">
-              <button className="buttonHotel" onClick={this.sortPrice}>
-                Sort by price
-              </button>
-              <button className="buttonHotel" onClick={this.sortRate}>
-                Sort by star rating
-              </button>
-              <table className="hotel-table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Star Rating</th>
-                    <th>Address</th>
-                  </tr>
-                </thead>
-                <tbody>{this.showHotels()}</tbody>
-              </table>
-              <p>
-                * - Price is unavailable now, please call the hotel directly.
-              </p>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+
+            <h1>Hotels</h1>
+            <button onClick={this.sortPrice}>Sort by price</button>
+            <button onClick={this.sortRate}>Sort by star rating</button>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Star Rating</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>{this.showHotels()}</tbody>
+            </table>
+            <p>* - Price is unavailable now, please call the hotel directly.</p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
