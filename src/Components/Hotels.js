@@ -53,7 +53,7 @@ class Hotels extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+        "x-rapidapi-key": "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
         useQueryString: true
       },
       params: {
@@ -70,7 +70,7 @@ class Hotels extends Component {
             "content-type": "application/octet-stream",
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
             "x-rapidapi-key":
-              "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+              "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
             useQueryString: true
           },
           params: {
@@ -97,6 +97,7 @@ class Hotels extends Component {
             console.log(this.state.hotels);
 
             this.showHotels();
+            localStorage.setItem(0,JSON.stringify(response2.data.data.body.searchResults.searchResults))
           })
           .catch(error2 => {
             console.log(error2);
@@ -177,6 +178,14 @@ class Hotels extends Component {
       hotels: arr2.sort((a, b) => b.starRating - a.starRating)
     });
   };
+
+  ComponentDidMount = () =>{
+    if(this.state.hotels.length>0){
+      this.setState({
+        showList:true
+      })
+    }
+  }
 
   render() {
     return (
