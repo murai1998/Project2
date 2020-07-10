@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import hotels from "./hotels.json";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
+import SyncLoader from "react-spinners/SyncLoader"
 
 class Hotels extends Component {
   state = {
@@ -10,6 +11,7 @@ class Hotels extends Component {
     city: this.props.match.params.city,
     hotels: [],
     showForm: true,
+    loading: false,
     showList: false,
     checkIn: "",
     checkOut: "",
@@ -22,7 +24,7 @@ class Hotels extends Component {
     });
     //console.log(this.state.checkIn);
   };
-  /*addFlight = e => {
+  /*addHotel = e => {
     e.preventDefault();
     console.log(e.target.value);
     let checkBoxCopy = [...this.state.checkBox];
@@ -32,7 +34,7 @@ class Hotels extends Component {
     });
     console.log(this.state.checkBox);
   };*/
-  addFlight = id => {
+  addHotel = id => {
     let checkBoxCopy = [...this.state.checkBox];
     checkBoxCopy.push(id);
     let hotelsCopy = [...this.state.hotels];
@@ -53,7 +55,7 @@ class Hotels extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+        "x-rapidapi-key": "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
         useQueryString: true
       },
       params: {
@@ -63,44 +65,50 @@ class Hotels extends Component {
     })
       .then(response => {
         console.log(response.data);
-        axios({
-          method: "GET",
-          url: "https://hotels4.p.rapidapi.com/properties/list",
-          headers: {
-            "content-type": "application/octet-stream",
-            "x-rapidapi-host": "hotels4.p.rapidapi.com",
-            "x-rapidapi-key":
-              "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
-            useQueryString: true
-          },
-          params: {
-            currency: "USD",
-            locale: "en_US",
-            sortOrder: "BEST_SELLER",
-            destinationId:
-              response.data.suggestions[0].entities[0].destinationId,
-            pageNumber: "1",
-            checkIn: this.state.checkIn,
-            checkOut: this.state.checkOut,
-            pageSize: "50",
-            adults1: "1"
-          }
+        this.setState({
+          loading: true
         })
-          .then(response2 => {
-            console.log(response2);
-            this.setState({
-              hotels: response2.data.data.body.searchResults.results,
-              showList: true,
-              showForm: false
-            });
-
-            console.log(this.state.hotels);
-
-            this.showHotels();
+        setTimeout(()=> {
+          axios({
+            method: "GET",
+            url: "https://hotels4.p.rapidapi.com/properties/list",
+            headers: {
+              "content-type": "application/octet-stream",
+              "x-rapidapi-host": "hotels4.p.rapidapi.com",
+              "x-rapidapi-key":
+                "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+              useQueryString: true
+            },
+            params: {
+              currency: "USD",
+              locale: "en_US",
+              sortOrder: "BEST_SELLER",
+              destinationId:
+                response.data.suggestions[0].entities[0].destinationId,
+              pageNumber: "1",
+              checkIn: this.state.checkIn,
+              checkOut: this.state.checkOut,
+              pageSize: "50",
+              adults1: "1"
+            }
           })
-          .catch(error2 => {
-            console.log(error2);
-          });
+            .then(response2 => {
+              console.log(response2);
+              this.setState({
+                hotels: response2.data.data.body.searchResults.results,
+                showList: true,
+                showForm: false,
+                loading: false
+              });
+  
+              console.log(this.state.hotels);
+  
+              this.showHotels();
+            })
+            .catch(error2 => {
+              console.log(error2);
+            });
+        },3000)
       })
       .catch(error => {
         console.log(error);
@@ -125,13 +133,13 @@ class Hotels extends Component {
           <td className="table-data">
             {" "}
             {/*<input
-              onClick={this.addFlight}
+              onClick={this.addHotel}
               className="messageCheckbox"
               type="checkbox"
               name="checkBox"
               value={hotel.id}
             />*/}
-            <button onClick={() => this.addFlight(hotel)}>Add</button>
+            <button onClick={() => this.addHotel(hotel)}>Add</button>
           </td>
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
@@ -223,6 +231,10 @@ class Hotels extends Component {
           ) : (
             ""
           )}
+          <SyncLoader
+            color={"red"}
+            loading={this.state.loading}
+           />
           {this.state.showList ? (
             <div className="list">
               <button className="buttonHotel" onClick={this.sortPrice}>
