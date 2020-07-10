@@ -21,10 +21,7 @@ class App extends Component {
   setItinerary = (component, thing) => {
     let itineraryCopy = { ...this.state.itinerary };
     console.log(itineraryCopy);
-
-    let itineraryCopy = {...this.state.itinerary}
     
-
     if(component==='activities'){
       if(!itineraryCopy.activities.includes(thing))
         itineraryCopy.activities.push(thing)
