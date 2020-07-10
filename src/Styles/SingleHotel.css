@@ -20,7 +20,7 @@
 .room h1 {
   font-size: 60px;
   font-family: "Concert One", cursive;
-
+  line-height: 0.3em;
   text-align: center;
   font-weight: 900;
 }

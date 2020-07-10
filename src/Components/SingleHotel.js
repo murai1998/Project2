@@ -17,7 +17,6 @@ class SingleHotel extends Component {
       images: []
     };
   }
-
   componentDidMount() {
     axios({
       method: "GET",

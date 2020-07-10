@@ -19,7 +19,7 @@ class Activities extends Component {
 		currentYelpRestaurants: {},
 		currentYelpShopping: {},
 		currentYelpMisc: {},
-		itinerary: []
+		itin: []
 	}
 
 	fillRate = (rating) => {
@@ -51,22 +51,33 @@ class Activities extends Component {
   };
 
 	handleChange = e => {
-		let itineraryCopy = [...this.state.itinerary]
-		let clickedBusiness = this.state.currentYelpRestaurants.data.businesses.find(business=>business.id==e.target.id) || 
-							  this.state.currentYelpShopping.data.businesses.find(business=>business.id==e.target.id) || 
-							  this.state.currentYelpMisc.data.businesses.find(business=>business.id==e.target.id)
+		/*let itinCopy = [...this.state.itin]*/
+		let clickedBusiness = this.state.currentYelpRestaurants.data.businesses.find(business=>business.id===e.target.id) || 
+							  this.state.currentYelpShopping.data.businesses.find(business=>business.id===e.target.id) || 
+							  this.state.currentYelpMisc.data.businesses.find(business=>business.id===e.target.id)
 								
 		/*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
 
-		if(!itineraryCopy.includes(clickedBusiness)){
-			itineraryCopy.push(clickedBusiness)
+		this.props.setItinerary('activities',clickedBusiness)
+
+		/*if(!this.props.itinerary.activities.includes(clickedBusiness))
+			this.props.setItinerary('activities', clickedBusiness)
+
+		else{
+			this.props.itinerary.activities.splice(this.props.itinerary.activities.indexOf(clickedBusiness),1)
+			this.props.setItinerary('activities', clickedBusiness)
+		}*/
+
+
+		/*if(!itinCopy.includes(clickedBusiness)){
+			itinCopy.push(clickedBusiness)
 		}
 		else{
-			itineraryCopy.splice(itineraryCopy.indexOf(clickedBusiness),1)
+			itinCopy.splice(itinCopy.indexOf(clickedBusiness),1)
 		}
 		this.setState({
-			itinerary:itineraryCopy
-		})
+			itin:itinCopy
+		})*/
 	}
 
 	displayBussinesses = (bus) =>{
@@ -75,7 +86,7 @@ class Activities extends Component {
 			if(i<5){
 				return(
 				 <div style={{border:'1px solid black', width:'218px', height:'440px', margin:'5px'}}>
-				 <img style={{width:'218px', height:'218px'}} src={business.image_url}/>
+				 <img style={{width:'218px', height:'218px'}} src={business.image_url} alt="Business"/>
 				 <Link to = {`/home/${this.state.country}/${this.state.city}/activities/${business.id}`}><h2>{business.name}</h2></Link>
 				 <span>{this.fillRate(business.rating)} {business.review_count} Reviews</span>
 				 <br/>

@@ -3,7 +3,7 @@ import axios from "axios";
 import hotels from "./hotels.json";
 import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
-import SyncLoader from "react-spinners/SyncLoader";
+//import SyncLoader from "react-spinners/SyncLoader";
 
 class Hotels extends Component {
   state = {
@@ -35,17 +35,19 @@ class Hotels extends Component {
     console.log(this.state.checkBox);
   };*/
   addHotel = id => {
-    let checkBoxCopy = [...this.state.checkBox];
+    this.props.setItinerary("hotels", id);
+    /*let checkBoxCopy = [...this.state.checkBox];
     checkBoxCopy.push(id);
     let hotelsCopy = [...this.state.hotels];
     let i = hotelsCopy.indexOf(id);
     hotelsCopy.splice(i, 1);
+
     this.setState({
       checkBox: checkBoxCopy,
       hotels: hotelsCopy
     });
 
-    console.log(this.state.checkBox);
+    console.log(this.state.checkBox);*/
   };
   getInfo = e => {
     e.preventDefault();
@@ -139,7 +141,12 @@ class Hotels extends Component {
               name="checkBox"
               value={hotel.id}
             />*/}
-            <button onClick={() => this.addHotel(hotel)}>Add</button>
+            {/*<button onClick={() => this.addHotel(hotel)}>Add</button>*/}
+            <input
+              className="checkBox"
+              onChange={() => this.addHotel(hotel)}
+              type="checkbox"
+            />
           </td>
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
@@ -185,6 +192,14 @@ class Hotels extends Component {
     this.setState({
       hotels: arr2.sort((a, b) => b.starRating - a.starRating)
     });
+  };
+
+  ComponentDidMount = () => {
+    if (this.state.hotels.length > 0) {
+      this.setState({
+        showList: true
+      });
+    }
   };
 
   render() {
@@ -244,7 +259,7 @@ class Hotels extends Component {
           ) : (
             ""
           )}
-          <SyncLoader color={"red"} loading={this.state.loading} />
+          {/*<SyncLoader color={"red"} loading={this.state.loading} />*/}
           {this.state.showList ? (
             <div className="list">
               <button className="buttonHotel" onClick={this.sortPrice}>
@@ -256,7 +271,7 @@ class Hotels extends Component {
               <table className="hotel-table">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Add</th>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Price</th>
