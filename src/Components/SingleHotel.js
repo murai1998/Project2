@@ -17,8 +17,8 @@ class SingleHotel extends Component {
       images: images.splice(0, 8)
     };
   }
-
-  /*componentDidMount() {
+/*
+  componentDidMount() {
     axios({
       method: "GET",
       url: "https://hotels4.p.rapidapi.com/properties/get-hotel-photos",

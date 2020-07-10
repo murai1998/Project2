@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const emptyStar = '☆'
 const fullStar = '★'
-const yelpApiKey = ``
+const yelpApiKey = `cKUfNOWc1agwivRyXc65sO__wg43p0vQgstYxDXXSS-ibpb58tpc_q2JdqnBTAFcugBmH9CJhfpql4fM7jR2pbSV_FbK0Rd_tslzarrHlTCpPFBgKjb0aJDJe28EX3Yx`
 
 class SingleActivity extends Component {
 
@@ -11,7 +11,9 @@ class SingleActivity extends Component {
 		country: this.props.match.params.country,
 		city: this.props.match.params.city,
 		currentYelpSingleActivity: {},
-		currentYelpSingleActivityReviews: {}
+		currentYelpSingleActivityReviews: {},
+		searchBarText:'',
+		searchBarPlace: ''
 	}
 
 	fillRate = (rating) => {
@@ -72,24 +74,92 @@ class SingleActivity extends Component {
 
 	displayPhotos = (photoArray) => {
 		return photoArray?.map(photo => {
-			return <img style={{width:'33%', height:'400px'}} src = {photo} />
+			return <img style={{width:'33%', height:'33%'}} src = {photo} alt="Business" />
 		})
 
 	}
 
-	displayBusiness = () =>{
+	displayBusiness = (business) =>{
 		
 		return(
 		 <div>
-		 <span>{this.displayPhotos(this.state.currentYelpSingleActivity.data?.photos)}</span>
-		 <h1>{this.state.currentYelpSingleActivity.data?.name}</h1>
-		 <span>{this.state.currentYelpSingleActivity.data?.rating} {this.state.currentYelpSingleActivity.data?.review_count} Reviews</span>
+		 <span>{this.displayPhotos(business?.photos)}</span>
+		 <h1>{business?.name}</h1>
+		 <span>{business?.rating} Stars {business?.review_count} Reviews</span>
 		 <br/>
 		 <br/>
-		 <span><strong>{this.state.currentYelpSingleActivity.data?.price} {this.state.currentYelpSingleActivity.data?.rating} Stars</strong></span>
+		 <span><strong>{business?.price}</strong> {this.displayCategories(business)}</span>
+		 <br/>
+		 <br/>
+		 <span>{business?.display_phone}</span>
 		 </div>
 
 		 )
+	}
+
+	displayLocation = (business) => {
+
+		return (
+			<div>
+			<h5>Address:</h5>
+			 <span>{business?.location.display_address[0]}</span>
+			 <br/>
+			 <span>{business?.location.display_address[1]}</span>
+			</div>
+			)
+	}
+
+	configTime = time => {
+		let symbol = 'AM'
+		let newTime=time[0] + time[1] + ':' + time[2] + time[3]
+		newTime=newTime.split(':')
+		let hours = Number(newTime[0])
+
+		
+		if(hours>12){
+			hours-=12
+			symbol = 'PM'
+		}
+
+		if(hours===0)
+			hours=12
+		
+
+		if(hours === 12)
+			symbol="PM"
+
+		return `${hours}:${newTime[1]} ${symbol}`
+	}
+
+	displayHours = (business) => {
+
+		return business?.hours[0].open.map(hours =>{
+
+			let day=''
+			if(hours.day===0)
+				day='Monday'
+			if(hours.day===1)
+				day='Tuesday'
+			if(hours.day===2)
+				day='Wednesday'
+			if(hours.day===3)
+				day='Thursday'
+			if(hours.day===4)
+				day='Friday'
+			if(hours.day===5)
+				day='Saturday'
+			if(hours.day===6)
+				day='Sunday'
+
+			return(
+
+			<div>
+			<span>{day} {this.configTime(hours.start)} - {this.configTime(hours.end)}</span>
+			</div>
+			)
+
+		})
+		
 	}
 
 	displayReviews = () =>{
@@ -111,13 +181,21 @@ class SingleActivity extends Component {
 	
 
 	displayCategories = business => {
-		let categoryTitles=''
-		for(let category of business){
-			console.log(category)
-			categoryTitles += category.title + ', '
-			}
-			return categoryTitles.substring(0, categoryTitles.length - 2)	
+		
+		let categoryTitles = business?.categories.map((cat) => {
+			return cat.title + ', '
+		})
+		categoryTitles = categoryTitles?.join(' ')
+		categoryTitles = categoryTitles?.substring(0,categoryTitles.length-2)
+		return categoryTitles
+
 	}
+
+	handleSearch = e => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
 
 componentDidMount(){
 		this.getYelpSingleActivity()
@@ -130,9 +208,19 @@ componentDidMount(){
     return (
 
       <div>
-        <div>{this.displayBusiness()}</div>
+      <form onSubmit={this.handleSubmit}>
+      <input type="text" placeholder="Enter Category or Business Name" name="searchBarText" onChange={this.handleSearch}/>
+      <input type="text" placeholder="Enter City" name="searchBarPlace" onChange={this.handleSearch}/>
+      <input type="submit" />
+      </form>
+        <div>{this.displayBusiness(this.state.currentYelpSingleActivity.data)}</div>
+        {this.displayLocation(this.state.currentYelpSingleActivity.data)}
+        <br/>
+        <br/>
+        {this.displayHours(this.state.currentYelpSingleActivity.data)}
+        <br/>
+        <br/>
         <div style={{display:'flex', alignItems:'center', alignContent:'center', justifyContent:'center'}}>{this.displayReviews()}</div>
-        
       </div>
     );
   }
