@@ -6,7 +6,6 @@ import Flights from "./Components/Flights";
 import Hotels from "./Components/Hotels";
 import Activities from "./Components/Activities";
 import SingleHotel from "./Components/SingleHotel";
-import NewWindow from "react-new-window";
 class App extends Component {
   state = {
     hotels: []
