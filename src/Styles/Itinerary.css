@@ -1,0 +1,7 @@
+.full-container-itin {
+  background-color: lightblue;
+  position: absolute;
+  z-index: 1;
+  left:80%;
+  top: 5%;
+}

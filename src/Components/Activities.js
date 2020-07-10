@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const emptyStar = '☆'
 const fullStar = '★'
-const yelpApiKey = ``
+const yelpApiKey = process.env.REACT_APP_YELP_KEY
 
 class Activities extends Component {
   state = {
@@ -85,7 +85,7 @@ class Activities extends Component {
 		return bus?.businesses.map((business,i)=>{
 			if(i<5){
 				return(
-				 <div style={{border:'1px solid black', width:'218px', height:'440px', margin:'5px'}}>
+				 <div key={i} style={{border:'1px solid black', width:'218px', height:'440px', margin:'5px'}}>
 				 <img style={{width:'218px', height:'218px'}} src={business.image_url} alt="Business"/>
 				 <Link to = {`/home/${this.state.country}/${this.state.city}/activities/${business.id}`}><h2>{business.name}</h2></Link>
 				 <span>{this.fillRate(business.rating)} {business.review_count} Reviews</span>

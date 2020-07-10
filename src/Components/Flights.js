@@ -19,9 +19,10 @@ class Flights extends Component {
   // first API call gets destinations ID and the second gets flight based on the two IDs
   getFlightInfo = (e) => {
     e.preventDefault()
+    //dont need destCountry becasue API treats it as market
     axios({
       "method":"GET",
-      "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/${this.state.destCountry}/USD/en-US/`,
+      "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/`,
       "headers":{
       "content-type":"application/octet-stream",
       "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
@@ -32,7 +33,7 @@ class Flights extends Component {
       }
       })
       .then((response)=>{
-        //console.log(response)
+        console.log(response)
         axios({
           "method":"GET",
           "url":`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${this.state.fromAirport}/${response.data.Places[0].PlaceId}/${this.state.departDate}`,
@@ -44,7 +45,7 @@ class Flights extends Component {
           }
           })
           .then((response)=>{
-            //console.log(response)
+            console.log(response)
             this.setState({
               flights: response.data.Quotes,
               carriers: response.data.Carriers,
@@ -102,7 +103,7 @@ class Flights extends Component {
           <td>{flight.OutboundLeg.DepartureDate.slice(0,10)}</td>
           <td>{this.changeTime(flight.QuoteDateTime.slice(11,16))}</td>
           <td>{this.determineDirect(flight.Direct)}</td>
-          <td><button onClick={this.addToItinerary}>Add Flight</button></td>
+          <td><input onChange={this.addToItinerary} type="checkbox" id={flight.QuoteId}/></td>
         </tr>
       )
     })
@@ -117,7 +118,10 @@ class Flights extends Component {
 
   // itinererary function
   addToItinerary = (e) => {
-    console.log(e.target)
+    let clickedFlight = this.state.flights.find((f)=> {
+      return f.QuoteId == e.target.id
+    })
+    this.props.setItinerary("flights",clickedFlight)
   }
 
   sortPrice = () => {

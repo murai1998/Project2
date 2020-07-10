@@ -34,7 +34,7 @@ class MapContainer extends Component {
       })
       .then((response)=>{
         // console.log(response)
-        let countryCode = response.data.data[0].code
+        let countryCode = response.data.data[0]?.code
         setTimeout(()=> {
           axios({
           "method":"GET",
