@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const emptyStar = '☆'
 const fullStar = '★'
-const yelpApiKey = `cKUfNOWc1agwivRyXc65sO__wg43p0vQgstYxDXXSS-ibpb58tpc_q2JdqnBTAFcugBmH9CJhfpql4fM7jR2pbSV_FbK0Rd_tslzarrHlTCpPFBgKjb0aJDJe28EX3Yx`
+const yelpApiKey = ``
 
 class Activities extends Component {
   state = {
