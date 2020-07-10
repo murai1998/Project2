@@ -15,7 +15,7 @@
   height: 220px;
   padding: 200px 40px 0 10px;
 }
-.house{
+.house {
   margin: 50px 0 0 20px;
 }
 .findButton {
@@ -24,9 +24,9 @@
   margin: auto;
   margin-bottom: 100px;
   font-size: 60px;
-
+  font-family: "Concert One";
   text-align: center;
-  font-weight: 900;
+
   color: white;
 }
 .allLists {

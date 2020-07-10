@@ -83,9 +83,9 @@ class SingleHotel extends Component {
           </Link>
         </div>
         <div className="room">
-          <h1>
-            {this.state.name}, {this.state.city}
-          </h1>
+          <h1>{this.state.name}, </h1>
+          <h1>{this.state.city}</h1>
+
           <div>{this.showImages()}</div>
         </div>
       </div>
