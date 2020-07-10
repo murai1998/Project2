@@ -1,6 +1,3 @@
-* {
-  font-family: Georgia, serif;
-}
 .hotelBackg {
   background-image: url("../Images/landingback.jpg");
   background-position: 0 0;
@@ -22,7 +19,8 @@
 }
 .room h1 {
   font-size: 60px;
-  font-family: "Concert One";
-  line-height: 0.6em;
+  font-family: "Concert One", cursive;
+
   text-align: center;
+  font-weight: 900;
 }
