@@ -3,7 +3,7 @@ import axios from "axios";
 import hotels from "./hotels.json";
 import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
-import SyncLoader from "react-spinners/SyncLoader"
+//import SyncLoader from "react-spinners/SyncLoader";
 
 class Hotels extends Component {
   state = {
@@ -35,17 +35,19 @@ class Hotels extends Component {
     console.log(this.state.checkBox);
   };*/
   addHotel = id => {
-    let checkBoxCopy = [...this.state.checkBox];
+    this.props.setItinerary("hotels", id);
+    /*let checkBoxCopy = [...this.state.checkBox];
     checkBoxCopy.push(id);
     let hotelsCopy = [...this.state.hotels];
     let i = hotelsCopy.indexOf(id);
     hotelsCopy.splice(i, 1);
+
     this.setState({
       checkBox: checkBoxCopy,
       hotels: hotelsCopy
     });
 
-    console.log(this.state.checkBox);
+    console.log(this.state.checkBox);*/
   };
   getInfo = e => {
     e.preventDefault();
@@ -67,8 +69,8 @@ class Hotels extends Component {
         console.log(response.data);
         this.setState({
           loading: true
-        })
-        setTimeout(()=> {
+        });
+        setTimeout(() => {
           axios({
             method: "GET",
             url: "https://hotels4.p.rapidapi.com/properties/list",
@@ -100,15 +102,15 @@ class Hotels extends Component {
                 showForm: false,
                 loading: false
               });
-  
+
               console.log(this.state.hotels);
-  
+
               this.showHotels();
             })
             .catch(error2 => {
               console.log(error2);
             });
-        },3000)
+        }, 3000);
       })
       .catch(error => {
         console.log(error);
@@ -139,10 +141,16 @@ class Hotels extends Component {
               name="checkBox"
               value={hotel.id}
             />*/}
-            <button onClick={() => this.addHotel(hotel)}>Add</button>
+            {/*<button onClick={() => this.addHotel(hotel)}>Add</button>*/}
+            <input
+              className="checkBox"
+              onChange={() => this.addHotel(hotel)}
+              type="checkbox"
+            />
           </td>
           <Link
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
+            target="_blank"
           >
             <td className="table-data">{hotel.id}</td>
           </Link>
@@ -186,13 +194,13 @@ class Hotels extends Component {
     });
   };
 
-  ComponentDidMount = () =>{
-    if(this.state.hotels.length>0){
+  ComponentDidMount = () => {
+    if (this.state.hotels.length > 0) {
       this.setState({
-        showList:true
-      })
+        showList: true
+      });
     }
-  }
+  };
 
   render() {
     return (
@@ -210,6 +218,18 @@ class Hotels extends Component {
           />
         </Link>
 
+        <Link
+          className="notes3"
+          to={`/home/${this.state.country}/${this.state.city}/hotels`}
+        >
+          <img
+            className="house"
+            width="200vw"
+            height="200vh"
+            src="https://vizionz.boydnetonline.com/wp-content/uploads/2019/07/kisspng-logo-organization-photography-brand-go-back-button-5b3f520fef8813.4474823615308764319811-1.png"
+            alt="home-button"
+          />
+        </Link>
         <h1 className="findButton">Find your perfect Hotel right now!</h1>
 
         <div className="allLists">
@@ -239,10 +259,7 @@ class Hotels extends Component {
           ) : (
             ""
           )}
-          <SyncLoader
-            color={"red"}
-            loading={this.state.loading}
-           />
+          {/*<SyncLoader color={"red"} loading={this.state.loading} />*/}
           {this.state.showList ? (
             <div className="list">
               <button className="buttonHotel" onClick={this.sortPrice}>
@@ -254,7 +271,7 @@ class Hotels extends Component {
               <table className="hotel-table">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Add</th>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Price</th>

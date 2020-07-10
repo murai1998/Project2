@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Weather from "./Weather";
-import MapContainer from "./MapContainer"
+import MapContainer from "./MapContainer";
 import "../Styles/HomePage.css";
 
 class HomePage extends Component {
@@ -53,8 +53,8 @@ class HomePage extends Component {
             </div>
           </div>
           <div className="weather-map">
-            <Weather city={this.state.city} country={this.state.country}/>
-            <MapContainer country={this.state.country} city={this.state.city}/>
+            <Weather city={this.state.city} country={this.state.country} />
+            <MapContainer country={this.state.country} city={this.state.city} />
           </div>
         </div>
       </div>

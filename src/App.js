@@ -10,18 +10,17 @@ import SingleActivity from "./Components/SingleActivity";
 import Itinerary from "./Components/Itinerary";
 
 class App extends Component {
-
-  state={
+  state = {
     itinerary: {
-
-      flights:[],
+      flights: [],
       hotels: [],
-      activities:[]
-
+      activities: []
     }
-  }
+  };
 
   setItinerary = (component, thing) => {
+    let itineraryCopy = { ...this.state.itinerary };
+    console.log(itineraryCopy);
 
     let itineraryCopy = {...this.state.itinerary}
     
@@ -39,6 +38,13 @@ class App extends Component {
         itineraryCopy.flights.push(thing)
       else{
         itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(thing),1)
+      }
+    }
+    if (component === "hotels") {
+      if (!itineraryCopy.hotels.includes(thing))
+        itineraryCopy.hotels.push(thing);
+      else {
+        itineraryCopy.hotels.splice(itineraryCopy.hotels.indexOf(thing), 1);
       }
     }
 
@@ -62,18 +68,37 @@ class App extends Component {
           <Route
             exact
             path="/home/:country/:city/flights"
-            render={props => <Flights {...props} itinerary = {this.state.itinerary} setItinerary={this.setItinerary} />}
+            render={props => (
+              <Flights
+                {...props}
+                itinerary={this.state.itinerary}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
           <Route
             exact
             path="/home/:country/:city/hotels"
-            render={props => <Hotels {...props} itinerary = {this.state.itinerary} setItinerary={this.setItinerary} />}
+            render={props => (
+              <Hotels
+                {...props}
+                itinerary={this.state.itinerary}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
           <Route
             exact
             path="/home/:country/:city/activities"
-            render={props => <Activities {...props} itinerary = {this.state.itinerary} setItinerary={this.setItinerary} />}
+            render={props => (
+              <Activities
+                {...props}
+                itinerary={this.state.itinerary}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
+
           <Route
             exact
             path="/:name/:country/:city/:hotelId"
