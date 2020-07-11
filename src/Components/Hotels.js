@@ -3,7 +3,7 @@ import axios from "axios";
 import hotels from "./hotels.json";
 import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
-//import SyncLoader from "react-spinners/SyncLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 
 class Hotels extends Component {
   state = {
@@ -48,6 +48,9 @@ class Hotels extends Component {
     });
 
     console.log(this.state.checkBox);*/
+  };
+  refreshPage = () => {
+    window.location.reload(false);
   };
   getInfo = e => {
     e.preventDefault();
@@ -152,7 +155,7 @@ class Hotels extends Component {
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
             target="_blank"
           >
-            <td className="table-data">{hotel.id}</td>
+            <td className="table-data pics">Pictures</td>
           </Link>
           <td className="tableName">{hotel.name}</td>
           <td className="table-data">
@@ -218,19 +221,9 @@ class Hotels extends Component {
           />
         </Link>
 
-        <Link
-          className="notes3"
-          to={`/home/${this.state.country}/${this.state.city}/hotels`}
-        >
-          <img
-            className="house"
-            width="200vw"
-            height="200vh"
-            src="https://vizionz.boydnetonline.com/wp-content/uploads/2019/07/kisspng-logo-organization-photography-brand-go-back-button-5b3f520fef8813.4474823615308764319811-1.png"
-            alt="home-button"
-          />
-        </Link>
-        <h1 className="findButton">Find your perfect Hotel right now!</h1>
+        <h1 className="findButton">
+          Find your perfect <br></br> Hotel right now!
+        </h1>
 
         <div className="allLists">
           {this.state.showForm ? (
@@ -259,7 +252,11 @@ class Hotels extends Component {
           ) : (
             ""
           )}
-          {/*<SyncLoader color={"red"} loading={this.state.loading} />*/}
+          <SyncLoader
+            className="spinner"
+            color={"lightpink"}
+            loading={this.state.loading}
+          />
           {this.state.showList ? (
             <div className="list">
               <button className="buttonHotel" onClick={this.sortPrice}>

@@ -6,9 +6,9 @@ import SyncLoader from "react-spinners/SyncLoader";
 const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
 const mapStyles = {
-  width: "30%",
-  height: "30%",
-  border: "1px solid black"
+  width: "60%",
+  height: "60%",
+  border: "5px solid lightblue"
 };
 
 class MapContainer extends Component {
@@ -35,8 +35,8 @@ class MapContainer extends Component {
     })
       .then(response => {
         // console.log(response)
-        let countryCode = response.data.data[0]?.code
-        setTimeout(()=> {
+        let countryCode = response.data.data[0]?.code;
+        setTimeout(() => {
           axios({
             method: "GET",
             url: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities",
@@ -74,9 +74,9 @@ class MapContainer extends Component {
   render() {
     // console.log(this)
     return (
-      <div>
+      <div className="map">
         {this.state.loading ? (
-          <SyncLoader color={"blue"} />
+          <SyncLoader color={"lightblue"} />
         ) : (
           <Map
             google={this.props.google}

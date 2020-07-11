@@ -1,7 +1,33 @@
 .full-container-itin {
-  background-color: lightblue;
+  background-color: rgb(250, 240, 240);
+  border: 1px lightpink solid;
   position: absolute;
   z-index: 1;
-  left:80%;
+  left: 75%;
   top: 5%;
+  border-radius: 20px;
+}
+.mainTable {
+  border-bottom: 1px solid black;
+}
+.smallTable {
+  border-bottom: black;
+}
+.full-container-itin h2 {
+  font-weight: 900;
+  font-size: 20px;
+  font-family: "Concert One", cursive;
+  letter-spacing: 3.5px;
+}
+.drop {
+  display: flex;
+  padding: 0 5px;
+}
+.drop button {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+.mainTable th {
+  font-size: 18px;
 }

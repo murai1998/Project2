@@ -39,6 +39,9 @@
 }
 
 .weather-map {
-  display:flex;
+  display: flex;
   width: 100%;
+}
+.map {
+  margin: 40px;
 }
