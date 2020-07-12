@@ -40,10 +40,12 @@ class LandingPage extends Component {
           </div>
         </div>
         <div className="landingMiddle">
-          <h1>Your one-stop-shop </h1>
-          <h1 id="h1Sec">for a perfect trip</h1>
+          <div className="midd">
+            <h1>Your one-stop-shop </h1>
+            <h1 id="h1Sec">for a perfect trip</h1>
+          </div>
           <div className="landingMiddle2">
-            <div className="landingText">
+            <div className="landingText first">
               <p>
                 Fully customizable multi-destination trip planner with popular
                 itineraries to help you get started

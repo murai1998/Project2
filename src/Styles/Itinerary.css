@@ -31,3 +31,10 @@
 .mainTable th {
   font-size: 18px;
 }
+
+@media only screen and (max-width: 600px) {
+  .full-container-itin {
+    left: 30%;
+    top: 5%;
+  }
+}

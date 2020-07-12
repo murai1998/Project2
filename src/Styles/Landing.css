@@ -80,3 +80,87 @@
   color: rgb(85, 81, 81);
   background-color: rgb(199, 227, 245);
 }
+
+@media only screen and (max-width: 600px) {
+  .landingStart {
+    width: 100%;
+    height: 60%;
+    margin: 0;
+    padding: 0;
+  }
+  .landingStart2 h1 {
+    line-height: 1em;
+    background-color: lightblue;
+    padding: 0;
+    margin: 150px 0 25px;
+    text-align: center;
+  }
+  .landingStart2 h2 {
+    line-height: 1em;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+  }
+  .landingStart2 form {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+  }
+  .landingStart2 input {
+    text-align: center;
+  }
+  .landingStart2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+  }
+  .landingStart2 form button {
+    text-align: center;
+    font-family: "Concert One", cursive;
+    margin: 10px 106px;
+    font-weight: 900;
+  }
+  .landingMiddle h1 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1em;
+  }
+  .landingMiddle2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  .landingText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 10px;
+    font-size: 30px;
+  }
+  .landingText:nth-child(odd) {
+    align-self: center;
+  }
+  .landingText:nth-child(even) {
+    align-self: center;
+  }
+  .landingText p {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+  .midd {
+    margin: 0;
+    padding: 0;
+  }
+  .landingMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

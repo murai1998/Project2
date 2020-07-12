@@ -19,3 +19,9 @@
 .linkName {
   color: purple;
 }
+@media only screen and (max-width: 600px) {
+  .blocks {
+    display: flex;
+    flex-direction: column;
+  }
+}

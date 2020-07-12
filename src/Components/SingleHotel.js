@@ -56,9 +56,10 @@ class SingleHotel extends Component {
     return (
       <div className="hotelBackg">
         <div className="room">
-          <h1>{this.state.name}, </h1>
-          <h1>{this.state.city}</h1>
-
+          <div className="header2">
+            <h1>{this.state.name}, </h1>
+            <h1 className="h1Name">{this.state.city}</h1>
+          </div>
           <div>{this.showImages()}</div>
         </div>
       </div>

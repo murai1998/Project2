@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import SyncLoader from "react-spinners/SyncLoader";
+import "../Styles/HomePage.css";
 
 const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
 const mapStyles = {
-  width: "60%",
-  height: "60%",
-  border: "5px solid lightblue"
+  border: "5px solid lightblue",
+  width: "40%",
+  height: "40%"
 };
 
 class MapContainer extends Component {
@@ -74,14 +75,14 @@ class MapContainer extends Component {
   render() {
     // console.log(this)
     return (
-      <div className="map">
+      <div>
         {this.state.loading ? (
           <SyncLoader color={"lightblue"} />
         ) : (
           <Map
+            className="map"
             google={this.props.google}
             zoom={14}
-            style={mapStyles}
             initialCenter={{
               lat: this.state.lat,
               lng: this.state.long

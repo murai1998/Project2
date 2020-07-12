@@ -155,7 +155,7 @@ class Hotels extends Component {
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
             target="_blank"
           >
-            <td className="table-data pics">Pictures</td>
+            <td className="table-data pics">Views</td>
           </Link>
           <td className="tableName">{hotel.name}</td>
           <td className="table-data">
@@ -259,17 +259,19 @@ class Hotels extends Component {
           />
           {this.state.showList ? (
             <div className="list">
-              <button className="buttonHotel" onClick={this.sortPrice}>
-                Sort by price
-              </button>
-              <button className="buttonHotel" onClick={this.sortRate}>
-                Sort by star rating
-              </button>
+              <div className="buttons2">
+                <button className="buttonHotel" onClick={this.sortPrice}>
+                  Sort by price
+                </button>
+                <button className="buttonHotel" onClick={this.sortRate}>
+                  Sort by star rating
+                </button>
+              </div>
               <table className="hotel-table">
                 <thead>
                   <tr>
                     <th>Add</th>
-                    <th>ID</th>
+                    <th className="id">ID</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Star Rating</th>
@@ -278,7 +280,7 @@ class Hotels extends Component {
                 </thead>
                 <tbody>{this.showHotels()}</tbody>
               </table>
-              <p>
+              <p className="price">
                 * - Price is unavailable now, please call the hotel directly.
               </p>
             </div>
