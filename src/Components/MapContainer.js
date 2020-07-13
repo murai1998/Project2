@@ -9,7 +9,7 @@ const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 const mapStyles = {
   border: "5px solid lightblue",
   width: "40%",
-  height: "40%"
+  height: "1px",
 };
 
 class MapContainer extends Component {

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import Itinerary from "./Itinerary";
+
 
 const emptyStar = '☆'
 const fullStar = '★'
-const yelpApiKey = `cKUfNOWc1agwivRyXc65sO__wg43p0vQgstYxDXXSS-ibpb58tpc_q2JdqnBTAFcugBmH9CJhfpql4fM7jR2pbSV_FbK0Rd_tslzarrHlTCpPFBgKjb0aJDJe28EX3Yx`
+const yelpApiKey = process.env.REACT_APP_YELP_KEY;
 
 class SingleActivity extends Component {
 
@@ -208,6 +210,7 @@ componentDidMount(){
     return (
 
       <div>
+      <Itinerary itinerary={this.props.itinerary}/>
       <form onSubmit={this.handleSubmit}>
       <input type="text" placeholder="Enter Category or Business Name" name="searchBarText" onChange={this.handleSearch}/>
       <input type="text" placeholder="Enter City" name="searchBarPlace" onChange={this.handleSearch}/>

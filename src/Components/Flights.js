@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "../Styles/Flights.css";
 import { Link } from "react-router-dom";
+import Itinerary from "./Itinerary";
+
 
 class Flights extends Component {
   state = {
@@ -186,6 +188,7 @@ class Flights extends Component {
   render() {
     return (
       <div className="full-container">
+      <Itinerary itinerary={this.props.itinerary}/>
         <Link
           className="notes4"
           to={

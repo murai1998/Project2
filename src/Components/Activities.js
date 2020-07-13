@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Styles/Activities.css";
+import Itinerary from "./Itinerary";
+
+
 const emptyStar = "☆";
 const fullStar = "★";
 const yelpApiKey = process.env.REACT_APP_YELP_KEY;
@@ -65,7 +68,7 @@ class Activities extends Component {
 
     /*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
 
-    this.props.setItinerary("activities", clickedBusiness);
+    this.props.setItinerary("activities", clickedBusiness, e.target.id);
 
     /*if(!this.props.itinerary.activities.includes(clickedBusiness))
 			this.props.setItinerary('activities', clickedBusiness)
@@ -214,6 +217,7 @@ class Activities extends Component {
   render() {
     return (
       <div className="activityBack">
+      <Itinerary itinerary={this.props.itinerary}/>
         <Link
           className="notes3"
           to={`/home/${this.state.country}/${this.state.city}`}

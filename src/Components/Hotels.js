@@ -4,6 +4,8 @@ import hotels from "./hotels.json";
 import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
 import SyncLoader from "react-spinners/SyncLoader";
+import Itinerary from "./Itinerary";
+
 
 class Hotels extends Component {
   state = {
@@ -208,6 +210,7 @@ class Hotels extends Component {
   render() {
     return (
       <div className="hotelBack">
+      <Itinerary itinerary={this.props.itinerary}/>
         <Link
           className="notes3"
           to={`/home/${this.state.country}/${this.state.city}`}
