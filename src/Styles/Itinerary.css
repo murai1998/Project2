@@ -1,5 +1,5 @@
 .full-container-itin {
-  background-color: rgb(250, 240, 240);
+  background-color: lightskyblue;
   z-index: 1;
 }
 .mainTable {
@@ -9,7 +9,7 @@
   border-bottom: black;
 }
 .full-container-itin h2 {
-  top:0;
+  top: 0;
   font-size: 20px;
   font-family: "Concert One", cursive;
   letter-spacing: 3.5px;

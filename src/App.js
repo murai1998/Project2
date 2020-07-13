@@ -21,20 +21,23 @@ class App extends Component {
   setItinerary = (component, thing) => {
     let itineraryCopy = { ...this.state.itinerary };
     console.log(itineraryCopy);
-    
-    if(component==='activities'){
-      if(!itineraryCopy.activities.includes(thing))
-        itineraryCopy.activities.push(thing)
-      else{
-        itineraryCopy.activities.splice(itineraryCopy.activities.indexOf(thing),1)
+
+    if (component === "activities") {
+      if (!itineraryCopy.activities.includes(thing))
+        itineraryCopy.activities.push(thing);
+      else {
+        itineraryCopy.activities.splice(
+          itineraryCopy.activities.indexOf(thing),
+          1
+        );
       }
     }
 
-    if (component==='flights') {
-      if(!itineraryCopy.flights.includes(thing))
-        itineraryCopy.flights.push(thing)
-      else{
-        itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(thing),1)
+    if (component === "flights") {
+      if (!itineraryCopy.flights.includes(thing))
+        itineraryCopy.flights.push(thing);
+      else {
+        itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(thing), 1);
       }
     }
     if (component === "hotels") {
@@ -47,9 +50,9 @@ class App extends Component {
 
     this.setState({
       itinerary: itineraryCopy
-    })
-    console.log(this.state.itinerary)
-  }
+    });
+    console.log(this.state.itinerary);
+  };
 
   render() {
     return (
@@ -59,10 +62,13 @@ class App extends Component {
           <Route
             exact
             path="/home/:country/:city"
-            render={props => <HomePage 
-                {...props} 
+            render={props => (
+              <HomePage
+                {...props}
                 itinerary={this.state.itinerary}
-                setItinerary={this.setItinerary} />}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
           <Route
             exact

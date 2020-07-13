@@ -5,13 +5,20 @@ import "../Styles/Landing.css";
 class LandingPage extends Component {
   state = {
     city: "",
-    country: ""
+    country: "",
+    error: ""
   };
   handleChange = e => {
     e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    if (e.target.value) {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    } else {
+      this.setState({
+        error: '"Please, enter the values!"'
+      });
+    }
   };
   render() {
     return (
@@ -32,16 +39,19 @@ class LandingPage extends Component {
                 name="country"
                 placeholder="Country"
               />
-              <Link to={`/home/${this.state.country}/${this.state.city}`}>
-                <button>Start Your Vacation</button>
-              </Link>
+              {this.state.country && this.state.country ? (
+                <Link to={`/home/${this.state.country}/${this.state.city}`}>
+                  <button>Start Your Vacation</button>
+                </Link>
+              ) : (
+                <p>{this.state.error}</p>
+              )}
             </form>
           </div>
         </div>
         <div className="landingMiddle">
           <div className="midd">
-            <h1>Your one-stop-shop 
-            for a perfect trip</h1>
+            <h1>Your one-stop-shop for a perfect trip</h1>
           </div>
           <div className="landingMiddle2">
             <div className="landingText first">
@@ -56,7 +66,7 @@ class LandingPage extends Component {
               <p>
                 The hotel search with an extensive price comparison. The prices
                 shown come from numerous hotels and booking websites
-              </p>             
+              </p>
             </div>
             <div className="landingText">
               <img src={require("../Images/plane.png")} alt="plane" />

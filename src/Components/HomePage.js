@@ -4,8 +4,6 @@ import Weather from "./Weather";
 import MapContainer from "./MapContainer";
 import Itinerary from "./Itinerary";
 import "../Styles/HomePage.css";
-import Itinerary from "./Itinerary";
-
 
 class HomePage extends Component {
   state = {
@@ -15,41 +13,38 @@ class HomePage extends Component {
 
   render() {
     return (
-      
-        <div>
+      <div>
+        <div className="navIten">
           <div className="nav">
-            <Link to="/">
-              Home
-            </Link>
-            
-                <Link
-                  to={`/home/${this.state.country}/${this.state.city}/flights`}
-                >
-                  Flights
-                </Link>
-              
-                <Link
-                  to={`/home/${this.state.country}/${this.state.city}/hotels`}
-                >
-                  Hotels
-                </Link>
-             
-                <Link
-                  to={`/home/${this.state.country}/${this.state.city}/activities`}
-                >
-                  Activities
-                </Link>
+            <Link to="/">Home</Link>
 
-                <Itinerary itinerary={this.props.itinerary}/>
-              
-            </div>
-          <div className="home1">
+            <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+              Flights
+            </Link>
+
+            <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+              Hotels
+            </Link>
+
+            <Link
+              to={`/home/${this.state.country}/${this.state.city}/activities`}
+            >
+              Activities
+            </Link>
+          </div>
+          <Itinerary itinerary={this.props.itinerary} />
+        </div>
+        <div className="home1">
           <div className="weather-map">
-            <Weather city={this.state.city} country={this.state.country} />
+            <Weather
+              city={this.state.city}
+              country={this.state.country}
+              props={this.props}
+            />
             <MapContainer country={this.state.country} city={this.state.city} />
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
     );
   }
 }
