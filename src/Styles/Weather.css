@@ -24,7 +24,9 @@
   font-size: 42px;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 700px) {
+
   .split-sections {
     display: flex;
     flex-direction: column;
@@ -35,6 +37,6 @@
   .weather-wrapper {
     padding: 15px;
     text-align: center;
-    margin: 20px 15px;
+    margin: 95px 15px 60px;
   }
 }

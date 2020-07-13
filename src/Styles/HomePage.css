@@ -1,39 +1,5 @@
 
-@media only screen and (min-width: 550px){
-.home1 {
-  background-image: url("../Images/homeBack2.jpg");
-  background-position: 0 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-}
 
-.nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height:5%;
-  background-color: red;
-}
-
-.weather-map {
-  margin:auto;
-  align-self: center;
-  width: 100%;
-}
-.map {
-  width:100%;
-  border: 5px solid lightblue;
-  max-height: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-}
   .home1 {
     background-image: url("../Images/homeBack2.jpg");
     background-size: cover;
@@ -48,10 +14,20 @@
     justify-content: center;
   }
   .nav {
+    left:0;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: red;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-image: linear-gradient( lightskyblue, rgb(37, 39, 150));
+  }
+
+  .nav > *{
+    padding:10px;
+    text-decoration: none;
+    color:white;
+    font-size:1.4em;
+    font-weight:700;
   }
 
   .weather-map {
@@ -70,6 +46,56 @@
     max-width: 100%;
     max-height: 50%;
   }
+
+@media only screen and (min-width: 700px){
+  
+
+.home1 {
+  background-image: url("../Images/homeBack2.jpg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.nav > *{
+  padding:10px;
+  text-decoration: none;
+  color:white;
+}
+
+.nav {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
+  height:5%;
+  background-image: linear-gradient( lightskyblue, rgb(37, 39, 150));
+}
+
+.weather-map {
+  margin:auto;
+  align-self: center;
+  width: 100%;
+}
+.map {
+  width:100%;
+  border: 5px solid lightblue;
+  max-height: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weather-wrapper{
+  margin: 0 0 150px 0;
+}
+
+}
 
 
 

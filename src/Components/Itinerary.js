@@ -5,7 +5,12 @@ class Itinerary extends Component {
   state = {
     showList: false
   };
-  toggleList = () => {
+  toggleList = (e) => {
+    e.preventDefault()
+    if(e.target.innerText==='▼')
+      e.target.innerText='▲'
+    else{
+    e.target.innerText='▼'}  
     this.setState({
       showList: !this.state.showList
     });
@@ -47,7 +52,7 @@ class Itinerary extends Component {
       <div className="full-container-itin">
         {console.log(this.props.itinerary)}
         <div className="drop">
-          <h2>Itinerary</h2>
+          <h2>Cart</h2>
           <button onClick={this.toggleList}>▼</button>
         </div>
         {this.state.showList ? (

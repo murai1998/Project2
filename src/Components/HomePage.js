@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Weather from "./Weather";
 import MapContainer from "./MapContainer";
-import Itinerary from "./Itinerary";
 import "../Styles/HomePage.css";
 import Itinerary from "./Itinerary";
 
@@ -40,9 +39,8 @@ class HomePage extends Component {
                   Activities
                 </Link>
 
-                <Itinerary itinerary={this.props.itinerary}/>
-              
             </div>
+            <Itinerary itinerary={this.props.itinerary}/>
           <div className="home1">
           <div className="weather-map">
             <Weather city={this.state.city} country={this.state.country} />
