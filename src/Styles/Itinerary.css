@@ -11,10 +11,25 @@
   background-color: rgb(205, 219, 228);
   width:100%;
   color:black;
+  border-radius: 20px;
 }
 .smallTable {
   border-bottom: black;
+  border-collapse: collapse;
+  border-radius:5px;
+  width:fit-content;
+  
 }
+
+.smallTable > * {
+  border-collapse: collapse;
+  border-radius:20px;
+}
+
+.smallTable > * > * {
+  padding:3px;
+}
+
 .full-container-itin h2 {
   top:0;
   font-size: 1.5em;

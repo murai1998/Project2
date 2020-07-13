@@ -3,7 +3,7 @@
   width: fit-content;
   height: fit-content;
   border-radius: 20px;
-  margin: 40px 0 0 30px;
+  margin: 45px 0 0 0;
   box-shadow: 10px 10px 17px -4px rgba(0, 0, 0, 0.75);
   padding: 10px 35px;
 }
@@ -40,3 +40,5 @@
     margin: 95px 15px 60px;
   }
 }
+
+

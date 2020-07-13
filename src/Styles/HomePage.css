@@ -58,8 +58,8 @@
   height: 100vh;
   display:flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   align-content: center;
 }
 
@@ -80,7 +80,6 @@
 
 .weather-map {
   margin:auto;
-  align-self: center;
   width: 100%;
 }
 .map {
@@ -92,10 +91,37 @@
 }
 
 .weather-wrapper{
-  margin: 0 0 150px 0;
+  position:absolute;
+  left:1px;
+  top:5px;
 }
 
 }
+
+@media only screen and (min-width: 1200px){
+  .home1 {
+    background-image: url("../Images/homeBack2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 120vh;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weather-wrapper{
+    position:absolute;
+    left:1px;
+    top:5px;
+    border-radius: 0;
+  }
+  
+
+}  
 
 
 
