@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Weather from "./Weather";
 import MapContainer from "./MapContainer";
+import Itinerary from "./Itinerary";
 import "../Styles/HomePage.css";
 import Itinerary from "./Itinerary";
 
@@ -13,7 +14,6 @@ class HomePage extends Component {
   };
 
   render() {
-    //console.log(this.props);
     return (
       
         <div>
