@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
 
+import axios from "axios";
+
 class Itinerary extends Component {
   state = {
-    showList: false
+    showList: false,
+    name: "",
+    email: "",
+    message: ""
   };
-  toggleList = (e) => {
-    e.preventDefault()
-    if(e.target.innerText==='▼')
-      e.target.innerText='▲'
-    else{
-    e.target.innerText='▼'}  
+  toggleList = e => {
+    e.preventDefault();
+    if (e.target.innerText === "▼") e.target.innerText = "▲";
+    else {
+      e.target.innerText = "▼";
+    }
     this.setState({
       showList: !this.state.showList
     });
@@ -47,6 +52,30 @@ class Itinerary extends Component {
       );
     });
   };
+
+  handleSubmit(event) {
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/send",
+      data: {
+        name: this.state.name,
+        email: this.state.email,
+        messageHtml: "text"
+      }
+    }).then(response => {
+      if (response.data.msg === "success") {
+        alert("Email sent, awesome!");
+        this.resetForm();
+      } else if (response.data.msg === "fail") {
+        alert("Oops, something went wrong. Try again");
+      }
+    });
+  }
+
+  resetForm() {
+    this.setState({ name: "", email: "", message: "" });
+  }
+
   render() {
     return (
       <div className="full-container-itin">
@@ -73,8 +102,61 @@ class Itinerary extends Component {
             </table>
           </div>
         ) : null}
+
+        {/* <form
+          id="contact-form"
+          onSubmit={this.handleSubmit.bind(this)}
+          method="POST"
+        >
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={this.state.name}
+              onChange={this.onNameChange.bind(this)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              value={this.state.email}
+              onChange={this.onEmailChange.bind(this)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea
+              className="form-control"
+              rows="5"
+              id="message"
+              value={this.state.message}
+              onChange={this.onMessageChange.bind(this)}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form> */}
       </div>
     );
+  }
+
+  onNameChange(event) {
+    this.setState({ name: event.target.value });
+  }
+
+  onEmailChange(event) {
+    this.setState({ email: event.target.value });
+  }
+
+  onMessageChange(event) {
+    this.setState({ message: event.target.value });
   }
 }
 

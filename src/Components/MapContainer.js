@@ -80,6 +80,7 @@ class MapContainer extends Component {
           <SyncLoader color={"lightblue"} />
         ) : (
           <Map
+            styles={mapStyles}
             className="map"
             google={this.props.google}
             zoom={14}

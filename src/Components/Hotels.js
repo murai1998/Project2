@@ -209,19 +209,25 @@ class Hotels extends Component {
   render() {
     return (
       <div className="hotelBack">
+        <div className="nav">
+          <Link to="/">Home</Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+        </div>
+
         <Itinerary itinerary={this.props.itinerary} />
-        <Link
-          className="notes3"
-          to={`/home/${this.state.country}/${this.state.city}`}
-        >
-          <img
-            className="house"
-            width="170vw"
-            height="150vh"
-            src="https://www.pinclipart.com/picdir/big/405-4059078_png-file-svg-transparent-white-home-button-clipart.png"
-            alt="home-button"
-          />
-        </Link>
 
         <h1 className="findButton">
           Find your perfect <br></br> Hotel right now!
