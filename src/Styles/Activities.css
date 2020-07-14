@@ -7,7 +7,7 @@
   position: relative;
 }
 .eachActv {
-  background-color: rgb(241, 223, 226);
+  background-color: rgb(216, 203, 179);
 }
 .activityBack h1 {
   font-size: 60px;
@@ -18,13 +18,4 @@
 }
 .linkName {
   color: purple;
-}
-@media only screen and (max-width: 600px) {
-  .blocks {
-    display: flex;
-    flex-direction: column;
-  }
-  .activityBack h1 {
-    font-size: 40px;
-  }
 }
