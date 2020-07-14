@@ -8,11 +8,12 @@
   height: 100vh;
 }
  .nav {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+  background-image: linear-gradient(rgb(105, 103, 80), rgb(233, 213, 228));
 }
 .nav > * {
   padding: 10px;
@@ -25,3 +26,14 @@
   left: 0;
   max-height: 10vh;
 } 
+.home-nav {
+  display: flex;
+  background-color: transparent;
+}
+.home-nav:nth-child(1) {
+  align-self: flex-start;
+}
+.back-img {
+  margin: 5px;
+  width: 50px;
+}

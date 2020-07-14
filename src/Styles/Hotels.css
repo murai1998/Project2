@@ -1,22 +1,9 @@
 .hotelBack {
   background-image: url("../Images/hotel2.jpg");
-  background-position: 0 0;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-}
-.notes3 {
-  background-image: url("../Images/stickyNote.png");
-  background-position: 0 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 270px;
-  height: 220px;
-  padding: 200px 40px 0 10px;
-}
-.house {
-  margin: 50px 0 0 20px;
 }
 .findButton {
   display: block;
@@ -30,14 +17,14 @@
   margin: 14vh 0 8vh;
 }
 .allLists {
-  display: flex;
-  justify-content: space-around;
   border-radius: 20px;
   background-color: rgb(202, 161, 192);
+  text-align: center;
   padding: 30px;
 }
-table td {
-  width: 120px;
+
+.hotel-table td {
+  width: fit-content;
 }
 .form label {
   font-size: 30px;
@@ -99,22 +86,12 @@ table td {
 }
 
 @media only screen and (max-width: 600px) {
-  .hotelBack {
-    height: 100vh;
-  }
-  .notes3 {
-    width: 120px;
-    height: 120px;
-  }
-  .house {
-    margin: 180px 70px 0;
-  }
   .findButton {
     font-size: 50px;
     margin: 14vh 0 8vh;
   }
-  table td {
-    width: 15px;
+  .hotel-table td {
+    width: fit-content;
     text-align: center;
     font-size: 15px;
   }
@@ -138,6 +115,7 @@ table td {
   .hotel-table {
     font-size: 16px;
     text-align: center;
+    min-width: 100%;
   }
   .table-data input {
     width: 10px;
@@ -156,15 +134,10 @@ table td {
     margin: 5px;
   }
   .allLists {
-    padding: 25px 5px;
-    margin: 0;
-    display: flex;
+    padding: 15px;
   }
   .id {
     width: 5px;
-  }
-  .hotel-table {
-    min-width: 100%;
   }
   .findButton {
     font-size: 36px;
