@@ -15,7 +15,6 @@ class HomePage extends Component {
     return (
       <div>
         <div className="nav">
-          <Link to={`/home/${this.state.country}/${this.state.city}`}>Home</Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights

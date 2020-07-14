@@ -215,11 +215,6 @@ class Hotels extends Component {
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
-
-          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
-            Hotels
-          </Link>
-
           <Link
             to={`/home/${this.state.country}/${this.state.city}/activities`}
           >
