@@ -185,6 +185,7 @@ class Flights extends Component {
   };
 
   render() {
+    {console.log(this.props)}
     return (
       <div className="full-container">
         <div className="nav">
