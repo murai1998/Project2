@@ -67,7 +67,7 @@ class Activities extends Component {
 
     /*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
 
-    this.props.setItinerary("activities", clickedBusiness, e.target.id);
+    this.props.setItinerary("activities", clickedBusiness);
 
     /*if(!this.props.itinerary.activities.includes(clickedBusiness))
 			this.props.setItinerary('activities', clickedBusiness)
@@ -124,11 +124,7 @@ class Activities extends Component {
             </span>
             <br />
             <span>
-              <input
-                onChange={this.handleChange}
-                type="checkbox"
-                id={business.id}
-              />
+              <input onChange={this.handleChange} checked = { this.props.itinerary.activities.find(a => a.id === business.id)} type="checkbox" id={business.id} />
             </span>
           </div>
         );

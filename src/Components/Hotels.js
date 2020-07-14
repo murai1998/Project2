@@ -70,7 +70,6 @@ class Hotels extends Component {
       }
     })
       .then(response => {
-        console.log(response.data);
         this.setState({
           loading: true
         });
@@ -107,8 +106,6 @@ class Hotels extends Component {
                 loading: false
               });
 
-              console.log(this.state.hotels);
-
               this.showHotels();
             })
             .catch(error2 => {
@@ -132,7 +129,6 @@ class Hotels extends Component {
       let price = "*";
       if (hotel.ratePlan !== undefined) {
         price = hotel.ratePlan.price.exactCurrent;
-        console.log(price);
       }
       return (
         <tr key={i}>

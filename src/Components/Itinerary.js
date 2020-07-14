@@ -79,7 +79,6 @@ class Itinerary extends Component {
   render() {
     return (
       <div className="full-container-itin">
-        {console.log(this.props.itinerary)}
         <div className="drop">
           <h2>Cart</h2>
           <button onClick={this.toggleList}>▼</button>
