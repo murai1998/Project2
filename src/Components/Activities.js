@@ -239,15 +239,15 @@ class Activities extends Component {
           style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}
         >
           <h1 style={{ margin: "auto" }}>Restaurants</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div className="blocks" style={{ display: "flex", justifyContent:'center', margin: "auto", flexWrap:'wrap' }}>
             {this.displayBussinesses(this.state.currentYelpRestaurants.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Shopping</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div className="blocks" style={{ display: "flex", margin: "auto", flexWrap:'wrap', justifyContent:'center' }}>
             {this.displayBussinesses(this.state.currentYelpShopping.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Things To Do</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div className="blocks" style={{ display: "flex", margin: "auto", flexWrap:'wrap' , justifyContent:'center'}}>
             {this.displayBussinesses(this.state.currentYelpMisc.data)}
           </div>
         </div>
