@@ -1,7 +1,9 @@
-.hotelBackg {
+/* .hotelBackg {
   background-image: url("../Images/landingback.jpg");
   background-position: 0 0;
   background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
   background-repeat: repeat;
   padding-top: 50px;
   position: relative;
@@ -20,28 +22,53 @@
 .room h1 {
   font-size: 60px;
   font-family: "Concert One", cursive;
-  line-height: 0.3em;
+  line-height: 1em;
   text-align: center;
+  margin: auto;
+  padding: auto;
   font-weight: 900;
+} */
+
+.hotelBackg {
+  background-image: url("../Images/landingback.jpg");
+  background-position: 0 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-@media only screen and (max-width: 600px) {
-  .hotelBackg {
-    width: 100%;
-    height: 100%;
-  }
+
+.room h1 {
+  line-height: 1.2em;
+  padding: 10px;
+  font-size: 8vw;
+  font-family: "Concert One", cursive;
+  text-align: center;
+}
+
+.imagesRoom {
+  border-radius: 10vw;
+  width: 90%;
+  text-align: center;
+  padding: 5%;
+}
+
+@media only screen and (min-width: 1200px) {
   .room h1 {
-    line-height: 0.1em;
-    padding: 10px;
-    font-size: 30px;
-  }
-  .header2 {
-    margin: 70px auto 0;
-    display: flex;
-    flex-direction: column;
+    line-height: 1.2em;
+    padding: 2vw 5vw;
+    font-size: 4vw;
+    font-family: "Concert One", cursive;
+    text-align: center;
   }
   .imagesRoom {
-    margin: 0;
-    width: 90%;
+    width: 60%;
     text-align: center;
+    padding: 3% 20%;
   }
 }

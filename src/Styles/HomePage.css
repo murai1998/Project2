@@ -12,11 +12,20 @@
   justify-content: center;
 }
 .nav {
+  left: 0;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: lightskyblue;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+}
+
+.nav > * {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 700;
 }
 
 .weather-map {
@@ -36,13 +45,72 @@
   max-height: 50%;
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 700px) {
+  .home1 {
+    background-image: url("../Images/homeBack2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: center;
+  }
+
+  .nav > * {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 5%;
+    background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+  }
+
+  .weather-map {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+  }
+  .map {
+    width: 100%;
+    border: 5px solid lightblue;
+    max-height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .weather-wrapper {
+    position: absolute;
+    left: 1px;
+    top: 5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   .home1 {
     background-image: url("../Images/homeBack2.jpg");
     background-position: 0 0;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    width: 100%;
+    height: 120vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,25 +118,10 @@
     align-content: center;
   }
 
-  .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 5%;
-    background-color: lightskyblue;
-  }
-
-  .weather-map {
-    margin: auto;
-    align-self: center;
-    width: 100%;
-  }
-  .map {
-    width: 100%;
-    border: 5px solid lightskyblue;
-    max-height: 60%;
-    margin-left: auto;
-    margin-right: auto;
+  .weather-wrapper {
+    position: absolute;
+    left: 1px;
+    top: 5px;
+    border-radius: 0;
   }
 }

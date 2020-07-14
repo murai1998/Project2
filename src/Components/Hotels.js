@@ -6,7 +6,6 @@ import "../Styles/Hotels.css";
 import SyncLoader from "react-spinners/SyncLoader";
 import Itinerary from "./Itinerary";
 
-
 class Hotels extends Component {
   state = {
     country: this.props.match.params.country,
@@ -154,12 +153,12 @@ class Hotels extends Component {
             />
           </td>
           <Link
+            className="linkHotel"
             to={`/${hotel.name}/${this.state.country}/${this.state.city}/${hotel.id}`}
             target="_blank"
           >
-            <td className="table-data pics">Views</td>
+            <td className="tableName">{hotel.name}</td>
           </Link>
-          <td className="tableName">{hotel.name}</td>
           <td className="table-data">
             <strong>${price}</strong>
           </td>
@@ -210,7 +209,7 @@ class Hotels extends Component {
   render() {
     return (
       <div className="hotelBack">
-      <Itinerary itinerary={this.props.itinerary}/>
+        <Itinerary itinerary={this.props.itinerary} />
         <Link
           className="notes3"
           to={`/home/${this.state.country}/${this.state.city}`}
@@ -237,7 +236,7 @@ class Hotels extends Component {
                 onChange={this.handleChange}
                 type="text"
                 name="checkIn"
-                placeholder="___YYYY-MM-DD___"
+                placeholder="YYYY-MM-DD"
               />
               <br />
               <label>Check out</label>
@@ -246,7 +245,7 @@ class Hotels extends Component {
                 onChange={this.handleChange}
                 type="text"
                 name="checkOut"
-                placeholder="___YYYY-MM-DD___"
+                placeholder="YYYY-MM-DD"
               />
               <br />
               <br />
@@ -274,7 +273,6 @@ class Hotels extends Component {
                 <thead>
                   <tr>
                     <th>Add</th>
-                    <th className="id">ID</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Star Rating</th>

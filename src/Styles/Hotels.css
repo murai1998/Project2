@@ -31,14 +31,12 @@
 .allLists {
   display: flex;
   justify-content: space-around;
-
   border-radius: 20px;
   background-color: rgb(202, 161, 192);
   padding: 30px;
 }
 table td {
   width: 120px;
-  border: 1px solid black;
 }
 .form label {
   font-size: 30px;
@@ -52,28 +50,26 @@ table td {
   padding: 5px 5px;
   text-align: center;
   font-weight: 900;
+  align-items: center;
 }
 .hotel-table {
   text-align: center;
   font-size: 25px;
   margin: 5px 0 0 5px;
-  border: 1px solid black;
 }
 .table-data {
   width: 120px;
-  border: 1px solid black;
 }
 .submit {
   font-weight: 700;
-  margin: auto 100px;
+  text-align: center;
+  margin: 0 94px;
 }
 .tableName {
   width: 600px;
-  border: 1px solid black;
 }
 .tableAddress {
   width: 280px;
-  border: 1px solid black;
 }
 .buttonHotel {
   font-size: 30px;
@@ -113,36 +109,39 @@ table td {
     margin: 180px 70px 0;
   }
   .findButton {
-    font-size: 40px;
+    font-size: 50px;
   }
   table td {
     width: 15px;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
   }
   .table-data {
     width: 30px;
     text-align: center;
-    font-size: 10px;
+    font-size: 18px;
+    border: none;
   }
   .tableAddress {
-    width: 10px;
+    width: 14px;
     text-align: center;
+    border: none;
   }
   .tableName {
-    width: 10px;
+    width: 12px;
     text-align: center;
+    border: none;
+    width: fit-content;
   }
   .hotel-table {
-    font-size: 12px;
+    font-size: 16px;
     text-align: center;
   }
   .table-data input {
     width: 10px;
   }
   .buttonHotel {
-    font-size: 12px;
-
+    font-size: 18px;
     padding: 5px;
   }
   .buttons2 {
@@ -151,11 +150,11 @@ table td {
     align-items: center;
   }
   .price {
-    font-size: 10px;
+    font-size: 16px;
     margin: 5px;
   }
   .allLists {
-    padding: 0;
+    padding: 25px 5px;
     margin: 0;
     display: flex;
   }
@@ -164,5 +163,11 @@ table td {
   }
   .hotel-table {
     min-width: 100%;
+  }
+  .findButton {
+    font-size: 36px;
+  }
+  .linkHotel {
+    width: fit-content;
   }
 }
