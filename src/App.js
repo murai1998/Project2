@@ -54,22 +54,14 @@ class App extends Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-=======
-        {/* <Itinerary itinerary={this.state.itinerary}/> */}
->>>>>>> 02300da5e658afe90c7bde5747ab72a1a7fa402c
         <Switch>
           <Route exact path="/" render={props => <LandingPage {...props} />} />
           <Route
             exact
             path="/home/:country/:city"
-<<<<<<< HEAD
             render={props => <HomePage 
                 {...props} 
                 itinerary={this.state.itinerary}
-=======
-            render={props => <HomePage {...props} itinerary={this.state.itinerary}
->>>>>>> 02300da5e658afe90c7bde5747ab72a1a7fa402c
                 setItinerary={this.setItinerary} />}
           />
           <Route

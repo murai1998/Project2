@@ -8,8 +8,10 @@ const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
 const mapStyles = {
   border: "5px solid lightblue",
-  width: "40%",
-  height: "1px",
+  width: "90%",
+  height: "90%",
+  margin: "auto",
+  "background-color":"lightblue"
 };
 
 class MapContainer extends Component {
@@ -80,9 +82,9 @@ class MapContainer extends Component {
           <SyncLoader color={"lightblue"} />
         ) : (
           <Map
-            className="map"
             google={this.props.google}
             zoom={14}
+            style={mapStyles}
             initialCenter={{
               lat: this.state.lat,
               lng: this.state.long
