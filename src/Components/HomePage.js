@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Weather from "./Weather";
 import MapContainer from "./MapContainer";
-import Itinerary from "./Itinerary";
 import "../Styles/HomePage.css";
-
+import Itinerary from "./Itinerary"
 
 class HomePage extends Component {
   state = {
@@ -14,38 +13,30 @@ class HomePage extends Component {
 
   render() {
     return (
-        <div className="home-container">
-          <div className="nav">
-            <Link to="/">
-              Home
-            </Link>
-            
-            <Link
-              to={`/home/${this.state.country}/${this.state.city}/flights`}
-            >
-              Flights
-            </Link>
-          
-            <Link
-              to={`/home/${this.state.country}/${this.state.city}/hotels`}
-            >
-              Hotels
-            </Link>
-          
-            <Link
-              to={`/home/${this.state.country}/${this.state.city}/activities`}
-            >
-              Activities
-            </Link>
+      <div>
+        <div className="nav">
+          <Link to="/">Home</Link>
 
-            <Itinerary itinerary={this.props.itinerary}/>
+          <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
 
-          </div>
-          <div className="home1">
-              <Weather city={this.state.city} country={this.state.country} />
-              <MapContainer country={this.state.country} city={this.state.city} />
-          </div>
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
         </div>
+        <Itinerary itinerary={this.props.itinerary} />
+        <div className="home1">
+            <Weather city={this.state.city} country={this.state.country} />
+            <MapContainer country={this.state.country} city={this.state.city} />
+        </div>
+      </div>
     );
   }
 }

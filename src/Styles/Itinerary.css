@@ -1,34 +1,84 @@
 .full-container-itin {
-  background-color: rgb(250, 240, 240);
+  top: 1;
+  right: 0;
+  position: absolute;
   z-index: 1;
+  color: white;
+  margin-right: 20px;
 }
 .mainTable {
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  background-color: rgb(205, 219, 228);
+  width: 100%;
+  color: black;
+  border-radius: 20px;
 }
 .smallTable {
   border-bottom: black;
+  border-collapse: collapse;
+  border-radius: 5px;
+  width: fit-content;
 }
+
+.smallTable > * {
+  border-collapse: collapse;
+  border-radius: 20px;
+}
+
+.smallTable > * > * {
+  padding: 3px;
+}
+
 .full-container-itin h2 {
-  top:0;
-  font-size: 20px;
-  font-family: "Concert One", cursive;
-  letter-spacing: 3.5px;
+  top: 0;
+  font-size: 1.5em;
+  font-weight: 700;
 }
 .drop {
   display: flex;
+  justify-content: flex-end;
   padding: 0 5px;
 }
+
 .drop button {
   width: 40px;
   margin: 10px;
+  border-radius: 20px;
+  outline: none;
+  height: 40px;
 }
 .mainTable th {
   font-size: 18px;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (min-width: 700px) {
   .full-container-itin {
-    left: 30%;
-    top: 5%;
+    position: relative;
+    right:0;
   }
-}
+
+  .mainTable {
+    border-bottom: 1px solid black;
+    width:100%;
+    background-color: rgb(205, 219, 228);
+
+  }
+  .smallTable {
+    border-bottom: black;
+  }
+  .full-container-itin h2 {
+    top:0;
+    font-size: 20px;
+  }
+  .drop {
+    display: flex;
+    padding: 0 5px;
+  }
+  .drop button {
+    width: 40px;
+    margin: 10px;
+  }
+  .mainTable th {
+    font-size: 18px;
+  }
+} */

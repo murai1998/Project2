@@ -1,2 +1,27 @@
-
-
+.home1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../Images/homeBack2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+ .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+}
+.nav > * {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 700;
+} 
+.map {
+  left: 0;
+  max-height: 10vh;
+} 
