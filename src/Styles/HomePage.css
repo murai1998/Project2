@@ -8,6 +8,7 @@
   height: 100vh;
 }
  .nav {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

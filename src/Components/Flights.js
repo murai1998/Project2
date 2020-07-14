@@ -185,11 +185,10 @@ class Flights extends Component {
   };
 
   render() {
-    {console.log(this.props)}
     return (
-      <div className="full-container">
+      <div>
         <div className="nav">
-          <Link to="/">Home</Link>
+          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>Home</Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
@@ -207,59 +206,61 @@ class Flights extends Component {
         </div>
         <Itinerary itinerary={this.props.itinerary} />
 
-        <h1 className="title">Fligths</h1>
-        <h3>Where/when will you depart?</h3>
-        <form className="flights-form" onSubmit={this.getFlightInfo}>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="fromAirport"
-            placeholder="e.g. LAX"
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="departDate"
-            placeholder="YYYY-MM-DD"
-          />
-          <button type="submit" name="submit">
-            <img
-              className="mag-img"
-              alt="search"
-              src={require("../Images/magnifier_search_searching_zoom-512.png")}
-            ></img>
-          </button>
-        </form>
-        {this.state.showSrtBtns ? (
-          <div>
-            <button className="sort-btn" onClick={this.sortPrice}>
-              Sort by Price
+        <div className="body-container">
+          <h1 className="title">Fligths</h1>
+          <h3>Where/when will you depart?</h3>
+          <form className="flights-form" onSubmit={this.getFlightInfo}>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="fromAirport"
+              placeholder="e.g. LAX"
+            />
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="departDate"
+              placeholder="YYYY-MM-DD"
+            />
+            <button type="submit" name="submit">
+              <img
+                className="mag-img"
+                alt="search"
+                src={require("../Images/magnifier_search_searching_zoom-512.png")}
+              ></img>
             </button>
-            <button className="sort-btn" onClick={this.sortAirline}>
-              Sort by Airline
-            </button>
-            <button className="sort-btn" onClick={this.sortDate}>
-              Sort by Date
-            </button>
-          </div>
-        ) : null}
-        {this.state.showTable ? (
-          <div className="table-wrapper">
-            <table className="flight-table">
-              <thead>
-                <tr>
-                  <th>Airline</th>
-                  <th>Price</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Direct</th>
-                  <th>Add</th>
-                </tr>
-              </thead>
-              <tbody>{this.printFlights()}</tbody>
-            </table>
-          </div>
-        ) : null}
+          </form>
+          {this.state.showSrtBtns ? (
+            <div>
+              <button className="sort-btn" onClick={this.sortPrice}>
+                Sort by Price
+              </button>
+              <button className="sort-btn" onClick={this.sortAirline}>
+                Sort by Airline
+              </button>
+              <button className="sort-btn" onClick={this.sortDate}>
+                Sort by Date
+              </button>
+            </div>
+          ) : null}
+          {this.state.showTable ? (
+            <div className="table-wrapper">
+              <table className="flight-table">
+                <thead>
+                  <tr>
+                    <th>Airline</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Direct</th>
+                    <th>Add</th>
+                  </tr>
+                </thead>
+                <tbody>{this.printFlights()}</tbody>
+              </table>
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }
