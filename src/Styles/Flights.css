@@ -1,3 +1,13 @@
+.full-container-itin {
+  top: 1;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  margin-right: 20px;
+  margin-top: 8vh;
+}
+
 .full-container {
   background-image: url("../Images/backForFlights.jpg");
   background-size: cover;
@@ -10,15 +20,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.notes4 {
-  background-image: url("../Images/stickyNote.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 70px 15px 20px 15px;
-  position: relative;
-  left: -40%;
 }
 
 .full-container h3 {
@@ -127,7 +128,9 @@
 .flight-table tr:nth-child(even) {
   background: #f8f8f8;
 }
-
+.nav {
+  width: 100%;
+}
 @media only screen and (max-width: 600px) {
   .notes4 {
     margin-top: 100px;

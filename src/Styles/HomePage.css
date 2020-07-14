@@ -17,7 +17,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-start;
-  background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+  background-image: linear-gradient(rgb(105, 103, 80), rgb(233, 213, 228));
 }
 
 .nav > * {
@@ -68,12 +68,11 @@
   }
 
   .nav {
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     height: 5%;
-    background-image: linear-gradient(lightskyblue, rgb(37, 39, 150));
+    background-image: linear-gradient(rgb(105, 103, 80), rgb(233, 213, 228));
   }
 
   .weather-map {

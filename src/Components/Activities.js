@@ -4,7 +4,6 @@ import axios from "axios";
 import "../Styles/Activities.css";
 import Itinerary from "./Itinerary";
 
-
 const emptyStar = "☆";
 const fullStar = "★";
 const yelpApiKey = process.env.REACT_APP_YELP_KEY;
@@ -217,19 +216,25 @@ class Activities extends Component {
   render() {
     return (
       <div className="activityBack">
-      <Itinerary itinerary={this.props.itinerary}/>
-        <Link
-          className="notes3"
-          to={`/home/${this.state.country}/${this.state.city}`}
-        >
-          <img
-            className="house"
-            width="170vw"
-            height="150vh"
-            src="https://www.pinclipart.com/picdir/big/405-4059078_png-file-svg-transparent-white-home-button-clipart.png"
-            alt="home-button"
-          />
-        </Link>
+        <div className="nav">
+          <Link to="/">Home</Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+        </div>
+        <Itinerary itinerary={this.props.itinerary} />
+
         <div
           style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}
         >

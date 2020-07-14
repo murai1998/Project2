@@ -4,7 +4,6 @@ import "../Styles/Flights.css";
 import { Link } from "react-router-dom";
 import Itinerary from "./Itinerary";
 
-
 class Flights extends Component {
   state = {
     destCountry: this.props.match.params.country,
@@ -188,23 +187,25 @@ class Flights extends Component {
   render() {
     return (
       <div className="full-container">
-      <Itinerary itinerary={this.props.itinerary}/>
-        <Link
-          className="notes4"
-          to={
-            "/home/" +
-            this.props.match.params.country +
-            "/" +
-            this.props.match.params.city
-          }
-        >
-          <img
-            width="170vw"
-            height="150vh"
-            src="https://www.pinclipart.com/picdir/big/405-4059078_png-file-svg-transparent-white-home-button-clipart.png"
-            alt="home-button"
-          />
-        </Link>
+        <div className="nav">
+          <Link to="/">Home</Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+        </div>
+        <Itinerary itinerary={this.props.itinerary} />
+
         <h1 className="title">Fligths</h1>
         <h3>Where/when will you depart?</h3>
         <form className="flights-form" onSubmit={this.getFlightInfo}>
