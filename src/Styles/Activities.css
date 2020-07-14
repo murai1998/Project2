@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   height: 100%;
   position: relative;
+  overflow-x: hidden;
 }
 .eachActv {
   background-color: rgb(216, 203, 179);
@@ -19,3 +20,12 @@
 .linkName {
   color: purple;
 }
+/* @media only screen and (max-width: 600px) {
+  .blocks {
+    display: flex;
+    flex-direction: column;
+  }
+  .activityBack h1 {
+    font-size: 40px;
+  }
+} */

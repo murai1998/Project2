@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Itinerary from "./Itinerary";
 import { Link } from "react-router-dom";
+import "../Styles/SingleActivity.css";
 
 const emptyStar = "☆";
 const fullStar = "★";
@@ -80,8 +81,7 @@ class SingleActivity extends Component {
   displayPhotos = photoArray => {
     return photoArray?.map(photo => {
       return (
-        <img
-          style={{ width: "33%", height: "33%" }}
+        <img className='activityImages'
           src={photo}
           alt="Business"
         />
@@ -93,18 +93,20 @@ class SingleActivity extends Component {
     return (
       <div>
         <span>{this.displayPhotos(business?.photos)}</span>
-        <h1>{business?.name}</h1>
+        <h1 className='businessName'>{business?.name}</h1>
         <span>
           {business?.rating} Stars {business?.review_count} Reviews
         </span>
         <br />
         <br />
-        <span>
-          <strong>{business?.price}</strong> {this.displayCategories(business)}
+        <span style={{fontSize:'1.5em'}}>
+          <strong>{business?.price} {this.displayCategories(business)}</strong> 
         </span>
         <br />
         <br />
         <span>{business?.display_phone}</span>
+        <br />
+        <br/>
       </div>
     );
   };
@@ -112,10 +114,9 @@ class SingleActivity extends Component {
   displayLocation = business => {
     return (
       <div>
-        <h5>Address:</h5>
-        <span>{business?.location.display_address[0]}</span>
+        <i>{business?.location.display_address[0]}</i>
         <br />
-        <span>{business?.location.display_address[1]}</span>
+        <i>{business?.location.display_address[1]}</i>
       </div>
     );
   };
@@ -163,11 +164,11 @@ class SingleActivity extends Component {
     return this.state.currentYelpSingleActivityReviews.data?.reviews.map(
       review => {
         return (
-          <div style={{ width: "20%", height: "400px", margin: "10px" }}>
+          <div style={{width:'fit-content', height:'fit-content'}}>
             <span>
               Reviewed By: {review.user.name}{" "}
               <img
-                style={{ width: "33%", height: "33%" }}
+                style={{ width: "15vw", height: "15vh" }}
                 src={review.user.image_url}
                 alt="User Profile Pic"
               />
@@ -205,7 +206,7 @@ class SingleActivity extends Component {
 
   render() {
     return (
-      <div>
+      <div id="container">
         <div className="nav">
           <Link to="/">Home</Link>
 
@@ -224,7 +225,7 @@ class SingleActivity extends Component {
           </Link>
         </div>
         <Itinerary itinerary={this.props.itinerary} />
-        <form onSubmit={this.handleSubmit}>
+        {/* <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="Enter Category or Business Name"
@@ -238,24 +239,18 @@ class SingleActivity extends Component {
             onChange={this.handleSearch}
           />
           <input type="submit" />
-        </form>
-        <div>
+        </form> */}
+        <div className='businessDisplay'>
           {this.displayBusiness(this.state.currentYelpSingleActivity.data)}
-        </div>
+        
         {this.displayLocation(this.state.currentYelpSingleActivity.data)}
         <br />
         <br />
         {this.displayHours(this.state.currentYelpSingleActivity.data)}
         <br />
         <br />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            alignContent: "center",
-            justifyContent: "center"
-          }}
-        >
+        </div>
+        <div className='reviewsDisplay'>
           {this.displayReviews()}
         </div>
       </div>

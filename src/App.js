@@ -20,21 +20,22 @@ class App extends Component {
 
   setItinerary = (component, thing) => {
     let itineraryCopy = { ...this.state.itinerary };
-    console.log(itineraryCopy);
+    console.log(thing.id);
 
     if (component === "activities") {
-      if (!itineraryCopy.activities.includes(thing))
+      if (!itineraryCopy.activities.some(item => item.id === thing.id))
         itineraryCopy.activities.push(thing);
       else {
+        let item = itineraryCopy.activities.find(item => item.id === thing.id);
+        console.log(itineraryCopy.activities.indexOf(item));
         itineraryCopy.activities.splice(
-          itineraryCopy.activities.indexOf(thing),
+          itineraryCopy.activities.indexOf(item),
           1
         );
       }
     }
-
     if (component === "flights") {
-      if (!itineraryCopy.flights.includes(thing))
+      if (!itineraryCopy.flights.some(item => item.id === thing.id))
         itineraryCopy.flights.push(thing);
       else {
         itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(thing), 1);
@@ -47,7 +48,6 @@ class App extends Component {
         itineraryCopy.hotels.splice(itineraryCopy.hotels.indexOf(thing), 1);
       }
     }
-
     this.setState({
       itinerary: itineraryCopy
     });
@@ -107,12 +107,24 @@ class App extends Component {
           <Route
             exact
             path="/:name/:country/:city/:hotelId"
-            render={props => <SingleHotel {...props} />}
+            render={props => (
+              <SingleHotel
+                {...props}
+                itinerary={this.state.itinerary}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
           <Route
             exact
             path="/:name/:country/:city/activities/:businessId"
-            render={props => <SingleActivity {...props} />}
+            render={props => (
+              <SingleActivity
+                {...props}
+                itinerary={this.state.itinerary}
+                setItinerary={this.setItinerary}
+              />
+            )}
           />
         </Switch>
       </div>

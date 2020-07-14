@@ -21,7 +21,7 @@ class Activities extends Component {
     currentYelpRestaurants: {},
     currentYelpShopping: {},
     currentYelpMisc: {},
-    itin: []
+    itin: this.props.setItinerary
   };
 
   fillRate = rating => {
@@ -53,7 +53,6 @@ class Activities extends Component {
   };
 
   handleChange = e => {
-    /*let itinCopy = [...this.state.itin]*/
     let clickedBusiness =
       this.state.currentYelpRestaurants.data.businesses.find(
         business => business.id === e.target.id
@@ -217,7 +216,9 @@ class Activities extends Component {
     return (
       <div className="activityBack">
         <div className="nav">
-          <Link to="/">Home</Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
+          </Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
@@ -226,12 +227,6 @@ class Activities extends Component {
           <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
             Hotels
           </Link>
-
-          <Link
-            to={`/home/${this.state.country}/${this.state.city}/activities`}
-          >
-            Activities
-          </Link>
         </div>
         <Itinerary itinerary={this.props.itinerary} />
 
@@ -239,15 +234,39 @@ class Activities extends Component {
           style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}
         >
           <h1 style={{ margin: "auto" }}>Restaurants</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div
+            className="blocks"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+              flexWrap: "wrap"
+            }}
+          >
             {this.displayBussinesses(this.state.currentYelpRestaurants.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Shopping</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div
+            className="blocks"
+            style={{
+              display: "flex",
+              margin: "auto",
+              flexWrap: "wrap",
+              justifyContent: "center"
+            }}
+          >
             {this.displayBussinesses(this.state.currentYelpShopping.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Things To Do</h1>
-          <div className="blocks" style={{ display: "flex", margin: "auto" }}>
+          <div
+            className="blocks"
+            style={{
+              display: "flex",
+              margin: "auto",
+              flexWrap: "wrap",
+              justifyContent: "center"
+            }}
+          >
             {this.displayBussinesses(this.state.currentYelpMisc.data)}
           </div>
         </div>

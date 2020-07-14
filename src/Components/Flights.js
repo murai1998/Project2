@@ -188,18 +188,18 @@ class Flights extends Component {
     return (
       <div className="full-container">
         <div className="nav">
-          <Link to="/">Home</Link>
-
-          <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
-            Flights
+          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
+            Home
           </Link>
 
-          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+          <Link
+            to={`/home/${this.state.destCountry}/${this.state.destCity}/hotels`}
+          >
             Hotels
           </Link>
 
           <Link
-            to={`/home/${this.state.country}/${this.state.city}/activities`}
+            to={`/home/${this.state.destCountry}/${this.state.destCity}/activities`}
           >
             Activities
           </Link>

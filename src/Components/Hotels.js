@@ -210,16 +210,11 @@ class Hotels extends Component {
     return (
       <div className="hotelBack">
         <div className="nav">
-          <Link to="/">Home</Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>Home</Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
-
-          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
-            Hotels
-          </Link>
-
           <Link
             to={`/home/${this.state.country}/${this.state.city}/activities`}
           >

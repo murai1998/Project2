@@ -1,44 +1,20 @@
 .weather-wrapper {
-  background-color: rgb(165, 210, 244);
   width: fit-content;
   height: fit-content;
+  border: 5px outset #1C6EA4;
   border-radius: 20px;
-  margin: 45px 0 0 0;
   box-shadow: 10px 10px 17px -4px rgba(0, 0, 0, 0.75);
-  padding: 10px 35px;
-}
-
-.split-sections {
-  display: flex;
-}
-
-.weather-imgs {
-  width: 100px;
+  padding: 5px 25px;
+  margin: 8vh 2vw;
+  text-align: center;
 }
 
 .weather-info p {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .weather-title {
   font-size: 42px;
-}
-
-
-@media only screen and (max-width: 700px) {
-
-  .split-sections {
-    display: flex;
-    flex-direction: column;
-  }
-  .weather-title {
-    margin: 0;
-  }
-  .weather-wrapper {
-    padding: 15px;
-    text-align: center;
-    margin: 95px 15px 60px;
-  }
 }
 
 

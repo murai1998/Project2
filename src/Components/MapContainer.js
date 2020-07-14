@@ -7,7 +7,9 @@ import "../Styles/HomePage.css";
 const GOOGLE_KEY = process.env.REACT_APP_GOOGLE_KEY;
 
 const mapStyles = {
-  border: "5px solid lightblue"
+  border: "5px solid lightblue",
+  height: "40vh",
+  maxWidth: "100vw"
 };
 
 class MapContainer extends Component {
@@ -82,6 +84,7 @@ class MapContainer extends Component {
             className="map"
             google={this.props.google}
             zoom={14}
+            style={mapStyles}
             initialCenter={{
               lat: this.state.lat,
               lng: this.state.long
