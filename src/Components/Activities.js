@@ -217,7 +217,7 @@ class Activities extends Component {
     return (
       <div className="activityBack">
         <div className="nav">
-          <Link to="/">Home</Link>
+        <Link to={`/home/${this.state.country}/${this.state.city}`}>Home</Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
@@ -225,12 +225,6 @@ class Activities extends Component {
 
           <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
             Hotels
-          </Link>
-
-          <Link
-            to={`/home/${this.state.country}/${this.state.city}/activities`}
-          >
-            Activities
           </Link>
         </div>
         <Itinerary itinerary={this.props.itinerary} />

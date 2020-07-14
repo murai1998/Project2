@@ -107,12 +107,16 @@ class App extends Component {
           <Route
             exact
             path="/:name/:country/:city/:hotelId"
-            render={props => <SingleHotel {...props} />}
+            render={props => <SingleHotel {...props} 
+            itinerary={this.state.itinerary}
+            setItinerary={this.setItinerary} />}
           />
           <Route
             exact
             path="/:name/:country/:city/activities/:businessId"
-            render={props => <SingleActivity {...props} />}
+            render={props => <SingleActivity {...props} 
+            itinerary={this.state.itinerary}
+            setItinerary={this.setItinerary} />}
           />
         </Switch>
       </div>
