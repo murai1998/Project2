@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
 import SyncLoader from "react-spinners/SyncLoader";
 import Itinerary from "./Itinerary";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class Hotels extends Component {
   state = {
@@ -14,17 +16,64 @@ class Hotels extends Component {
     showForm: true,
     loading: false,
     showList: false,
-    checkIn: "",
-    checkOut: "",
+    checkIn: new Date(),
+    checkOut: new Date(),
     checkBox: []
   };
-  handleChange = e => {
-    e.preventDefault();
+
+  formatDate = date => {
+  let returnDate = ''
+  date=date.toString()
+  
+  returnDate += date.slice(11,15) + '-'
+
+  let month = date.slice(4,7)
+
+  if (month== 'Jan')
+    returnDate += '01-'
+  if (month== 'Feb')
+    returnDate += '02-'
+  if (month== 'Mar')
+    returnDate += '03-'  
+  if (month== 'Apr')
+    returnDate += '04-'  
+  if (month== 'May')
+    returnDate += '05-'  
+  if (month== 'Jun')
+    returnDate += '06-'  
+  if (month== 'Jul')
+    returnDate += '07-'  
+  if (month== 'Aug')
+    returnDate += '08-'  
+  if (month== 'Sep')
+    returnDate += '09-'  
+  if (month== 'Oct')
+    returnDate += '10-'  
+  if (month== 'Nov')
+    returnDate += '11-'  
+  if (month== 'Dec')
+    returnDate += '12-'   
+    
+  returnDate+=date.slice(8,10)  
+
+  return returnDate
+}
+
+  handleCheckIn= (date) => {
     this.setState({
-      [e.target.name]: e.target.value
+      checkIn: date
     });
+  }
+
+
+  handleCheckOut= (date) => {
+    this.setState({
+      checkOut: date
+    });
+  }
+
     //console.log(this.state.checkIn);
-  };
+ 
   /*addHotel = e => {
     e.preventDefault();
     console.log(e.target.value);
@@ -54,7 +103,9 @@ class Hotels extends Component {
     window.location.reload(false);
   };
   getInfo = e => {
+
     e.preventDefault();
+
     axios({
       method: "GET",
       url: "https://hotels4.p.rapidapi.com/locations/search",
@@ -90,8 +141,8 @@ class Hotels extends Component {
               destinationId:
                 response.data.suggestions[0].entities[0].destinationId,
               pageNumber: "1",
-              checkIn: this.state.checkIn,
-              checkOut: this.state.checkOut,
+              checkIn: this.formatDate(this.state.checkIn),
+              checkOut: this.formatDate(this.state.checkOut),
               pageSize: "50",
               adults1: "1"
             }
@@ -101,7 +152,7 @@ class Hotels extends Component {
               this.setState({
                 hotels: response2.data.data.body.searchResults.results,
                 showList: true,
-                showForm: false,
+                showForm: true,
                 loading: false
               });
 
@@ -229,21 +280,23 @@ class Hotels extends Component {
             <form className="form" onSubmit={this.getInfo}>
               <label>Check In</label>
               <br />
-              <input
+              <DatePicker name="checkIn" selected={this.state.checkIn} onSelect={this.handleCheckIn} />
+              {/* <input
                 onChange={this.handleChange}
                 type="text"
                 name="checkIn"
                 placeholder="YYYY-MM-DD"
-              />
+              /> */}
               <br />
               <label>Check out</label>
               <br />
-              <input
+              <DatePicker name="checkOut" selected={this.state.checkOut} onSelect={this.handleCheckOut} />
+              {/* <input
                 onChange={this.handleChange}
                 type="text"
                 name="checkOut"
                 placeholder="YYYY-MM-DD"
-              />
+              /> */}
               <br />
               <br />
               <input className="submit" type="submit" />

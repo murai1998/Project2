@@ -90,7 +90,7 @@ class Activities extends Component {
 
   displayBussinesses = bus => {
     return bus?.businesses.map((business, i) => {
-      if (i < 5) {
+      if (i < 10) {
         return (
           <div
             className="eachActv"
