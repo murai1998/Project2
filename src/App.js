@@ -7,6 +7,7 @@ import Hotels from "./Components/Hotels";
 import Activities from "./Components/Activities";
 import SingleHotel from "./Components/SingleHotel";
 import SingleActivity from "./Components/SingleActivity";
+import AboutUs from "./Components/AboutUs"
 import Itinerary from "./Components/Itinerary";
 
 class App extends Component {
@@ -104,6 +105,13 @@ class App extends Component {
             )}
           />
 
+          <Route
+            exact
+            path="/home/:country/:city/aboutus"
+            render={props => <AboutUs {...props} 
+            itinerary={this.state.itinerary}
+            setItinerary={this.setItinerary} />}
+          />
           <Route
             exact
             path="/:name/:country/:city/:hotelId"

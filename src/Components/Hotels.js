@@ -61,7 +61,7 @@ class Hotels extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+        "x-rapidapi-key": "cc2c4d1a33mshaa2cfae0c609d75p113484jsnd1cd030329a4",
         useQueryString: true
       },
       params: {
@@ -82,7 +82,7 @@ class Hotels extends Component {
               "content-type": "application/octet-stream",
               "x-rapidapi-host": "hotels4.p.rapidapi.com",
               "x-rapidapi-key":
-                "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+                "cc2c4d1a33mshaa2cfae0c609d75p113484jsnd1cd030329a4",
               useQueryString: true
             },
             params: {

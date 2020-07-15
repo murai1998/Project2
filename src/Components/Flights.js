@@ -129,6 +129,8 @@ class Flights extends Component {
     let clickedFlight = this.state.flights.find(f => {
       return f.QuoteId == e.target.id;
     });
+    let carrier = this.determineCarrier(clickedFlight.OutboundLeg.CarrierIds[0])
+    clickedFlight.carrier = carrier
     this.props.setItinerary("flights", clickedFlight);
   };
 

@@ -37,7 +37,7 @@ class Itinerary extends Component {
     return this.props.itinerary.flights.map((flight, i) => {
       return (
         <div>
-          <strong>{i + 1}) </strong>${flight.MinPrice} - name
+          <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
         </div>
       );
     });

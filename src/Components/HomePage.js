@@ -29,6 +29,9 @@ class HomePage extends Component {
           >
             Activities
           </Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}/aboutus`}>
+            About Us
+          </Link>
         </div>
         <div className="home1">
           <div className="home-nav">
