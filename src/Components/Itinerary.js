@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
 import axios from "axios";
+var nodemailer = require("nodemailer");
 
 class Itinerary extends Component {
   state = {
     showList: false,
-    showItem: true
+    showItem: true,
+    receiverEmail: "",
+    feedback: "",
+    formSubmitted: false
   };
   toggleList = e => {
     e.preventDefault();
@@ -87,33 +91,92 @@ class Itinerary extends Component {
   };
 
   //   handleSubmit(event) {
-  //     axios({
-  //       method: "POST",
-  //       url: "http://localhost:3000/send",
-  //       data: {
-  //         name: this.state.name,
-  //         email: this.state.email,
-  //         messageHtml: "text"
-  //       }
-  //     }).then(response => {
-  //       if (response.data.msg === "success") {
-  //         alert("Email sent, awesome!");
-  //         this.resetForm();
-  //       } else if (response.data.msg === "fail") {
-  //         alert("Oops, something went wrong. Try again");
+  //     var transporter = nodemailer.createTransport({
+  //       service: "gmail",
+  //       auth: {
+  //         user: "smilet.report@gmail.com",
+  //         pass: "wjFUIHI14"
   //       }
   //     });
   //     const mailOptions = {
   //       from: "smilet.report@gmail.com", // sender address
   //       to: "annmuray75@gmail.com", // list of receivers
   //       subject: "Subject of your email", // Subject line
-  //       html: "<p>Your html here</p>" // plain text body
+  //       html: "<p>Hanna-banana</p>" // plain text body
   //     };
   //     transporter.sendMail(mailOptions, function(err, info) {
   //       if (err) console.log(err);
   //       else console.log(info);
   //     });
   //   }
+
+  static sender = "sender@example.com";
+
+  handleChange = event => {
+    this.setState({
+      receiverEmail: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    //const receiverEmail = "annmuray75@gmail.com";
+    const template = "template_4plM1jBi";
+    console.log(process.env.REACT_APP_EMAILJS_USERID);
+    this.sendFeedback(
+      template,
+      this.sender,
+      this.state.receiverEmail,
+      //this.state.feedback,
+      process.env.REACT_APP_EMAILJS_USERID
+    );
+
+    this.setState({
+      formSubmitted: true
+    });
+  };
+
+  // Note: this is using default_service, which will map to whatever
+  // default email provider you've set in your EmailJS account.
+  sendFeedback(templateId, senderEmail, receiverEmail, user) {
+    window.emailjs
+      .send(
+        "default_service",
+        templateId,
+        {
+          senderEmail,
+          receiverEmail,
+
+          activityText: this.props.itinerary.activities
+            .map((activity, i) => {
+              return `${i + 1}) ${activity.name}`;
+            })
+            .join("<br />"),
+          hotelText: this.props.itinerary.hotels
+            .map((hotel, i) => {
+              return `${i + 1}) $${hotel.ratePlan.price.exactCurrent} - ${
+                hotel.name
+              }`;
+            })
+            .join("<br />"),
+          flightText: this.props.itinerary.flights
+            .map((flight, i) => {
+              return `${i + 1}) $${flight.MinPrice} - ${flight.carrier}`;
+            })
+            .join("<br />")
+        },
+
+        user
+      )
+      .then(res => {
+        this.setState({
+          formEmailSent: true
+        });
+        console.log(res);
+      })
+      // Handle errors here however you like
+      .catch(err => console.error("Failed to send feedback. Error: ", err));
+  }
 
   render() {
     return (
@@ -138,12 +201,34 @@ class Itinerary extends Component {
                 <td>{this.printFlights()}</td>
               </tbody>
             </table>
+
+            <form onSubmit={this.handleSubmit}>
+              <label>Send it to your email add</label>
+              <input
+                type="email"
+                className="text-input"
+                id="feedback-entry"
+                name="feedback-entry"
+                onChange={this.handleChange}
+                placeholder="email address"
+                required
+                value={this.receiverEmail}
+              />
+              <div className="btn-group">
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn--submit"
+                />
+              </div>
+            </form>
           </div>
         ) : null}
-        {/* {this.handleSubmit()} */}
       </div>
     );
   }
 }
-
+// Itinerary.propTypes = {
+//   env: Itinerary.object.isRequired
+// };
 export default Itinerary;
