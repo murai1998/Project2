@@ -36,10 +36,10 @@ class Itinerary extends Component {
 
       return (
         <div>
-          <strong>{i + 1} </strong> {price} - {hotel.name}
+          <strong>{i + 1}) </strong> ${price} - {hotel.name}
           <button
             onClick={() => {
-              this.delete(hotel, "hotels");
+              this.delete("hotels", hotel);
             }}
           >
             Remove
@@ -52,7 +52,14 @@ class Itinerary extends Component {
     return this.props.itinerary.flights.map((flight, i) => {
       return (
         <div>
-          <strong>{i + 1}) </strong>${flight.MinPrice} - name
+          <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
+          <button
+            onClick={() => {
+              this.delete("flights", flight);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -63,33 +70,50 @@ class Itinerary extends Component {
         <div>
           <strong>{i + 1}) </strong>
           {activity.name}
+          <button
+            onClick={() => {
+              this.delete("activities", activity);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
   };
 
-  handleSubmit = () => {
-    console.log("start");
-    var nodemailer = require("nodemailer");
-    console.log("finish");
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "smilet.report@gmail.com",
-        pass: "wjFUIHI14"
-      }
-    });
-    const mailOptions = {
-      from: "smilet.report@gmail.com", // sender address
-      to: "annmuray75@gmail.com", // list of receivers
-      subject: "Subject of your email", // Subject line
-      html: "<p>Your html here</p>" // plain text body
-    };
-    transporter.sendMail(mailOptions, function(err, info) {
-      if (err) console.log(err);
-      else console.log(info);
-    });
+  delete = (name, item) => {
+    this.props.setItinerary(name, item);
   };
+
+  //   handleSubmit(event) {
+  //     axios({
+  //       method: "POST",
+  //       url: "http://localhost:3000/send",
+  //       data: {
+  //         name: this.state.name,
+  //         email: this.state.email,
+  //         messageHtml: "text"
+  //       }
+  //     }).then(response => {
+  //       if (response.data.msg === "success") {
+  //         alert("Email sent, awesome!");
+  //         this.resetForm();
+  //       } else if (response.data.msg === "fail") {
+  //         alert("Oops, something went wrong. Try again");
+  //       }
+  //     });
+  //     const mailOptions = {
+  //       from: "smilet.report@gmail.com", // sender address
+  //       to: "annmuray75@gmail.com", // list of receivers
+  //       subject: "Subject of your email", // Subject line
+  //       html: "<p>Your html here</p>" // plain text body
+  //     };
+  //     transporter.sendMail(mailOptions, function(err, info) {
+  //       if (err) console.log(err);
+  //       else console.log(info);
+  //     });
+  //   }
 
   render() {
     return (
@@ -116,7 +140,7 @@ class Itinerary extends Component {
             </table>
           </div>
         ) : null}
-        {this.handleSubmit()}
+        {/* {this.handleSubmit()} */}
       </div>
     );
   }

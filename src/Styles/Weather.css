@@ -1,7 +1,7 @@
 .weather-wrapper {
   width: fit-content;
   height: fit-content;
-  border: 5px outset #1C6EA4;
+  border: 5px outset #1c6ea4;
   border-radius: 20px;
   box-shadow: 10px 10px 17px -4px rgba(0, 0, 0, 0.75);
   padding: 5px 25px;
@@ -11,10 +11,11 @@
 
 .weather-info p {
   font-size: 24px;
+  background-color: rgb(235, 225, 232);
+  width: fit-content;
+  margin: 15px auto;
 }
 
 .weather-title {
   font-size: 42px;
 }
-
-

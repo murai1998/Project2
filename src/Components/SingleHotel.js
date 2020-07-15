@@ -24,7 +24,7 @@ class SingleHotel extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+        "x-rapidapi-key": process.env.REACT_APP_HOTEL_KEY,
         useQueryString: true
       },
       params: {
