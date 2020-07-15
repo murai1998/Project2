@@ -57,9 +57,6 @@
   text-align: center;
   padding: 5%;
 }
-.nav {
-  width: 100%;
-}
 
 @media only screen and (min-width: 1200px) {
   .room h1 {

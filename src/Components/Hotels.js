@@ -10,7 +10,7 @@ class Hotels extends Component {
   state = {
     country: this.props.match.params.country,
     city: this.props.match.params.city,
-    hotels: [],
+    hotels: hotels,
     showForm: true,
     loading: false,
     showList: false,
@@ -70,7 +70,6 @@ class Hotels extends Component {
       }
     })
       .then(response => {
-        console.log(response.data);
         this.setState({
           loading: true
         });
@@ -107,8 +106,6 @@ class Hotels extends Component {
                 loading: false
               });
 
-              console.log(this.state.hotels);
-
               this.showHotels();
             })
             .catch(error2 => {
@@ -132,7 +129,6 @@ class Hotels extends Component {
       let price = "*";
       if (hotel.ratePlan !== undefined) {
         price = hotel.ratePlan.price.exactCurrent;
-        console.log(price);
       }
       return (
         <tr key={i}>
@@ -210,7 +206,9 @@ class Hotels extends Component {
     return (
       <div className="hotelBack">
         <div className="nav">
-          <Link to={`/home/${this.state.country}/${this.state.city}`}>Home</Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
+          </Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
@@ -222,7 +220,10 @@ class Hotels extends Component {
           </Link>
         </div>
 
-        <Itinerary itinerary={this.props.itinerary} />
+        <Itinerary
+          setItinerary={this.props.setItinerary}
+          itinerary={this.props.itinerary}
+        />
 
         <h1 className="findButton">
           Find your perfect <br></br> Hotel right now!

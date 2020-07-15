@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
-
 import axios from "axios";
 
 class Itinerary extends Component {
   state = {
     showList: false,
-    name: "",
-    email: "",
-    message: ""
+    showItem: true
   };
   toggleList = e => {
     e.preventDefault();
@@ -20,15 +17,33 @@ class Itinerary extends Component {
       showList: !this.state.showList
     });
   };
+  delete = (item, name) => {
+    // let index = this.props.itinerary[name].indexOf(item);
+    // this.props.itinerary[name].splice(index, 1);
+    // console.log(this.props.itinerary[name]);
+    // this.setState({
+    //   showItem: false
+    // });
+    this.props.setItinerary("hotels", item);
+    console.log(this.props.setItinerary);
+  };
   printHotels = () => {
     return this.props.itinerary.hotels.map((hotel, i) => {
       let price = "?";
       let rating = "?";
       if (hotel.starRating) rating = hotel.starRating;
       if (hotel.ratePlan) price = hotel.ratePlan.price.exactCurrent;
+
       return (
         <div>
-          <strong>{i + 1}) </strong> ${price} - {hotel.name}
+          <strong>{i + 1} </strong> {price} - {hotel.name}
+          <button
+            onClick={() => {
+              this.delete(hotel, "hotels");
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -53,33 +68,32 @@ class Itinerary extends Component {
     });
   };
 
-  handleSubmit(e) {
-    e.preventDefault();
-    axios({
-      method: "POST",
-      url: "http://localhost:3000/send",
-      data: "texxxtttt"
-    }).then(response => {
-      console.log(response);
-      if (response.data.status === "success") {
-        alert("Message Sent.");
-        this.resetForm();
-      } else if (response.data.status === "fail") {
-        alert("Message failed to send.");
+  handleSubmit = () => {
+    console.log("start");
+    var nodemailer = require("nodemailer");
+    console.log("finish");
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "smilet.report@gmail.com",
+        pass: "wjFUIHI14"
       }
     });
-  }
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-  resetForm() {
-    this.setState({ email: "" });
-  }
+    const mailOptions = {
+      from: "smilet.report@gmail.com", // sender address
+      to: "annmuray75@gmail.com", // list of receivers
+      subject: "Subject of your email", // Subject line
+      html: "<p>Your html here</p>" // plain text body
+    };
+    transporter.sendMail(mailOptions, function(err, info) {
+      if (err) console.log(err);
+      else console.log(info);
+    });
+  };
 
   render() {
     return (
       <div className="full-container-itin">
-        {console.log(this.props.itinerary)}
         <div className="drop">
           <h2>Cart</h2>
           <button onClick={this.toggleList}>▼</button>
@@ -102,27 +116,7 @@ class Itinerary extends Component {
             </table>
           </div>
         ) : null}
-
-        <form
-          id="contact-form"
-          onSubmit={this.handleSubmit.bind(this)}
-          method="POST"
-        >
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-              value={this.state.email}
-              onChange={this.onEmailChange.bind(this)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
+        {this.handleSubmit()}
       </div>
     );
   }

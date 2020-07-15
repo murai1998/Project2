@@ -21,7 +21,7 @@ class Activities extends Component {
     currentYelpRestaurants: {},
     currentYelpShopping: {},
     currentYelpMisc: {},
-    itin: this.props.setItinerary
+    itin: []
   };
 
   fillRate = rating => {

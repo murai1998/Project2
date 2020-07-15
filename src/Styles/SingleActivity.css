@@ -5,7 +5,7 @@
 
 .activityImages{
   width: 33vw;
-  height: 20vh;
+  height: 33vh;
 
 }
 
@@ -39,4 +39,9 @@
     .reviewsDisplay{
         flex-direction: column;
     }
+
+    .activityImages{
+        height: 22vh;
+      
+      }
 }

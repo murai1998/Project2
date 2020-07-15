@@ -30,10 +30,13 @@ class HomePage extends Component {
             Activities
           </Link>
         </div>
-        <Itinerary itinerary={this.props.itinerary} />
         <div className="home1">
-            <Weather city={this.state.city} country={this.state.country} />
-            <MapContainer country={this.state.country} city={this.state.city} />
+          <div className="home-nav">
+            <Link to="/"><img className="back-img" src={require("../Images/back-button.png")}></img></Link>
+            <Itinerary itinerary={this.props.itinerary} />
+          </div>
+          <Weather city={this.state.city} country={this.state.country} />
+          <MapContainer country={this.state.country} city={this.state.city} />
         </div>
       </div>
     );

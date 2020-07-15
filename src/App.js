@@ -20,14 +20,12 @@ class App extends Component {
 
   setItinerary = (component, thing) => {
     let itineraryCopy = { ...this.state.itinerary };
-    console.log(thing.id);
 
     if (component === "activities") {
       if (!itineraryCopy.activities.some(item => item.id === thing.id))
         itineraryCopy.activities.push(thing);
       else {
         let item = itineraryCopy.activities.find(item => item.id === thing.id);
-        console.log(itineraryCopy.activities.indexOf(item));
         itineraryCopy.activities.splice(
           itineraryCopy.activities.indexOf(item),
           1
@@ -35,23 +33,27 @@ class App extends Component {
       }
     }
     if (component === "flights") {
-      if (!itineraryCopy.flights.some(item => item.id === thing.id))
+      if (!itineraryCopy.flights.some(item => item.QuoteId === thing.QuoteId))
         itineraryCopy.flights.push(thing);
       else {
-        itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(thing), 1);
+        let item = itineraryCopy.flights.find(
+          item => item.QuoteId === thing.QuoteId
+        );
+        itineraryCopy.flights.splice(itineraryCopy.flights.indexOf(item), 1);
       }
     }
+
     if (component === "hotels") {
-      if (!itineraryCopy.hotels.includes(thing))
+      if (!itineraryCopy.hotels.some(item => item.id === thing.id))
         itineraryCopy.hotels.push(thing);
       else {
-        itineraryCopy.hotels.splice(itineraryCopy.hotels.indexOf(thing), 1);
+        let item = itineraryCopy.hotels.find(item => item.id === thing.id);
+        itineraryCopy.hotels.splice(itineraryCopy.hotels.indexOf(item), 1);
       }
     }
     this.setState({
       itinerary: itineraryCopy
     });
-    console.log(this.state.itinerary);
   };
 
   render() {

@@ -8,6 +8,7 @@
   height: 100vh;
 }
 .nav {
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -24,4 +25,15 @@
 .map {
   left: 0;
   max-height: 10vh;
+}
+.home-nav {
+  display: flex;
+  background-color: transparent;
+}
+.home-nav:nth-child(1) {
+  align-self: flex-start;
+}
+.back-img {
+  margin: 5px;
+  width: 50px;
 }
