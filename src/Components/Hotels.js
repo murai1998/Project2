@@ -112,7 +112,7 @@ class Hotels extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": process.env.REACT_APP_HOTEL_KEY,
+        "x-rapidapi-key": "cc2c4d1a33mshaa2cfae0c609d75p113484jsnd1cd030329a4",
         useQueryString: true
       },
       params: {
@@ -131,7 +131,8 @@ class Hotels extends Component {
             headers: {
               "content-type": "application/octet-stream",
               "x-rapidapi-host": "hotels4.p.rapidapi.com",
-              "x-rapidapi-key": process.env.REACT_APP_HOTEL_KEY,
+              "x-rapidapi-key":
+                "cc2c4d1a33mshaa2cfae0c609d75p113484jsnd1cd030329a4",
               useQueryString: true
             },
             params: {
