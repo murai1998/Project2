@@ -32,12 +32,17 @@
   margin: 5px;
 }
 
-.flights-form input:nth-child(1) {
-  border-radius: 15px 0 0 15px;
-}
+/* .flights-form > input {
+  width: 30%;
+  border: none;
+  font-size: 20px;
+  box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+} */
 
 .flights-form input {
-  width: 30%;
+  height: 4vh;
+  border-radius: 15px 0 0 15px;
+  width: fit-content;
   border: none;
   font-size: 20px;
   box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
@@ -47,6 +52,10 @@
   border: none;
   border-radius: 0 15px 15px 0;
   box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.airlineInput{
+  border-radius: 0;
 }
 
 .mag-img {
@@ -121,7 +130,7 @@
     width: fit-content;
   }
   .flights-form input {
-    width: 40%;
+    width: 30vw;
   }
   .flight-table {
     max-width:50%;
