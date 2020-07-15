@@ -110,6 +110,7 @@ class Flights extends Component {
               onChange={this.addToItinerary}
               type="checkbox"
               id={flight.QuoteId}
+              checked = { this.props.itinerary.flights.find(a => a.QuoteId === flight.QuoteId)}
             />
           </td>
         </tr>
@@ -126,9 +127,12 @@ class Flights extends Component {
 
   // itinererary function
   addToItinerary = e => {
-    let clickedFlight = this.state.flights.find(f => {
-      return f.QuoteId == e.target.id;
-    });
+    let clickedFlight = this.state.flights.find(f => 
+      f.QuoteId == e.target.id)
+
+      let carrier = this.determineCarrier(clickedFlight.OutboundLeg.CarrierIds[0])
+    clickedFlight.carrier = carrier
+    
     this.props.setItinerary("flights", clickedFlight);
   };
 
@@ -200,7 +204,7 @@ class Flights extends Component {
             Activities
           </Link>
         </div>
-        <Itinerary itinerary={this.props.itinerary} />
+        <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
 
         <div className="body-container">
           <h1 className="title">Fligths</h1>

@@ -61,7 +61,7 @@ class Hotels extends Component {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "hotels4.p.rapidapi.com",
-        "x-rapidapi-key": "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+        "x-rapidapi-key": process.env.REACT_APP_HOTEL_KEY,
         useQueryString: true
       },
       params: {
@@ -80,8 +80,7 @@ class Hotels extends Component {
             headers: {
               "content-type": "application/octet-stream",
               "x-rapidapi-host": "hotels4.p.rapidapi.com",
-              "x-rapidapi-key":
-                "520b2c9402mshf46439b682e852dp1733d4jsn81c2c3d744d0",
+              "x-rapidapi-key": process.env.REACT_APP_HOTEL_KEY,
               useQueryString: true
             },
             params: {
@@ -146,6 +145,7 @@ class Hotels extends Component {
               className="checkBox"
               onChange={() => this.addHotel(hotel)}
               type="checkbox"
+              checked = { this.props.itinerary.hotels.find(a => a.id === hotel.id)}
             />
           </td>
           <Link
@@ -218,7 +218,7 @@ class Hotels extends Component {
           </Link>
         </div>
 
-        <Itinerary itinerary={this.props.itinerary} />
+        <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
 
         <h1 className="findButton">
           Find your perfect <br></br> Hotel right now!

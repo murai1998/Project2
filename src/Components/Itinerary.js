@@ -29,6 +29,13 @@ class Itinerary extends Component {
       return (
         <div>
           <strong>{i + 1}) </strong> ${price} - {hotel.name}
+          <button
+            onClick={() => {
+              this.delete('hotels',hotel);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -37,7 +44,14 @@ class Itinerary extends Component {
     return this.props.itinerary.flights.map((flight, i) => {
       return (
         <div>
-          <strong>{i + 1}) </strong>${flight.MinPrice} - name
+          <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
+          <button
+            onClick={() => {
+              this.delete('flights', flight);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -48,9 +62,21 @@ class Itinerary extends Component {
         <div>
           <strong>{i + 1}) </strong>
           {activity.name}
+          <button
+            onClick={() => {
+              this.delete('activities', activity);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
+  };
+
+  delete = (name, item) => {
+
+    this.props.setItinerary(name, item)
   };
 
   handleSubmit(event) {

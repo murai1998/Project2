@@ -11,6 +11,9 @@
 
 .weather-info p {
   font-size: 24px;
+  background-color: mediumpurple;
+  width:fit-content;
+  margin:15px auto;
 }
 
 .weather-title {
