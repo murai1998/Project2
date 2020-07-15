@@ -3,6 +3,8 @@ import axios from "axios";
 import "../Styles/Flights.css";
 import { Link } from "react-router-dom";
 import Itinerary from "./Itinerary";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class Flights extends Component {
   state = {
@@ -11,8 +13,48 @@ class Flights extends Component {
     flights: [],
     carriers: [],
     showTable: false,
-    showSrtBtns: false
+    showSrtBtns: false,
+    departDate: new Date()
+
   };
+
+  formatDate = date => {
+    let returnDate = ''
+    date=date.toString()
+    
+    returnDate += date.slice(11,15) + '-'
+  
+    let month = date.slice(4,7)
+  
+    if (month== 'Jan')
+      returnDate += '01-'
+    if (month== 'Feb')
+      returnDate += '02-'
+    if (month== 'Mar')
+      returnDate += '03-'  
+    if (month== 'Apr')
+      returnDate += '04-'  
+    if (month== 'May')
+      returnDate += '05-'  
+    if (month== 'Jun')
+      returnDate += '06-'  
+    if (month== 'Jul')
+      returnDate += '07-'  
+    if (month== 'Aug')
+      returnDate += '08-'  
+    if (month== 'Sep')
+      returnDate += '09-'  
+    if (month== 'Oct')
+      returnDate += '10-'  
+    if (month== 'Nov')
+      returnDate += '11-'  
+    if (month== 'Dec')
+      returnDate += '12-'   
+      
+    returnDate+=date.slice(8,10)  
+  
+    return returnDate
+  }
 
   // give user ability to choose which specific airport they depart from
   // for example inputting new york will give 7 different palces
@@ -39,7 +81,7 @@ class Flights extends Component {
         console.log(response);
         axios({
           method: "GET",
-          url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${this.state.fromAirport}/${response.data.Places[0].PlaceId}/${this.state.departDate}`,
+          url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/${this.state.fromAirport}/${response.data.Places[0].PlaceId}/${this.formatDate(this.state.departDate)}`,
           headers: {
             "content-type": "application/octet-stream",
             "x-rapidapi-host":
@@ -110,11 +152,18 @@ class Flights extends Component {
               onChange={this.addToItinerary}
               type="checkbox"
               id={flight.QuoteId}
+              checked = { this.props.itinerary.flights.find(a => a.QuoteId === flight.QuoteId)}
             />
           </td>
         </tr>
       );
     });
+  }
+
+  handleDeparture = date =>{
+    this.setState({
+      departDate:date
+    })
   }
 
   handleChange = e => {
@@ -126,11 +175,12 @@ class Flights extends Component {
 
   // itinererary function
   addToItinerary = e => {
-    let clickedFlight = this.state.flights.find(f => {
-      return f.QuoteId == e.target.id;
-    });
-    let carrier = this.determineCarrier(clickedFlight.OutboundLeg.CarrierIds[0])
+    let clickedFlight = this.state.flights.find(f => 
+      f.QuoteId == e.target.id)
+
+      let carrier = this.determineCarrier(clickedFlight.OutboundLeg.CarrierIds[0])
     clickedFlight.carrier = carrier
+    
     this.props.setItinerary("flights", clickedFlight);
   };
 
@@ -190,9 +240,13 @@ class Flights extends Component {
     return (
       <div>
         <div className="nav">
-          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>Home</Link>
+          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
+            Home
+          </Link>
 
-          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}/hotels`}>
+          <Link
+            to={`/home/${this.state.destCountry}/${this.state.destCity}/hotels`}
+          >
             Hotels
           </Link>
 
@@ -202,24 +256,25 @@ class Flights extends Component {
             Activities
           </Link>
         </div>
-        <Itinerary itinerary={this.props.itinerary} />
+        <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
 
         <div className="body-container">
           <h1 className="title">Fligths</h1>
           <h3>Where/when will you depart?</h3>
           <form className="flights-form" onSubmit={this.getFlightInfo}>
-            <input
+          <DatePicker className='datePick' name="departDate" selected={this.state.departDate} onSelect={this.handleDeparture} />
+            <input className='airlineInput'
               onChange={this.handleChange}
               type="text"
               name="fromAirport"
               placeholder="e.g. LAX"
             />
-            <input
+            {/* <input
               onChange={this.handleChange}
               type="text"
               name="departDate"
               placeholder="YYYY-MM-DD"
-            />
+            /> */}
             <button type="submit" name="submit">
               <img
                 className="mag-img"

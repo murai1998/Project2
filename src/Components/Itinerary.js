@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
-
 import axios from "axios";
+var nodemailer = require("nodemailer");
 
 class Itinerary extends Component {
   state = {
     showList: false,
-    name: "",
-    email: "",
-    message: ""
+    showItem: true,
+    receiverEmail: "",
+    feedback: "",
+    formSubmitted: false
   };
   toggleList = e => {
     e.preventDefault();
@@ -20,15 +21,33 @@ class Itinerary extends Component {
       showList: !this.state.showList
     });
   };
+  delete = (item, name) => {
+    // let index = this.props.itinerary[name].indexOf(item);
+    // this.props.itinerary[name].splice(index, 1);
+    // console.log(this.props.itinerary[name]);
+    // this.setState({
+    //   showItem: false
+    // });
+    this.props.setItinerary("hotels", item);
+    console.log(this.props.setItinerary);
+  };
   printHotels = () => {
     return this.props.itinerary.hotels.map((hotel, i) => {
       let price = "?";
       let rating = "?";
       if (hotel.starRating) rating = hotel.starRating;
       if (hotel.ratePlan) price = hotel.ratePlan.price.exactCurrent;
+
       return (
         <div>
           <strong>{i + 1}) </strong> ${price} - {hotel.name}
+          <button
+            onClick={() => {
+              this.delete("hotels", hotel);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -38,6 +57,13 @@ class Itinerary extends Component {
       return (
         <div>
           <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
+          <button
+            onClick={() => {
+              this.delete("flights", flight);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
@@ -48,38 +74,113 @@ class Itinerary extends Component {
         <div>
           <strong>{i + 1}) </strong>
           {activity.name}
+          <button
+            onClick={() => {
+              this.delete("activities", activity);
+            }}
+          >
+            Remove
+          </button>
         </div>
       );
     });
   };
 
-  handleSubmit(event) {
-    axios({
-      method: "POST",
-      url: "http://localhost:3000/send",
-      data: {
-        name: this.state.name,
-        email: this.state.email,
-        messageHtml: "text"
-      }
-    }).then(response => {
-      if (response.data.msg === "success") {
-        alert("Email sent, awesome!");
-        this.resetForm();
-      } else if (response.data.msg === "fail") {
-        alert("Oops, something went wrong. Try again");
-      }
-    });
-  }
+  delete = (name, item) => {
+    this.props.setItinerary(name, item);
+  };
 
-  resetForm() {
-    this.setState({ name: "", email: "", message: "" });
+  //   handleSubmit(event) {
+  //     var transporter = nodemailer.createTransport({
+  //       service: "gmail",
+  //       auth: {
+  //         user: "smilet.report@gmail.com",
+  //         pass: "wjFUIHI14"
+  //       }
+  //     });
+  //     const mailOptions = {
+  //       from: "smilet.report@gmail.com", // sender address
+  //       to: "annmuray75@gmail.com", // list of receivers
+  //       subject: "Subject of your email", // Subject line
+  //       html: "<p>Hanna-banana</p>" // plain text body
+  //     };
+  //     transporter.sendMail(mailOptions, function(err, info) {
+  //       if (err) console.log(err);
+  //       else console.log(info);
+  //     });
+  //   }
+
+  static sender = "sender@example.com";
+
+  handleChange = event => {
+    this.setState({
+      receiverEmail: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    //const receiverEmail = "annmuray75@gmail.com";
+    const template = "template_4plM1jBi";
+    console.log(process.env.REACT_APP_EMAILJS_USERID);
+    this.sendFeedback(
+      template,
+      this.sender,
+      this.state.receiverEmail,
+      //this.state.feedback,
+      process.env.REACT_APP_EMAILJS_USERID
+    );
+
+    this.setState({
+      formSubmitted: true
+    });
+  };
+
+  // Note: this is using default_service, which will map to whatever
+  // default email provider you've set in your EmailJS account.
+  sendFeedback(templateId, senderEmail, receiverEmail, user) {
+    window.emailjs
+      .send(
+        "default_service",
+        templateId,
+        {
+          senderEmail,
+          receiverEmail,
+
+          activityText: this.props.itinerary.activities
+            .map((activity, i) => {
+              return `${i + 1}) ${activity.name}`;
+            })
+            .join("<br />"),
+          hotelText: this.props.itinerary.hotels
+            .map((hotel, i) => {
+              return `${i + 1}) $${hotel.ratePlan.price.exactCurrent} - ${
+                hotel.name
+              }`;
+            })
+            .join("<br />"),
+          flightText: this.props.itinerary.flights
+            .map((flight, i) => {
+              return `${i + 1}) $${flight.MinPrice} - ${flight.carrier}`;
+            })
+            .join("<br />")
+        },
+
+        user
+      )
+      .then(res => {
+        this.setState({
+          formEmailSent: true
+        });
+        console.log(res);
+      })
+      // Handle errors here however you like
+      .catch(err => console.error("Failed to send feedback. Error: ", err));
   }
 
   render() {
     return (
       <div className="full-container-itin">
-        {/* {console.log(this.props.itinerary)} */}
         <div className="drop">
           <h2>Cart</h2>
           <button onClick={this.toggleList}>▼</button>
@@ -100,64 +201,34 @@ class Itinerary extends Component {
                 <td>{this.printFlights()}</td>
               </tbody>
             </table>
+
+            <form onSubmit={this.handleSubmit}>
+              <label>Send it to your email add</label>
+              <input
+                type="email"
+                className="text-input"
+                id="feedback-entry"
+                name="feedback-entry"
+                onChange={this.handleChange}
+                placeholder="email address"
+                required
+                value={this.receiverEmail}
+              />
+              <div className="btn-group">
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn--submit"
+                />
+              </div>
+            </form>
           </div>
         ) : null}
-
-        {/* <form
-          id="contact-form"
-          onSubmit={this.handleSubmit.bind(this)}
-          method="POST"
-        >
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              value={this.state.name}
-              onChange={this.onNameChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-              value={this.state.email}
-              onChange={this.onEmailChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              className="form-control"
-              rows="5"
-              id="message"
-              value={this.state.message}
-              onChange={this.onMessageChange.bind(this)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form> */}
       </div>
     );
   }
-
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
-  }
 }
-
+// Itinerary.propTypes = {
+//   env: Itinerary.object.isRequired
+// };
 export default Itinerary;
