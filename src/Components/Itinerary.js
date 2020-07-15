@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
-
 import axios from "axios";
 
 class Itinerary extends Component {
   state = {
     showList: false,
-    name: "",
-    email: "",
-    message: ""
+    showItem: true
   };
   toggleList = e => {
     e.preventDefault();
@@ -20,18 +17,29 @@ class Itinerary extends Component {
       showList: !this.state.showList
     });
   };
+  delete = (item, name) => {
+    // let index = this.props.itinerary[name].indexOf(item);
+    // this.props.itinerary[name].splice(index, 1);
+    // console.log(this.props.itinerary[name]);
+    // this.setState({
+    //   showItem: false
+    // });
+    this.props.setItinerary("hotels", item);
+    console.log(this.props.setItinerary);
+  };
   printHotels = () => {
     return this.props.itinerary.hotels.map((hotel, i) => {
       let price = "?";
       let rating = "?";
       if (hotel.starRating) rating = hotel.starRating;
       if (hotel.ratePlan) price = hotel.ratePlan.price.exactCurrent;
+
       return (
         <div>
           <strong>{i + 1}) </strong> ${price} - {hotel.name}
           <button
             onClick={() => {
-              this.delete('hotels',hotel);
+              this.delete("hotels", hotel);
             }}
           >
             Remove
@@ -47,7 +55,7 @@ class Itinerary extends Component {
           <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
           <button
             onClick={() => {
-              this.delete('flights', flight);
+              this.delete("flights", flight);
             }}
           >
             Remove
@@ -64,7 +72,7 @@ class Itinerary extends Component {
           {activity.name}
           <button
             onClick={() => {
-              this.delete('activities', activity);
+              this.delete("activities", activity);
             }}
           >
             Remove
@@ -75,32 +83,37 @@ class Itinerary extends Component {
   };
 
   delete = (name, item) => {
-
-    this.props.setItinerary(name, item)
+    this.props.setItinerary(name, item);
   };
 
-  handleSubmit(event) {
-    axios({
-      method: "POST",
-      url: "http://localhost:3000/send",
-      data: {
-        name: this.state.name,
-        email: this.state.email,
-        messageHtml: "text"
-      }
-    }).then(response => {
-      if (response.data.msg === "success") {
-        alert("Email sent, awesome!");
-        this.resetForm();
-      } else if (response.data.msg === "fail") {
-        alert("Oops, something went wrong. Try again");
-      }
-    });
-  }
-
-  resetForm() {
-    this.setState({ name: "", email: "", message: "" });
-  }
+  //   handleSubmit(event) {
+  //     axios({
+  //       method: "POST",
+  //       url: "http://localhost:3000/send",
+  //       data: {
+  //         name: this.state.name,
+  //         email: this.state.email,
+  //         messageHtml: "text"
+  //       }
+  //     }).then(response => {
+  //       if (response.data.msg === "success") {
+  //         alert("Email sent, awesome!");
+  //         this.resetForm();
+  //       } else if (response.data.msg === "fail") {
+  //         alert("Oops, something went wrong. Try again");
+  //       }
+  //     });
+  //     const mailOptions = {
+  //       from: "smilet.report@gmail.com", // sender address
+  //       to: "annmuray75@gmail.com", // list of receivers
+  //       subject: "Subject of your email", // Subject line
+  //       html: "<p>Your html here</p>" // plain text body
+  //     };
+  //     transporter.sendMail(mailOptions, function(err, info) {
+  //       if (err) console.log(err);
+  //       else console.log(info);
+  //     });
+  //   }
 
   render() {
     return (
@@ -127,61 +140,9 @@ class Itinerary extends Component {
             </table>
           </div>
         ) : null}
-
-        {/* <form
-          id="contact-form"
-          onSubmit={this.handleSubmit.bind(this)}
-          method="POST"
-        >
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              value={this.state.name}
-              onChange={this.onNameChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-              value={this.state.email}
-              onChange={this.onEmailChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              className="form-control"
-              rows="5"
-              id="message"
-              value={this.state.message}
-              onChange={this.onMessageChange.bind(this)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form> */}
+        {/* {this.handleSubmit()} */}
       </div>
     );
-  }
-
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
   }
 }
 

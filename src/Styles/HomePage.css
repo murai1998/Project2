@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   height: 100vh;
 }
- .nav {
+.nav {
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -21,11 +21,11 @@
   color: white;
   font-size: 1.4em;
   font-weight: 700;
-} 
+}
 .map {
   left: 0;
   max-height: 10vh;
-} 
+}
 .home-nav {
   display: flex;
   background-color: transparent;

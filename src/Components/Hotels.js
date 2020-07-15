@@ -196,7 +196,7 @@ class Hotels extends Component {
               className="checkBox"
               onChange={() => this.addHotel(hotel)}
               type="checkbox"
-              checked = { this.props.itinerary.hotels.find(a => a.id === hotel.id)}
+              checked={this.props.itinerary.hotels.find(a => a.id === hotel.id)}
             />
           </td>
           <Link
@@ -257,7 +257,9 @@ class Hotels extends Component {
     return (
       <div className="hotelBack">
         <div className="nav">
-          <Link to={`/home/${this.state.country}/${this.state.city}`}>Home</Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
+          </Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
@@ -269,7 +271,10 @@ class Hotels extends Component {
           </Link>
         </div>
 
-        <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
+        <Itinerary
+          setItinerary={this.props.setItinerary}
+          itinerary={this.props.itinerary}
+        />
 
         <h1 className="findButton">
           Find your perfect <br></br> Hotel right now!
