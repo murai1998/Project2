@@ -4,14 +4,17 @@
   position: absolute;
   z-index: 1;
   color: white;
-  background-color: rgb(235, 225, 232);
 }
 .mainTable {
-  border: 1px solid black;
-
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   width: 100%;
   color: black;
-  border-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: rgb(235, 225, 232);
+  padding-top: 10px;
 }
 .smallTable {
   border-bottom: black;
@@ -51,9 +54,51 @@
   font-size: 18px;
 }
 .smallTable td {
-  width: 5vw;
+  width: 14vw;
 }
+.emailForm {
+  padding-top: 0.4vh;
 
+  background-color: rgb(235, 225, 232);
+  color: black;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.emailForm h4 {
+  line-height: 0.1em;
+}
+.inputEmail {
+  display: flex;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.deleteButton {
+  width: 20px;
+  padding-left: 6px;
+  margin-top: 9px;
+}
+.text-input {
+  height: 25px;
+  width: 200px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.btn--submit {
+  font-size: 18px;
+  padding: 2px 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 /* @media only screen and (min-width: 700px) {
   .full-container-itin {
     position: relative;
