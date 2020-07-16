@@ -4,14 +4,15 @@
 }
 
 .activityImages {
-  width: 100%;
-  height: 100%;
-  overflow: ;
+  width: 33vw;
+  height: 33vh;
 }
 #imgActivities {
   display: flex;
   justify-content: space-evenly;
   height: 33vh;
+  max-width: 100%;
+  overflow-x: scroll;
 }
 
 .businessDisplay {
@@ -29,7 +30,7 @@
   background-color: rgb(216, 203, 179);
 }
 .businessName {
-  margin-top: 8%;
+  margin-top: 3vh;
   font-family: "Concert One", cursive;
   font-size: 3.5em;
   font-weight: 700;
