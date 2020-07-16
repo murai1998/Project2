@@ -127,6 +127,7 @@ class Activities extends Component {
                 onChange={this.handleChange}
                 type="checkbox"
                 id={business.id}
+                checked = { this.props.itinerary.activities.find(a => a.id === business.id)}
               />
             </span>
           </div>
