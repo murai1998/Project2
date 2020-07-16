@@ -14,7 +14,7 @@ class SingleActivity extends Component {
     city: this.props.match.params.city,
     currentYelpSingleActivity: {},
     currentYelpSingleActivityReviews: {},
-    rStars:''
+    rStars: ""
   };
 
   fillRate = rating => {
@@ -160,14 +160,10 @@ class SingleActivity extends Component {
     return this.state.currentYelpSingleActivityReviews.data?.reviews.map(
       review => {
         return (
-          <div style={{ width: "fit-content", height: "fit-content" }}>
+          <div className="reviews">
             <span>
               Reviewed By: {review.user.name}{" "}
-              <img
-                style={{ width: "15vw", height: "15vh" }}
-                src={review.user.image_url}
-                alt="User Profile Pic"
-              />
+              <img src={review.user.image_url} alt="User Profile Pic" />
             </span>
             <br />
             <span>{this.fillRate(review.rating)}</span>
@@ -198,14 +194,13 @@ class SingleActivity extends Component {
   componentDidMount() {
     this.getYelpSingleActivity();
     this.getYelpSingleActivityReviews();
-
   }
 
   render() {
     return (
       <div id="container">
         <div className="nav">
-        <Link to={`/home/${this.state.country}/${this.state.city}`}>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
             Home
           </Link>
 
