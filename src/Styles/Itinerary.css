@@ -88,7 +88,8 @@
 }
 .text-input {
   height: 25px;
-  width: 200px;
+  margin-left:3%;
+  width: 70%;
   font-size: 18px;
   border: 1px solid black;
   border-top-left-radius: 20px;
