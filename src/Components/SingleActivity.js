@@ -80,33 +80,30 @@ class SingleActivity extends Component {
 
   displayPhotos = photoArray => {
     return photoArray?.map(photo => {
-      return (
-        <img className='activityImages'
-          src={photo}
-          alt="Business"
-        />
-      );
+      return <img className="activityImages" src={photo} alt="Business" />;
     });
   };
 
   displayBusiness = business => {
     return (
       <div>
-        <span>{this.displayPhotos(business?.photos)}</span>
-        <h1 className='businessName'>{business?.name}</h1>
+        <span id="imgActivities">{this.displayPhotos(business?.photos)}</span>
+        <h1 className="businessName">{business?.name}</h1>
         <span>
           {business?.rating} Stars {business?.review_count} Reviews
         </span>
         <br />
         <br />
-        <span style={{fontSize:'1.5em'}}>
-          <strong>{business?.price} {this.displayCategories(business)}</strong> 
+        <span style={{ fontSize: "1.5em" }}>
+          <strong>
+            {business?.price} {this.displayCategories(business)}
+          </strong>
         </span>
         <br />
         <br />
         <span>{business?.display_phone}</span>
         <br />
-        <br/>
+        <br />
       </div>
     );
   };
@@ -164,7 +161,7 @@ class SingleActivity extends Component {
     return this.state.currentYelpSingleActivityReviews.data?.reviews.map(
       review => {
         return (
-          <div style={{width:'fit-content', height:'fit-content'}}>
+          <div style={{ width: "fit-content", height: "fit-content" }}>
             <span>
               Reviewed By: {review.user.name}{" "}
               <img
@@ -240,19 +237,17 @@ class SingleActivity extends Component {
           />
           <input type="submit" />
         </form> */}
-        <div className='businessDisplay'>
+        <div className="businessDisplay">
           {this.displayBusiness(this.state.currentYelpSingleActivity.data)}
-        
-        {this.displayLocation(this.state.currentYelpSingleActivity.data)}
-        <br />
-        <br />
-        {this.displayHours(this.state.currentYelpSingleActivity.data)}
-        <br />
-        <br />
+
+          {this.displayLocation(this.state.currentYelpSingleActivity.data)}
+          <br />
+          <br />
+          {this.displayHours(this.state.currentYelpSingleActivity.data)}
+          <br />
+          <br />
         </div>
-        <div className='reviewsDisplay'>
-          {this.displayReviews()}
-        </div>
+        <div className="reviewsDisplay">{this.displayReviews()}</div>
       </div>
     );
   }
