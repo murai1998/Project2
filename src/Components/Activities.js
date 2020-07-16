@@ -63,28 +63,7 @@ class Activities extends Component {
       this.state.currentYelpMisc.data.businesses.find(
         business => business.id === e.target.id
       );
-
-    /*clickedBusiness.isChecked = !clickedBusiness.isChecked*/
-
     this.props.setItinerary("activities", clickedBusiness, e.target.id);
-
-    /*if(!this.props.itinerary.activities.includes(clickedBusiness))
-			this.props.setItinerary('activities', clickedBusiness)
-
-		else{
-			this.props.itinerary.activities.splice(this.props.itinerary.activities.indexOf(clickedBusiness),1)
-			this.props.setItinerary('activities', clickedBusiness)
-		}*/
-
-    /*if(!itinCopy.includes(clickedBusiness)){
-			itinCopy.push(clickedBusiness)
-		}
-		else{
-			itinCopy.splice(itinCopy.indexOf(clickedBusiness),1)
-		}
-		this.setState({
-			itin:itinCopy
-		})*/
   };
 
   displayBussinesses = bus => {
@@ -127,7 +106,8 @@ class Activities extends Component {
               {this.displayCategories(business)}
             </span>
             <br />
-            <span>
+            <br />
+            <span> <strong>Add</strong>
               <input
                 onChange={this.handleChange}
                 type="checkbox"
@@ -156,7 +136,6 @@ class Activities extends Component {
       }
     })
       .then(response => {
-        /*response.data.businesses.forEach(business => business['isChecked']=false)*/
         this.setState({
           currentYelpRestaurants: response
         });

@@ -49,6 +49,7 @@
   border-radius: 20px;
   outline: none;
   height: 40px;
+  background-color: white;
 }
 .mainTable th {
   font-size: 18px;

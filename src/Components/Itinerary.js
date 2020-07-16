@@ -93,26 +93,6 @@ class Itinerary extends Component {
     this.props.setItinerary(name, item);
   };
 
-  //   handleSubmit(event) {
-  //     var transporter = nodemailer.createTransport({
-  //       service: "gmail",
-  //       auth: {
-  //         user: "smilet.report@gmail.com",
-  //         pass: "wjFUIHI14"
-  //       }
-  //     });
-  //     const mailOptions = {
-  //       from: "smilet.report@gmail.com", // sender address
-  //       to: "annmuray75@gmail.com", // list of receivers
-  //       subject: "Subject of your email", // Subject line
-  //       html: "<p>Hanna-banana</p>" // plain text body
-  //     };
-  //     transporter.sendMail(mailOptions, function(err, info) {
-  //       if (err) console.log(err);
-  //       else console.log(info);
-  //     });
-  //   }
-
   static sender = "sender@example.com";
 
   handleChange = event => {
@@ -123,14 +103,12 @@ class Itinerary extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    //const receiverEmail = "annmuray75@gmail.com";
     const template = "template_4plM1jBi";
     console.log(process.env.REACT_APP_EMAILJS_USERID);
     this.sendFeedback(
       template,
       this.sender,
       this.state.receiverEmail,
-      //this.state.feedback,
       process.env.REACT_APP_EMAILJS_USERID
     );
 
@@ -230,7 +208,4 @@ class Itinerary extends Component {
     );
   }
 }
-// Itinerary.propTypes = {
-//   env: Itinerary.object.isRequired
-// };
 export default Itinerary;
