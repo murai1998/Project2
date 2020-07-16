@@ -213,7 +213,7 @@ class Activities extends Component {
             Hotels
           </Link>
         </div>
-        <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
+        <Itinerary clearItinerary={this.props.clearItinerary} setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
 
         <div
           style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}

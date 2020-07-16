@@ -253,6 +253,7 @@ class Flights extends Component {
         <Itinerary
           setItinerary={this.props.setItinerary}
           itinerary={this.props.itinerary}
+          clearItinerary={this.props.clearItinerary}
         />
 
         <div className="body-container">

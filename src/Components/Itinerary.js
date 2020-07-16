@@ -111,10 +111,11 @@ class Itinerary extends Component {
       this.state.receiverEmail,
       process.env.REACT_APP_EMAILJS_USERID
     );
-
+    this.props.clearItinerary()
     this.setState({
       formSubmitted: true
     });
+
     alert("Email Sent")
   };
 
