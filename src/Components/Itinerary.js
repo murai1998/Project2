@@ -115,6 +115,7 @@ class Itinerary extends Component {
     this.setState({
       formSubmitted: true
     });
+    alert("Email Sent")
   };
 
   // Note: this is using default_service, which will map to whatever
