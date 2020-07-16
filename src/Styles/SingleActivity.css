@@ -40,7 +40,9 @@
   .reviewsDisplay {
     flex-direction: column;
   }
-
+  #imgActivities {
+    height: 20vh;
+  }
   .activityImages {
     height: 22vh;
   }
