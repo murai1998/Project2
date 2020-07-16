@@ -87,7 +87,8 @@ class SingleActivity extends Component {
     return (
       <div>
         <span id="imgActivities">{this.displayPhotos(business?.photos)}</span>
-        <h1 className="businessName">{business?.name}</h1>
+        <Itinerary itinerary={this.props.itinerary} />
+        <h1 className="businessName">{business?.name}</h1> 
         <span>
           {this.props.location.prop?.r} {business?.review_count} Reviews
         </span>
@@ -218,7 +219,6 @@ class SingleActivity extends Component {
             Activities
           </Link>
         </div>
-        <Itinerary itinerary={this.props.itinerary} />
         {/* <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -236,7 +236,7 @@ class SingleActivity extends Component {
         </form> */}
         <div className="businessDisplay">
           {this.displayBusiness(this.state.currentYelpSingleActivity.data)}
-
+        
           {this.displayLocation(this.state.currentYelpSingleActivity.data)}
           <br />
           <br />

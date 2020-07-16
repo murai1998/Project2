@@ -25,18 +25,18 @@ class Flights extends Component {
 
     let month = date.slice(4, 7);
 
-    if (month == "Jan") returnDate += "01-";
-    if (month == "Feb") returnDate += "02-";
-    if (month == "Mar") returnDate += "03-";
-    if (month == "Apr") returnDate += "04-";
-    if (month == "May") returnDate += "05-";
-    if (month == "Jun") returnDate += "06-";
-    if (month == "Jul") returnDate += "07-";
-    if (month == "Aug") returnDate += "08-";
-    if (month == "Sep") returnDate += "09-";
-    if (month == "Oct") returnDate += "10-";
-    if (month == "Nov") returnDate += "11-";
-    if (month == "Dec") returnDate += "12-";
+    if (month === "Jan") returnDate += "01-";
+    if (month === "Feb") returnDate += "02-";
+    if (month === "Mar") returnDate += "03-";
+    if (month === "Apr") returnDate += "04-";
+    if (month === "May") returnDate += "05-";
+    if (month === "Jun") returnDate += "06-";
+    if (month === "Jul") returnDate += "07-";
+    if (month === "Aug") returnDate += "08-";
+    if (month === "Sep") returnDate += "09-";
+    if (month === "Oct") returnDate += "10-";
+    if (month === "Nov") returnDate += "11-";
+    if (month === "Dec") returnDate += "12-";
 
     returnDate += date.slice(8, 10);
 
@@ -272,13 +272,6 @@ class Flights extends Component {
               name="fromAirport"
               placeholder="e.g. LAX"
             />
-            {/* <input
-              onChange={this.handleChange}
-              type="text"
-              name="departDate"
-              placeholder="YYYY-MM-DD"
-            /> */}
-
             <button id="buttonF" type="submit" name="submit">
               <img
                 className="mag-img"

@@ -35,9 +35,7 @@ class HomePage extends Component {
         </div>
         <div className="home1">
           <div className="home-nav">
-            <Link to="/">
-              <img className="back-img" src={require("../Images/back-button.png")}></img>
-            </Link>
+            <Link to="/">Change Location</Link>
             <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
           </div>
           <Weather city={this.state.city} country={this.state.country} />
