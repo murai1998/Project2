@@ -260,7 +260,7 @@ class Flights extends Component {
 
         <div className="body-container">
           <h1 className="title">Fligths</h1>
-          <h3>Where/when will you depart?</h3>
+          <h3>When/where will you depart?</h3>
           <form className="flights-form" onSubmit={this.getFlightInfo}>
           <DatePicker className='datePick' name="departDate" selected={this.state.departDate} onSelect={this.handleDeparture} />
             <input className='airlineInput'
