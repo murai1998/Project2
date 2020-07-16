@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Styles/Activities.css";
 import Itinerary from "./Itinerary";
+import { Carousel } from "react-responsive-carousel";
 
 const emptyStar = "☆";
 const fullStar = "★";

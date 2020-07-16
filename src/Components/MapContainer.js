@@ -44,8 +44,7 @@ class MapContainer extends Component {
             headers: {
               "content-type": "application/octet-stream",
               "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-              "x-rapidapi-key":
-                "988171317fmsh34f3af07264ce89p1c7493jsna8dc46a26613",
+              "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
               useQueryString: true
             },
             params: {
