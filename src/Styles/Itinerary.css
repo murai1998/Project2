@@ -52,6 +52,7 @@
 }
 .mainTable th {
   font-size: 18px;
+  text-decoration: underline;
 }
 .smallTable td {
   width: 14vw;
