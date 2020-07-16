@@ -29,13 +29,15 @@ class Weather extends Component {
   componentDidMount() {
     this.getWeather();
   }
+  convertCase(string) {
+    return string.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  }
   render() {
-    console.log(this.props);
     return (
       <div className="weather-wrapper">
         <h1 className="weather-title">
           {" "}
-          {this.state.city}, {this.state.country}{" "}
+          {this.convertCase(this.state.city)}, {this.convertCase(this.state.country)}{" "}
         </h1>
         <div className="weather-info">
           <p>
