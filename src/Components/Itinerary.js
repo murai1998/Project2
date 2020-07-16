@@ -39,15 +39,16 @@ class Itinerary extends Component {
       if (hotel.ratePlan) price = hotel.ratePlan.price.exactCurrent;
 
       return (
-        <div>
+        <div className="line">
           <strong>{i + 1}) </strong> ${price} - {hotel.name}
-          <button
+          <img
+            className="deleteButton"
             onClick={() => {
               this.delete("hotels", hotel);
             }}
-          >
-            Remove
-          </button>
+            src={require("../Images/deleteButton.png")}
+            alt="gps"
+          />
         </div>
       );
     });
@@ -55,15 +56,16 @@ class Itinerary extends Component {
   printFlights = () => {
     return this.props.itinerary.flights.map((flight, i) => {
       return (
-        <div>
+        <div className="line">
           <strong>{i + 1}) </strong>${flight.MinPrice} - {flight.carrier}
-          <button
+          <img
+            className="deleteButton"
             onClick={() => {
               this.delete("flights", flight);
             }}
-          >
-            Remove
-          </button>
+            src={require("../Images/deleteButton.png")}
+            alt="gps"
+          />
         </div>
       );
     });
@@ -71,16 +73,17 @@ class Itinerary extends Component {
   printActivity = () => {
     return this.props.itinerary.activities.map((activity, i) => {
       return (
-        <div>
+        <div className="line">
           <strong>{i + 1}) </strong>
           {activity.name}
-          <button
+          <img
+            className="deleteButton"
             onClick={() => {
               this.delete("activities", activity);
             }}
-          >
-            Remove
-          </button>
+            src={require("../Images/deleteButton.png")}
+            alt="gps"
+          />
         </div>
       );
     });
@@ -202,24 +205,23 @@ class Itinerary extends Component {
               </tbody>
             </table>
 
-            <form onSubmit={this.handleSubmit}>
-              <label>Send it to your email add</label>
-              <input
-                type="email"
-                className="text-input"
-                id="feedback-entry"
-                name="feedback-entry"
-                onChange={this.handleChange}
-                placeholder="email address"
-                required
-                value={this.receiverEmail}
-              />
-              <div className="btn-group">
+            <form className="emailForm" onSubmit={this.handleSubmit}>
+              <h4>Send it to your email address</h4>
+              <div className="inputEmail">
                 <input
-                  type="submit"
-                  value="Submit"
-                  className="btn btn--submit"
+                  type="email"
+                  className="text-input"
+                  id="feedback-entry"
+                  name="feedback-entry"
+                  onChange={this.handleChange}
+                  placeholder="example@address.com"
+                  style={{ textAlign: "center" }}
+                  required
+                  value={this.receiverEmail}
                 />
+                <div className="btn-group">
+                  <input type="submit" value="Submit" className="btn--submit" />
+                </div>
               </div>
             </form>
           </div>
