@@ -107,8 +107,13 @@ class Activities extends Component {
               alt="Business"
             />
             <Link
-              className="linkName"
-              to={`/home/${this.state.country}/${this.state.city}/activities/${business.id}`}
+              to={{
+                pathname:`/home/${this.state.country}/${this.state.city}/activities/${business.id}`,
+                className:"linkName",
+            prop:{
+              r:this.fillRate(business.rating)
+            }
+              }}
             >
               <h2>{business.name}</h2>
             </Link>

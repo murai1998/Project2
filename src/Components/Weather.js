@@ -39,10 +39,10 @@ class Weather extends Component {
         </h1>
         <div className="weather-info">
           <p>
-            <strong>Temperature:</strong> {this.state.temperature} F,{" "}
+            <strong>Temperature:</strong> {this.state.temperature} ℉{" "}
           </p>
           <p>
-            <strong>Humidity:</strong> {this.state.humidity},{" "}
+            <strong>Humidity:</strong> {this.state.humidity}%{" "}
           </p>
           <p>
             <strong>Description:</strong> {this.state.description}{" "}

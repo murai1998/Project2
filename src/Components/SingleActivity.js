@@ -14,8 +14,7 @@ class SingleActivity extends Component {
     city: this.props.match.params.city,
     currentYelpSingleActivity: {},
     currentYelpSingleActivityReviews: {},
-    searchBarText: "",
-    searchBarPlace: ""
+    rStars:''
   };
 
   fillRate = rating => {
@@ -90,7 +89,7 @@ class SingleActivity extends Component {
         <span id="imgActivities">{this.displayPhotos(business?.photos)}</span>
         <h1 className="businessName">{business?.name}</h1>
         <span>
-          {business?.rating} Stars {business?.review_count} Reviews
+          {this.props.location.prop?.r} {business?.review_count} Reviews
         </span>
         <br />
         <br />
@@ -171,7 +170,7 @@ class SingleActivity extends Component {
               />
             </span>
             <br />
-            <span>{review.rating} Stars</span>
+            <span>{this.fillRate(review.rating)}</span>
             <br />
             <span>{review.time_created.slice(0, 10)}</span>
             <p>{review.text}</p>
@@ -199,13 +198,16 @@ class SingleActivity extends Component {
   componentDidMount() {
     this.getYelpSingleActivity();
     this.getYelpSingleActivityReviews();
+
   }
 
   render() {
     return (
       <div id="container">
         <div className="nav">
-          <Link to="/">Home</Link>
+        <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
+          </Link>
 
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
