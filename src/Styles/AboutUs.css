@@ -1,5 +1,5 @@
 .about-wrapper {
-  background-color:darkgray;
+  background-color: rgb(216, 203, 179);
 }
 
 .about-title {
@@ -21,9 +21,12 @@
 }
 
 .info-container {
+  background-color: rgb(218, 226, 205);
+  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
   margin: 12px 0;
   border: 1px solid black;
   border-radius: 12px;
+  border: 7px ridge #C0C0C0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +35,9 @@
 }
 
 .profile-pic {
-  width: 40%;
+  width: 80%;
+  max-height: 35vh;
+  border-radius: 50%;
 }
 
 .link-imgs {
@@ -50,9 +55,12 @@
   color: #0072b1;
 }
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 700px) {
   .about-wrapper {
     height: 100vh;
+  }
+  .info-container > h2 {
+    font-size: 1.7rem;
   }
   .info-section {
     flex-direction: row;
