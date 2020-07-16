@@ -52,6 +52,7 @@
 }
 .mainTable th {
   font-size: 18px;
+  text-decoration: underline;
 }
 .smallTable td {
   width: 14vw;
@@ -87,15 +88,16 @@
 }
 .text-input {
   height: 25px;
-  width: 200px;
+  margin-left:3%;
+  width: 70%;
   font-size: 18px;
   border: 1px solid black;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
 .btn--submit {
-  font-size: 18px;
-  padding: 2px 10px;
+  font-size: 14px;
+  padding: 5px 10px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }

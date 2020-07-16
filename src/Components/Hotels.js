@@ -22,58 +22,45 @@ class Hotels extends Component {
   };
 
   formatDate = date => {
-  let returnDate = ''
-  date=date.toString()
-  
-  returnDate += date.slice(11,15) + '-'
+    let returnDate = "";
+    date = date.toString();
 
-  let month = date.slice(4,7)
+    returnDate += date.slice(11, 15) + "-";
 
-  if (month== 'Jan')
-    returnDate += '01-'
-  if (month== 'Feb')
-    returnDate += '02-'
-  if (month== 'Mar')
-    returnDate += '03-'  
-  if (month== 'Apr')
-    returnDate += '04-'  
-  if (month== 'May')
-    returnDate += '05-'  
-  if (month== 'Jun')
-    returnDate += '06-'  
-  if (month== 'Jul')
-    returnDate += '07-'  
-  if (month== 'Aug')
-    returnDate += '08-'  
-  if (month== 'Sep')
-    returnDate += '09-'  
-  if (month== 'Oct')
-    returnDate += '10-'  
-  if (month== 'Nov')
-    returnDate += '11-'  
-  if (month== 'Dec')
-    returnDate += '12-'   
-    
-  returnDate+=date.slice(8,10)  
+    let month = date.slice(4, 7);
 
-  return returnDate
-}
+    if (month == "Jan") returnDate += "01-";
+    if (month == "Feb") returnDate += "02-";
+    if (month == "Mar") returnDate += "03-";
+    if (month == "Apr") returnDate += "04-";
+    if (month == "May") returnDate += "05-";
+    if (month == "Jun") returnDate += "06-";
+    if (month == "Jul") returnDate += "07-";
+    if (month == "Aug") returnDate += "08-";
+    if (month == "Sep") returnDate += "09-";
+    if (month == "Oct") returnDate += "10-";
+    if (month == "Nov") returnDate += "11-";
+    if (month == "Dec") returnDate += "12-";
 
-  handleCheckIn= (date) => {
+    returnDate += date.slice(8, 10);
+
+    return returnDate;
+  };
+
+  handleCheckIn = date => {
     this.setState({
       checkIn: date
     });
-  }
+  };
 
-
-  handleCheckOut= (date) => {
+  handleCheckOut = date => {
     this.setState({
       checkOut: date
     });
-  }
+  };
 
-    //console.log(this.state.checkIn);
- 
+  //console.log(this.state.checkIn);
+
   /*addHotel = e => {
     e.preventDefault();
     console.log(e.target.value);
@@ -103,7 +90,6 @@ class Hotels extends Component {
     window.location.reload(false);
   };
   getInfo = e => {
-
     e.preventDefault();
 
     axios({
@@ -285,7 +271,11 @@ class Hotels extends Component {
             <form className="form" onSubmit={this.getInfo}>
               <label>Check In</label>
               <br />
-              <DatePicker name="checkIn" selected={this.state.checkIn} onSelect={this.handleCheckIn} />
+              <DatePicker
+                name="checkIn"
+                selected={this.state.checkIn}
+                onSelect={this.handleCheckIn}
+              />
               {/* <input
                 onChange={this.handleChange}
                 type="text"
@@ -295,7 +285,11 @@ class Hotels extends Component {
               <br />
               <label>Check out</label>
               <br />
-              <DatePicker name="checkOut" selected={this.state.checkOut} onSelect={this.handleCheckOut} />
+              <DatePicker
+                name="checkOut"
+                selected={this.state.checkOut}
+                onSelect={this.handleCheckOut}
+              />
               {/* <input
                 onChange={this.handleChange}
                 type="text"

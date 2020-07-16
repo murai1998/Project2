@@ -14,7 +14,7 @@ class Weather extends Component {
     let city = this.state.city;
     let country = this.state.country;
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
     );
     const data = await api_call.json();
     if (data === undefined) {
@@ -29,13 +29,15 @@ class Weather extends Component {
   componentDidMount() {
     this.getWeather();
   }
+  convertCase(string) {
+    return string.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
+  }
   render() {
-    console.log(this.props);
     return (
       <div className="weather-wrapper">
         <h1 className="weather-title">
           {" "}
-          {this.state.city}, {this.state.country}{" "}
+          {this.convertCase(this.state.city)}, {this.convertCase(this.state.country)}{" "}
         </h1>
         <div className="weather-info">
           <p>
