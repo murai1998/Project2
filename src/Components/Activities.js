@@ -76,7 +76,8 @@ class Activities extends Component {
             style={{
               border: "1px solid black",
               width: "218px",
-              height: "440px",
+              height: "fit-content",
+              minHeight:'440px',
               margin: "5px"
             }}
           >

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Weather from "./Weather";
 import MapContainer from "./MapContainer";
 import "../Styles/HomePage.css";
-import Itinerary from "./Itinerary"
+import Itinerary from "./Itinerary";
 
 class HomePage extends Component {
   state = {
@@ -15,7 +15,6 @@ class HomePage extends Component {
     return (
       <div>
         <div className="nav">
-
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
@@ -36,8 +35,17 @@ class HomePage extends Component {
         <div className="home1">
           <div className="home-nav">
             <Link to="/">Change Location</Link>
-            <Itinerary clearItinerary={this.props.clearItinerary} setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
+
+            <Itinerary
+              clearItinerary={this.props.clearItinerary}
+              setItinerary={this.props.setItinerary}
+              itinerary={this.props.itinerary}
+            />
           </div>
+          <h3 id="instr">
+            Add your flights, activities, and hotels to your Cart and never lose
+            the best deals. Send it to your email for safekeeping!
+          </h3>
           <Weather city={this.state.city} country={this.state.country} />
           <MapContainer country={this.state.country} city={this.state.city} />
         </div>
