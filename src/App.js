@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LandingPage from "./Components/LandingPage";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import Flights from "./Components/Flights";
 import Hotels from "./Components/Hotels";
@@ -8,7 +8,6 @@ import Activities from "./Components/Activities";
 import SingleHotel from "./Components/SingleHotel";
 import SingleActivity from "./Components/SingleActivity";
 import AboutUs from "./Components/AboutUs"
-import Itinerary from "./Components/Itinerary";
 
 class App extends Component {
   state = {

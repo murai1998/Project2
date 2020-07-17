@@ -174,7 +174,7 @@ class Flights extends Component {
   // itinererary function
   addToItinerary = e => {
     let clickedFlight = this.state.flights.find(f => f.QuoteId == e.target.id);
-
+    
     let carrier = this.determineCarrier(
       clickedFlight.OutboundLeg.CarrierIds[0]
     );

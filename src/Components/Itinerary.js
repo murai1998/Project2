@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "../Styles/Itinerary.css";
-import axios from "axios";
-var nodemailer = require("nodemailer");
 
 class Itinerary extends Component {
   state = {
@@ -22,20 +20,12 @@ class Itinerary extends Component {
     });
   };
   delete = (item, name) => {
-    // let index = this.props.itinerary[name].indexOf(item);
-    // this.props.itinerary[name].splice(index, 1);
-    // console.log(this.props.itinerary[name]);
-    // this.setState({
-    //   showItem: false
-    // });
     this.props.setItinerary("hotels", item);
     console.log(this.props.setItinerary);
   };
   printHotels = () => {
     return this.props.itinerary.hotels.map((hotel, i) => {
       let price = "?";
-      let rating = "?";
-      if (hotel.starRating) rating = hotel.starRating;
       if (hotel.ratePlan) price = hotel.ratePlan.price.exactCurrent;
 
       return (
@@ -104,7 +94,7 @@ class Itinerary extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const template = "template_4plM1jBi";
-    console.log(process.env.REACT_APP_EMAILJS_USERID);
+    // console.log(process.env.REACT_APP_EMAILJS_USERID);
     this.sendFeedback(
       template,
       this.sender,

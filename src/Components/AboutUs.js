@@ -37,10 +37,10 @@ class AboutUs extends Component {
               alt="profile-pic"
             ></img>
             <div className="link-imgs">
-              <a target="_blank" href="https://github.com/RenzoPederzoli">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/RenzoPederzoli">
                 <i className="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/renzop9/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/renzop9/">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
             </div>
@@ -54,10 +54,10 @@ class AboutUs extends Component {
               alt="profile-pic"
             ></img>
             <div className="link-imgs">
-              <a target="_blank" href="https://github.com/murai1998">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/murai1998">
                 <i className="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/hmurai/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hmurai/">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
             </div>
@@ -70,10 +70,10 @@ class AboutUs extends Component {
               alt="profile-pic"
             ></img>
             <div className="link-imgs">
-              <a target="_blank" href="https://github.com/hararia">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/hararia">
                 <i className="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/aharari/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/aharari/">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
             </div>
