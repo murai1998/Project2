@@ -20,13 +20,17 @@
   border-radius: 20px;
   background-color: rgb(202, 161, 192);
   text-align: center;
-  padding: 30px;
-  width: fit-content;
+  padding: 20px 0;
+  width: 100%;
 }
-
+.list {
+  width: fit-content;
+  padding: 0 10px;
+}
 .hotel-table td {
   width: fit-content;
 }
+
 .form label {
   font-size: 30px;
   font-weight: 500;
@@ -117,7 +121,7 @@
   .hotel-table {
     font-size: 16px;
     text-align: center;
-    min-width: 100%;
+    width: 100%;
   }
   .table-data input {
     width: 10px;
@@ -136,7 +140,7 @@
     margin: 5px;
   }
   .allLists {
-    padding: 15px;
+    padding: 10px 0;
   }
   .id {
     width: 5px;
@@ -146,5 +150,10 @@
   }
   .linkHotel {
     width: fit-content;
+  }
+}
+@media only screen and (min-width: 1199px) {
+  .list {
+    width: 98%
   }
 }
