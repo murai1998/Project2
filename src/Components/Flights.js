@@ -17,8 +17,8 @@ class Flights extends Component {
     showTable: false,
     showSrtBtns: false,
     departDate: new Date(),
-    fromAirport: '',
-    selectedOption:''
+    fromAirport: "",
+    selectedOption: ""
   };
 
   formatDate = date => {
@@ -164,11 +164,11 @@ class Flights extends Component {
   };
 
   handleChange = selectedOption => {
-    if(selectedOption){
-    this.setState({
-      fromAirport: selectedOption['IATA code'] || ''
-    });
-  }
+    if (selectedOption) {
+      this.setState({
+        fromAirport: selectedOption["IATA code"] || ""
+      });
+    }
   };
 
   // itinererary function
@@ -264,36 +264,31 @@ class Flights extends Component {
 
         <div className="body-container">
           <h1 className="title">Flights</h1>
-          <h3 style={{textAlign:'center'}}>When will you depart? Where will you depart from?</h3>
+          <h3 style={{ textAlign: "center" }}>
+            When will you depart? Where will you depart from?
+          </h3>
 
           <form className="flights-form" onSubmit={this.getFlightInfo}>
-          <DatePicker
-              className="datePick"
-              name="departDate"
-              selected={this.state.departDate}
-              onSelect={this.handleDeparture}
-            />
-            
             <Select
-        className="airlineInput"
-        name='fromAirport'
-        onChange={this.handleChange}
-        value={selectedOption}
-        getOptionValue={options => options["City/Airport"]}
-        placeholder="Departure City"
-        options={airports}
-        isClearable
-        formatOptionLabel={options => (
-          <>
-            <span className="code">{options["IATA code"]}</span>
-            <span>
-              {" "}
-              {options["City/Airport"]}
-              <span className="country"> ({options["Country"]})</span>
-            </span>
-          </>
-        )}
-      />
+              className="airlineInput"
+              name="fromAirport"
+              onChange={this.handleChange}
+              value={selectedOption}
+              getOptionValue={options => options["City/Airport"]}
+              placeholder="Departure City"
+              options={airports}
+              isClearable
+              formatOptionLabel={options => (
+                <>
+                  <span className="code">{options["IATA code"]}</span>
+                  <span>
+                    {" "}
+                    {options["City/Airport"]}
+                    <span className="country"> ({options["Country"]})</span>
+                  </span>
+                </>
+              )}
+            />
             {/* <input
               className="airlineInput"
               onChange={this.handleChange}
@@ -301,13 +296,22 @@ class Flights extends Component {
               name="fromAirport"
               placeholder="e.g. LAX"
             /> */}
-            <button id="buttonF" type="submit" name="submit">
-              <img
-                className="mag-img"
-                alt="search"
-                src={require("../Images/magnifier_search_searching_zoom-512.png")}
-              ></img>
-            </button>
+            <div id="formDate">
+              <DatePicker
+                className="datePick"
+                id="dateP"
+                name="departDate"
+                selected={this.state.departDate}
+                onSelect={this.handleDeparture}
+              />
+              <button id="buttonF" type="submit" name="submit">
+                <img
+                  className="mag-img"
+                  alt="search"
+                  src={require("../Images/magnifier_search_searching_zoom-512.png")}
+                ></img>
+              </button>
+            </div>
           </form>
           {this.state.showSrtBtns ? (
             <div>
