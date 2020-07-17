@@ -260,6 +260,7 @@ class Hotels extends Component {
         <Itinerary
           setItinerary={this.props.setItinerary}
           itinerary={this.props.itinerary}
+          clearItinerary={this.props.clearItinerary}
         />
 
         <h1 className="findButton">

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom"
-import "../Styles/AboutUs.css"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../Styles/AboutUs.css";
 
 class AboutUs extends Component {
   state = {
@@ -21,15 +21,21 @@ class AboutUs extends Component {
           <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
             Hotels
           </Link>
-          <Link to={`/home/${this.state.country}/${this.state.city}/activities`}>
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
             Activities
           </Link>
         </div>
         <h1 className="about-title">Developers</h1>
         <div className="info-section">
           <div className="info-container">
-            <h2> Renzo Pederzoli </h2> 
-            <img className="profile-pic" src={require("../Images/renzo-pic-strecth (2).JPG")}alt="profile-pic"></img>
+            <h2> Renzo Pederzoli </h2>
+            <img
+              className="profile-pic"
+              src={require("../Images/renzo-pic-strecth (2).JPG")}
+              alt="profile-pic"
+            ></img>
             <div className="link-imgs">
               <a target="_blank" href="https://github.com/RenzoPederzoli">
                 <i className="fa fa-github" aria-hidden="true"></i>
@@ -41,7 +47,12 @@ class AboutUs extends Component {
           </div>
           <div className="info-container">
             <h2> Hanna Murai </h2>
-            <img className="profile-pic" src={require("../Images/HANNA.JPG")}alt="profile-pic"></img>
+            <img
+              className="profile-pic"
+              id="hannaImg"
+              src={require("../Images/HANNA.JPG")}
+              alt="profile-pic"
+            ></img>
             <div className="link-imgs">
               <a target="_blank" href="https://github.com/murai1998">
                 <i className="fa fa-github" aria-hidden="true"></i>
@@ -49,11 +60,15 @@ class AboutUs extends Component {
               <a target="_blank" href="https://www.linkedin.com/in/hmurai/">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-            </div> 
+            </div>
           </div>
           <div className="info-container">
             <h2> Andrew Harari </h2>
-            <img className="profile-pic" src={require("../Images/andrew-pic.jpg")}alt="profile-pic"></img>  
+            <img
+              className="profile-pic"
+              src={require("../Images/andrew-pic.jpg")}
+              alt="profile-pic"
+            ></img>
             <div className="link-imgs">
               <a target="_blank" href="https://github.com/hararia">
                 <i className="fa fa-github" aria-hidden="true"></i>
@@ -61,7 +76,7 @@ class AboutUs extends Component {
               <a target="_blank" href="https://www.linkedin.com/in/aharari/">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-            </div>      
+            </div>
           </div>
         </div>
       </div>

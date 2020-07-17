@@ -21,6 +21,7 @@
   background-color: rgb(202, 161, 192);
   text-align: center;
   padding: 30px;
+  width: fit-content;
 }
 
 .hotel-table td {
@@ -44,6 +45,7 @@
   text-align: center;
   font-size: 25px;
   margin: 5px 0 0 5px;
+  width: 100%;
 }
 .table-data {
   width: 120px;

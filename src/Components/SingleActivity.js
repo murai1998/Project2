@@ -87,7 +87,7 @@ class SingleActivity extends Component {
     return (
       <div>
         <span id="imgActivities">{this.displayPhotos(business?.photos)}</span>
-        <Itinerary itinerary={this.props.itinerary} />
+        <Itinerary clearItinerary={this.props.clearItinerary} itinerary={this.props.itinerary} />
         <h1 className="businessName">{business?.name}</h1> 
         <span>
           {this.props.location.prop?.r} {business?.review_count} Reviews

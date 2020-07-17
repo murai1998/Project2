@@ -22,11 +22,11 @@
 
 .info-container {
   background-color: rgb(218, 226, 205);
-  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
   margin: 12px 0;
   border: 1px solid black;
   border-radius: 12px;
-  border: 7px ridge #C0C0C0;
+  border: 7px ridge #c0c0c0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,9 @@
   max-height: 35vh;
   border-radius: 50%;
 }
-
+#hannaImg {
+  width: 50%;
+}
 .link-imgs {
   display: flex;
   justify-content: space-evenly;

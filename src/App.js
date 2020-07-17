@@ -56,6 +56,16 @@ class App extends Component {
       itinerary: itineraryCopy
     });
   };
+  clearItinerary = () => {
+    this.setState({
+      itinerary: {
+        flights: [],
+        hotels: [],
+        activities: []
+      }
+    })
+  }
+
 
   render() {
     return (
@@ -70,6 +80,7 @@ class App extends Component {
                 {...props}
                 itinerary={this.state.itinerary}
                 setItinerary={this.setItinerary}
+                clearItinerary={this.clearItinerary}
               />
             )}
           />
@@ -81,6 +92,7 @@ class App extends Component {
                 {...props}
                 itinerary={this.state.itinerary}
                 setItinerary={this.setItinerary}
+                clearItinerary={this.clearItinerary}
               />
             )}
           />
@@ -92,6 +104,7 @@ class App extends Component {
                 {...props}
                 itinerary={this.state.itinerary}
                 setItinerary={this.setItinerary}
+                clearItinerary={this.clearItinerary}
               />
             )}
           />
@@ -103,6 +116,7 @@ class App extends Component {
                 {...props}
                 itinerary={this.state.itinerary}
                 setItinerary={this.setItinerary}
+                clearItinerary={this.clearItinerary}
               />
             )}
           />
@@ -133,6 +147,7 @@ class App extends Component {
                 {...props}
                 itinerary={this.state.itinerary}
                 setItinerary={this.setItinerary}
+                clearItinerary={this.clearItinerary}
               />
             )}
           />
