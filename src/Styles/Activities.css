@@ -9,6 +9,7 @@
 }
 .eachActv {
   background-color: rgb(216, 203, 179);
+  height: fit-content;
 }
 .activityBack h1 {
   font-size: 60px;
