@@ -207,7 +207,7 @@
   flex-direction: row;
 }
 #dateP {
-  margin-bottom: 1000px;
+  margin-bottom: 10px;
 }
 #formDate > div.react-datepicker-wrapper > div {
   margin-top: 10px;
