@@ -263,7 +263,7 @@ class Flights extends Component {
         />
 
         <div className="body-container">
-          <h1 className="title">Fligths</h1>
+          <h1 className="title">Flights</h1>
           <h3 style={{textAlign:'center'}}>When will you depart? Where will you depart from?</h3>
 
           <form className="flights-form" onSubmit={this.getFlightInfo}>
