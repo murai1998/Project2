@@ -76,7 +76,8 @@ class Activities extends Component {
             style={{
               border: "1px solid black",
               width: "218px",
-              height: "440px",
+              height: "fit-content",
+              minHeight:'440px',
               margin: "5px"
             }}
           >
@@ -108,7 +109,7 @@ class Activities extends Component {
             <br />
             <br />
             <span> <strong>Add</strong>
-              <input
+              <input style={{height:'fit-content'}}
                 onChange={this.handleChange}
                 type="checkbox"
                 id={business.id}
