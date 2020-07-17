@@ -109,7 +109,7 @@ class Activities extends Component {
             <br />
             <br />
             <span> <strong>Add</strong>
-              <input style={{height:'fit-content'}}
+              <input
                 onChange={this.handleChange}
                 type="checkbox"
                 id={business.id}
