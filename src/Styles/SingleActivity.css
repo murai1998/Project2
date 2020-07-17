@@ -12,7 +12,7 @@
   justify-content: space-evenly;
   height: 33vh;
   max-width: 100%;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 .businessDisplay {
