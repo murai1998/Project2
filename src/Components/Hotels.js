@@ -144,7 +144,7 @@ class Hotels extends Component {
       return (
         <tr key={i}>
           <td className="table-data">
-            {" "}           
+            {" "}
             <input
               className="checkBox"
               onChange={() => this.addHotel(hotel)}
@@ -173,6 +173,16 @@ class Hotels extends Component {
   sortPrice = () => {
     let arr = [...this.state.hotels];
     let res = arr.sort((a, b) => {
+      if (
+        (a.ratePlan === undefined && b.ratePlan === undefined) ||
+        (a.ratePlan === undefined && b.ratePlan !== undefined)
+      )
+        return 1;
+      if (
+        (a.ratePlan === undefined && b.ratePlan === undefined) ||
+        (a.ratePlan !== undefined && b.ratePlan === undefined)
+      )
+        return -1;
       if (a.ratePlan !== undefined && b.ratePlan !== undefined) {
         if (a.ratePlan.price.exactCurrent > b.ratePlan.price.exactCurrent)
           return 1;
