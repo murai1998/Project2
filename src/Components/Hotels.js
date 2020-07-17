@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import hotels from "./hotels.json";
+// import hotels from "./hotels.json";
 import { Link } from "react-router-dom";
 import "../Styles/Hotels.css";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -58,33 +58,8 @@ class Hotels extends Component {
       checkOut: date
     });
   };
-
-  //console.log(this.state.checkIn);
-
-  /*addHotel = e => {
-    e.preventDefault();
-    console.log(e.target.value);
-    let checkBoxCopy = [...this.state.checkBox];
-    checkBoxCopy.push(e.target.value);
-    this.setState({
-      checkBox: checkBoxCopy
-    });
-    console.log(this.state.checkBox);
-  };*/
   addHotel = id => {
     this.props.setItinerary("hotels", id);
-    /*let checkBoxCopy = [...this.state.checkBox];
-    checkBoxCopy.push(id);
-    let hotelsCopy = [...this.state.hotels];
-    let i = hotelsCopy.indexOf(id);
-    hotelsCopy.splice(i, 1);
-
-    this.setState({
-      checkBox: checkBoxCopy,
-      hotels: hotelsCopy
-    });
-
-    console.log(this.state.checkBox);*/
   };
   refreshPage = () => {
     window.location.reload(false);
@@ -169,15 +144,7 @@ class Hotels extends Component {
       return (
         <tr key={i}>
           <td className="table-data">
-            {" "}
-            {/*<input
-              onClick={this.addHotel}
-              className="messageCheckbox"
-              type="checkbox"
-              name="checkBox"
-              value={hotel.id}
-            />*/}
-            {/*<button onClick={() => this.addHotel(hotel)}>Add</button>*/}
+            {" "}           
             <input
               className="checkBox"
               onChange={() => this.addHotel(hotel)}
@@ -277,12 +244,6 @@ class Hotels extends Component {
                 selected={this.state.checkIn}
                 onSelect={this.handleCheckIn}
               />
-              {/* <input
-                onChange={this.handleChange}
-                type="text"
-                name="checkIn"
-                placeholder="YYYY-MM-DD"
-              /> */}
               <br />
               <label>Check out</label>
               <br />
@@ -291,12 +252,6 @@ class Hotels extends Component {
                 selected={this.state.checkOut}
                 onSelect={this.handleCheckOut}
               />
-              {/* <input
-                onChange={this.handleChange}
-                type="text"
-                name="checkOut"
-                placeholder="YYYY-MM-DD"
-              /> */}
               <br />
               <br />
               <input className="submit" type="submit" />

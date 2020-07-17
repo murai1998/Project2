@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Landing.css";
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
-
 
 class LandingPage extends Component {
   state = {
@@ -68,7 +66,7 @@ class LandingPage extends Component {
             <div className="landingText">
               <img src={require("../Images/hotel.png")} alt="hotel" />
               <p>
-                The hotel search with an extensive price comparison. The prices
+                Hotel search with an extensive price comparison. The prices
                 shown come from numerous hotels and booking websites
               </p>
             </div>

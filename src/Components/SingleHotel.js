@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import images from "./imgHotels.json";
+// import images from "./imgHotels.json";
 import "../Styles/SingleHotel.css";
 
 class SingleHotel extends Component {
