@@ -43,8 +43,8 @@ class HomePage extends Component {
             />
           </div>
           <h3 id="instr">
-            Add your flights, activities, and hotels to your Cart and never lose
-            the best deals. Send it to your email for safekeeping!
+            Add flights, activities, and hotels to your Cart and never lose the
+            best deals. Send it to your email for safekeeping!
           </h3>
           <Weather city={this.state.city} country={this.state.country} />
           <MapContainer country={this.state.country} city={this.state.city} />
