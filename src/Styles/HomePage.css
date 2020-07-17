@@ -50,6 +50,7 @@
 #instr {
   width: 80%;
   text-align: center;
+  font-family: fantasy;
 }
 @media only screen and (min-width: 800px) {
   #instr {
