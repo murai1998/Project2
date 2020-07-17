@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Itinerary from "./Itinerary";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Select from "react-select";
+import { airports } from "../airports.json";
 
 class Flights extends Component {
   state = {
@@ -14,7 +16,9 @@ class Flights extends Component {
     carriers: [],
     showTable: false,
     showSrtBtns: false,
-    departDate: new Date()
+    departDate: new Date(),
+    fromAirport: '',
+    selectedOption:''
   };
 
   formatDate = date => {
@@ -159,11 +163,12 @@ class Flights extends Component {
     });
   };
 
-  handleChange = e => {
-    e.preventDefault();
+  handleChange = selectedOption => {
+    if(selectedOption){
     this.setState({
-      [e.target.name]: e.target.value
+      fromAirport: selectedOption['IATA code'] || ''
     });
+  }
   };
 
   // itinererary function
@@ -231,6 +236,7 @@ class Flights extends Component {
   };
 
   render() {
+    const { selectedOption } = this.state.selectedOption;
     return (
       <div>
         <div className="nav">
@@ -257,21 +263,43 @@ class Flights extends Component {
 
         <div className="body-container">
           <h1 className="title">Fligths</h1>
-          <h3>When/where will you depart?</h3>
+          <h3 style={{textAlign:'center'}}>When will you depart? Where will you depart from?</h3>
+
           <form className="flights-form" onSubmit={this.getFlightInfo}>
-            <DatePicker
+          <DatePicker
               className="datePick"
               name="departDate"
               selected={this.state.departDate}
               onSelect={this.handleDeparture}
             />
-            <input
+            
+            <Select
+        className="airlineInput"
+        name='fromAirport'
+        onChange={this.handleChange}
+        value={selectedOption}
+        getOptionValue={options => options["City/Airport"]}
+        placeholder="Departure City"
+        options={airports}
+        isClearable
+        formatOptionLabel={options => (
+          <>
+            <span className="code">{options["IATA code"]}</span>
+            <span>
+              {" "}
+              {options["City/Airport"]}
+              <span className="country"> ({options["Country"]})</span>
+            </span>
+          </>
+        )}
+      />
+            {/* <input
               className="airlineInput"
               onChange={this.handleChange}
               type="text"
               name="fromAirport"
               placeholder="e.g. LAX"
-            />
+            /> */}
             <button id="buttonF" type="submit" name="submit">
               <img
                 className="mag-img"

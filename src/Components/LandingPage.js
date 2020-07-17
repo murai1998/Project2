@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Landing.css";
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+
 
 class LandingPage extends Component {
   state = {
@@ -26,18 +28,19 @@ class LandingPage extends Component {
         <div className="landingStart">
           <div className="landingStart2">
             <h1>My Travel Guide</h1>
+            <div>
             <form>
               <input
                 onChange={this.handleChange}
                 type="text"
                 name="city"
-                placeholder="City"
+                placeholder="Destination City"
               />
               <input
                 onChange={this.handleChange}
                 type="text"
                 name="country"
-                placeholder="Country"
+                placeholder="Destination Country"
               />
               {this.state.country && this.state.country ? (
                 <Link to={`/home/${this.state.country}/${this.state.city}`}>
@@ -47,6 +50,7 @@ class LandingPage extends Component {
                 <p>{this.state.error}</p>
               )}
             </form>
+            </div>
           </div>
         </div>
         <div className="landingMiddle">

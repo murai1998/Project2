@@ -35,7 +35,7 @@ class HomePage extends Component {
         </div>
         <div className="home1">
           <div className="home-nav">
-            <Link to="/">Change Location</Link>
+            <Link to="/">Change Destination</Link>
             <Itinerary setItinerary={this.props.setItinerary} itinerary={this.props.itinerary} />
           </div>
           <Weather city={this.state.city} country={this.state.country} />
