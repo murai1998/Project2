@@ -155,7 +155,7 @@ class Itinerary extends Component {
     return (
       <div className="full-container-itin">
         <div className="drop">
-          <h2>Cart</h2>
+          <h2>Itinerary</h2>
           <button onClick={this.toggleList}>▼</button>
         </div>
         {this.state.showList ? (

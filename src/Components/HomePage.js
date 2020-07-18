@@ -43,7 +43,7 @@ class HomePage extends Component {
             />
           </div>
           <h3 id="instr">
-            Add flights, activities, and hotels to your Cart and never lose the
+            Add flights, activities, and hotels to your Itinerary and never lose the
             best deals. Send it to your email for safekeeping!
           </h3>
           <Weather city={this.state.city} country={this.state.country} />
