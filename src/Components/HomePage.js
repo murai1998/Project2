@@ -34,7 +34,7 @@ class HomePage extends Component {
         </div>
         <div className="home1">
           <div className="home-nav">
-            <Link to="/">Change Location</Link>
+            <Link to="/">Change Destination</Link>
 
             <Itinerary
               clearItinerary={this.props.clearItinerary}
