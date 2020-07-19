@@ -8,6 +8,7 @@ class LandingPage extends Component {
     country: "",
     error: ""
   };
+
   handleChange = e => {
     e.preventDefault();
     if (e.target.value) {
@@ -22,23 +23,24 @@ class LandingPage extends Component {
   };
   render() {
     return (
-      <div>
+      <div className='container'>
         <div className="landingStart">
           <div className="landingStart2">
             <h1>My Travel Guide</h1>
             <div>
             <form>
-              <input
-                onChange={this.handleChange}
-                type="text"
-                name="city"
-                placeholder="Destination City"
-              />
+              <label>Where do you want to go?</label>
               <input
                 onChange={this.handleChange}
                 type="text"
                 name="country"
                 placeholder="Destination Country"
+              />
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="city"
+                placeholder="Destination City"
               />
               {this.state.country && this.state.country ? (
                 <Link to={`/home/${this.state.country}/${this.state.city}`}>

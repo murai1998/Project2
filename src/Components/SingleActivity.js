@@ -192,6 +192,15 @@ class SingleActivity extends Component {
     });
   };
 
+  hamburgerDrop = () => {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
   componentDidMount() {
     this.getYelpSingleActivity();
     this.getYelpSingleActivityReviews();
@@ -200,11 +209,33 @@ class SingleActivity extends Component {
   render() {
     return (
       <div id="container">
-        <div className="nav">
-          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+        <div class="topnav">
+        <span className="active">My Travel Guide</span>
+        <div id="myLinks">
+        <Link to={`/home/${this.state.country}/${this.state.city}`}>
             Home
           </Link>
+        <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
 
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+
+          <Link to="/">Change Destination</Link>
+  </div>
+  <button className="icon" onClick={this.hamburgerDrop}>
+    <i className="fa fa-bars"></i>
+  </button>
+</div>
+        <div className="nav">
+        <Link to="/">Change Destination</Link>
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
@@ -217,6 +248,9 @@ class SingleActivity extends Component {
             to={`/home/${this.state.country}/${this.state.city}/activities`}
           >
             Activities
+          </Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
           </Link>
         </div>
         {/* <form onSubmit={this.handleSubmit}>

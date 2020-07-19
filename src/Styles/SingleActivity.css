@@ -12,6 +12,7 @@
   justify-content: space-evenly;
   height: 33vh;
   max-width: 100%;
+  margin-bottom: 11vh;
   /* overflow-x: scroll; */
 }
 
@@ -41,6 +42,7 @@
   font-family: "Concert One", cursive;
   font-size: 3.5em;
   font-weight: 700;
+  padding-top: 5vh;
 }
 
 @media only screen and (max-width: 600px) {

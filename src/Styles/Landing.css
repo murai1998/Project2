@@ -1,12 +1,22 @@
 * {
   font-family: 'Times New Roman', Times, serif;
 }
+label{
+  display: block;
+}
+
+label{
+  padding-bottom:5px;
+  margin-left: 5px;
+  font-size: 1.3em;
+  color:white;
+  font-weight: 700;
+}
 
 .landingStart {
-  background-image: url("../Images/santorini2.jpg");
-  background-position: 0 0;
+  background-image: url("../Images/beach-sunset.jpg");
+  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
   height: 650px;
   padding-top: 50px;
   position: relative;
@@ -57,7 +67,6 @@
   margin-left: 70px;
 }
 .landingStart2 h1 {
-  font-family: "Concert One", cursive;
   font-size: 90px;
   padding: 0 15px;
   color: rgb(231, 238, 241);

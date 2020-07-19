@@ -8,13 +8,45 @@ class AboutUs extends Component {
     city: this.props.match.params.city
   };
 
+  hamburgerDrop = () => {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
   render() {
     return (
       <div className="about-wrapper">
-        <div className="nav">
-          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+        <div class="topnav">
+        <span className="active">My Travel Guide</span>
+        <div id="myLinks">
+        <Link to={`/home/${this.state.country}/${this.state.city}`}>
             Home
           </Link>
+        <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+
+          <Link to="/">Change Destination</Link>
+  </div>
+  <button className="icon" onClick={this.hamburgerDrop}>
+    <i className="fa fa-bars"></i>
+  </button>
+</div>
+        <div className="nav">
+        <Link to="/">Change Destination</Link>
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
@@ -25,6 +57,9 @@ class AboutUs extends Component {
             to={`/home/${this.state.country}/${this.state.city}/activities`}
           >
             Activities
+          </Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}`}>
+            Home
           </Link>
         </div>
         <h1 className="about-title">Developers</h1>

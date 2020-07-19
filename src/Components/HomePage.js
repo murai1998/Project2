@@ -11,10 +11,45 @@ class HomePage extends Component {
     city: this.props.match.params.city
   };
 
+  hamburgerDrop = () => {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
   render() {
     return (
       <div>
+        <div class="topnav">
+  <span className="active">My Travel Guide</span>
+  <div id="myLinks">
+  <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
+            Flights
+          </Link>
+
+          <Link to={`/home/${this.state.country}/${this.state.city}/hotels`}>
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.country}/${this.state.city}/activities`}
+          >
+            Activities
+          </Link>
+          <Link to="/">Change Destination</Link>
+          <Link to={`/home/${this.state.country}/${this.state.city}/aboutus`}>
+            About Us
+          </Link>
+  </div>
+  <button className="icon" onClick={this.hamburgerDrop}>
+    <i className="fa fa-bars"></i>
+  </button>
+</div>
         <div className="nav">
+        <Link to="/">Change Destination</Link>
           <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>
@@ -34,8 +69,6 @@ class HomePage extends Component {
         </div>
         <div className="home1">
           <div className="home-nav">
-            <Link to="/">Change Destination</Link>
-
             <Itinerary
               clearItinerary={this.props.clearItinerary}
               setItinerary={this.props.setItinerary}

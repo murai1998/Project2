@@ -235,11 +235,23 @@ class Flights extends Component {
     });
   };
 
+  hamburgerDrop = () => {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+
   render() {
     const { selectedOption } = this.state.selectedOption;
     return (
       <div>
-        <div className="nav">
+     <div class="topnav">
+      <span className="active">My Travel Guide</span>
+      <div id="myLinks">
           <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
             Home
           </Link>
@@ -254,6 +266,29 @@ class Flights extends Component {
             to={`/home/${this.state.destCountry}/${this.state.destCity}/activities`}
           >
             Activities
+          </Link>
+          <Link to="/">Change Destination</Link>
+  </div>
+  <button className="icon" onClick={this.hamburgerDrop}>
+    <i className="fa fa-bars"></i>
+  </button>
+</div>
+        <div className="nav">
+        <Link to="/">Change Destination</Link>
+
+          <Link
+            to={`/home/${this.state.destCountry}/${this.state.destCity}/hotels`}
+          >
+            Hotels
+          </Link>
+
+          <Link
+            to={`/home/${this.state.destCountry}/${this.state.destCity}/activities`}
+          >
+            Activities
+          </Link>
+          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
+            Home
           </Link>
         </div>
         <Itinerary
