@@ -271,7 +271,7 @@ class Hotels extends Component {
         />
 
         <h1 className="findButton">
-          Find your perfect <br></br> Hotel right now!
+          Find your perfect <br></br> hotel right now!
         </h1>
 
         <div className="allLists">

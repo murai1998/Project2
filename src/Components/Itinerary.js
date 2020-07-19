@@ -93,7 +93,7 @@ class Itinerary extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const template = "template_4plM1jBi";
+    const template = "template_94bpHEUq";
     // console.log(process.env.REACT_APP_EMAILJS_USERID);
     this.sendFeedback(
       template,

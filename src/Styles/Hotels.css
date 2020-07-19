@@ -10,7 +10,6 @@
   padding: 20px 40px;
   margin: auto;
   font-size: 60px;
-  font-family: "Concert One", cursive;
   text-align: center;
   font-weight: 900;
   color: white;
@@ -35,7 +34,6 @@
   font-size: 30px;
   font-weight: 500;
   margin: auto 80px;
-  font-family: "Concert One", cursive;
 }
 .form input {
   font-size: 25px;
