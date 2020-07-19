@@ -209,7 +209,7 @@ class SingleActivity extends Component {
   render() {
     return (
       <div id="container">
-        <div class="topnav">
+        <div className="topnav">
         <Link className='active' to={`/home/${this.state.country}/${this.state.city}`}>
             My Travel Guide
           </Link>

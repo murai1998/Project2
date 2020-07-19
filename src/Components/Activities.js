@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Styles/Activities.css";
 import Itinerary from "./Itinerary";
+import SyncLoader from "react-spinners/SyncLoader";
+
 
 const emptyStar = "☆";
 const fullStar = "★";
@@ -12,7 +14,10 @@ class Activities extends Component {
   state = {
     currentYelpRestaurants: {},
     currentYelpShopping: {},
-    currentYelpMisc: {}
+    currentYelpMisc: {},
+    loadingRestaurants: true,
+    loadingShopping: true,
+    loadingMisc: true
   };
 
   state = {
@@ -147,6 +152,7 @@ class Activities extends Component {
     })
       .then(response => {
         this.setState({
+          loadingRestaurants:false,
           currentYelpRestaurants: response
         });
       })
@@ -170,6 +176,7 @@ class Activities extends Component {
     })
       .then(response => {
         this.setState({
+          loadingShopping:false,
           currentYelpShopping: response
         });
       })
@@ -193,6 +200,7 @@ class Activities extends Component {
     })
       .then(response => {
         this.setState({
+          loadingMisc:false,
           currentYelpMisc: response
         });
       })
@@ -256,6 +264,11 @@ class Activities extends Component {
               flexWrap: "wrap"
             }}
           >
+            <SyncLoader
+        className="spinner"
+        color={'#8d6aa1'}
+        loading={this.state.loadingRestaurants}
+      />
             {this.displayBussinesses(this.state.currentYelpRestaurants.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Shopping</h1>
@@ -268,6 +281,11 @@ class Activities extends Component {
               justifyContent: "center"
             }}
           >
+            <SyncLoader
+        className="spinner"
+        color={"#e37b6f"}
+        loading={this.state.loadingShopping}
+      />
             {this.displayBussinesses(this.state.currentYelpShopping.data)}
           </div>
           <h1 style={{ margin: "auto" }}>Things To Do</h1>
@@ -280,6 +298,11 @@ class Activities extends Component {
               justifyContent: "center"
             }}
           >
+            <SyncLoader
+        className="spinner"
+        color={"#FFAF7B"}
+        loading={this.state.loadingMisc}
+      />
             {this.displayBussinesses(this.state.currentYelpMisc.data)}
           </div>
         </div>

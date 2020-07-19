@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import { airports } from "../airports.json";
+import SyncLoader from "react-spinners/SyncLoader";
 
 class Flights extends Component {
   state = {
@@ -18,7 +19,8 @@ class Flights extends Component {
     showSrtBtns: false,
     departDate: new Date(),
     fromAirport: "",
-    selectedOption: ""
+    selectedOption: "",
+    loading: false
   };
 
   formatDate = date => {
@@ -54,6 +56,12 @@ class Flights extends Component {
   getFlightInfo = e => {
     e.preventDefault();
     //dont need destCountry becasue API treats it as market
+    if(this.state.fromAirport===''){
+      return alert('Enter a departure airport')
+    }
+    this.setState({
+      loading:true
+    })
     axios({
       method: "GET",
       url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/`,
@@ -91,7 +99,8 @@ class Flights extends Component {
               flights: response.data.Quotes,
               carriers: response.data.Carriers,
               showTable: true,
-              showSrtBtns: true
+              showSrtBtns: true,
+              loading:false
             });
           })
           .catch(error => {
@@ -164,9 +173,14 @@ class Flights extends Component {
   };
 
   handleChange = selectedOption => {
+    if(!selectedOption){
+      this.setState({
+        fromAirport:''
+      })
+    }
     if (selectedOption) {
       this.setState({
-        fromAirport: selectedOption["IATA code"] || ""
+        fromAirport: selectedOption["IATA code"]
       });
     }
   };
@@ -347,6 +361,11 @@ class Flights extends Component {
                 ></img>
               </button>
             </div>
+            <SyncLoader
+        className="spinner"
+        color={"#d9a7c7"}
+        loading={this.state.loading}
+      />
           </form>
           {this.state.showSrtBtns ? (
             <div>
