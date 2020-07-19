@@ -211,11 +211,8 @@ class Activities extends Component {
     return (
       <div className="activityBack">
         <div class="topnav">
-        <span className="active">My Travel Guide</span>
+        <Link to={`/home/${this.state.country}/${this.state.city}`} className='active'>My Travel Guide</Link>
         <div id="myLinks">
-        <Link to={`/home/${this.state.country}/${this.state.city}`}>
-            Home
-          </Link>
         <Link to={`/home/${this.state.country}/${this.state.city}/flights`}>
             Flights
           </Link>

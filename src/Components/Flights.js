@@ -250,11 +250,10 @@ class Flights extends Component {
     return (
       <div>
      <div class="topnav">
-      <span className="active">My Travel Guide</span>
-      <div id="myLinks">
-          <Link to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
-            Home
+     <Link className='active' to={`/home/${this.state.destCountry}/${this.state.destCity}`}>
+            My Travel Guide
           </Link>
+      <div id="myLinks">
 
           <Link
             to={`/home/${this.state.destCountry}/${this.state.destCity}/hotels`}
