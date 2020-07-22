@@ -29,7 +29,7 @@ class LandingPage extends Component {
             <h1>My Travel Guide</h1>
             <div>
             <form>
-              <label>Where do you want to go?</label>
+              <label>Plan Your Trip<br />Where do you want to go?</label>
               <input
                 onChange={this.handleChange}
                 type="text"
