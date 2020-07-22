@@ -4,6 +4,8 @@ In need of a vacation? Look no further! My Travel Guide is designed to get you o
 
 My Travel Guide pulls from different API's to provide information on flights, weather, hotels, and points of interest.
 
+Visit now: [My Travel Guide](https://my-travel-guide.netlify.app)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
